@@ -1,0 +1,5 @@
+﻿# Large video files - managed externally
+*.mp4
+*.mov
+*.avi
+*.mkv
