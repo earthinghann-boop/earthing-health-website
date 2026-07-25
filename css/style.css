@@ -1417,10 +1417,15 @@ ul {
     transition: none;
 }
 
-.cert-item:hover {
-    border-color: inherit;
-    box-shadow: none;
-    transform: none;
+.cert-item,
+.cert-item:hover,
+.cert-item:focus,
+.cert-item:active {
+    border: 1px solid #e8e4dc !important;
+    box-shadow: none !important;
+    transform: none !important;
+    outline: none !important;
+    background: #fff !important;
 }
 
 .cert-icon {
