@@ -251,9 +251,11 @@ ul {
     right: 0;
     width: 50%;
     height: 100%;
-    background: url('../images/products/04_bedsheet.jpg') center/cover;
+    background: url('../images/products/hero-new.jpg') center/cover;
     opacity: 1;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
 }
 
 .hero-content {
@@ -1237,4 +1239,365 @@ ul {
 .carousel-dots .dot.active {
     background: #fff;
     transform: scale(1.3);
+}
+
+
+/* ============================================
+   Education Section (Why It Matters)
+   ============================================ */
+.education {
+    padding: 6rem 2rem;
+    background: #FAFAF7;
+}
+
+.education .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.education .section-intro {
+    color: #6B6B6B;
+    font-size: 1.05rem;
+    max-width: 640px;
+    margin: 1rem auto 0;
+    line-height: 1.7;
+}
+
+.edu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.edu-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.edu-number {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: #C9A876;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.edu-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: #2C2C2C;
+    margin: 0 0 1rem;
+}
+
+.edu-desc {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+}
+
+.edu-video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+}
+
+.edu-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@media (max-width: 768px) {
+    .edu-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .edu-card {
+        padding: 1.75rem;
+    }
+    .edu-number {
+        font-size: 2.5rem;
+    }
+    .edu-title {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* ============================================
+   CERTIFICATIONS GALLERY SECTION
+   ============================================ */
+
+.certs-section {
+    padding: 80px 20px;
+    background: #fafaf7;
+    border-top: 1px solid #e8e4dc;
+}
+
+.certs-section .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.certs-section .section-label {
+    display: inline-block;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #9a8c70;
+    margin-bottom: 14px;
+}
+
+.certs-section .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 500;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin: 0 0 16px;
+}
+
+.certs-section .section-intro {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    color: #6b6355;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cert-card {
+    background: #fff;
+    border: 1px solid #e8e4dc;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(74, 107, 58, 0.12);
+}
+
+.cert-thumb {
+    height: 160px;
+    overflow: hidden;
+}
+
+.cert-thumb-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.cert-thumb-intertek {
+    background: linear-gradient(135deg, #1a3a6b 0%, #0d2240 100%);
+}
+
+.cert-thumb-shield {
+    background: linear-gradient(135deg, #2d5a27 0%, #1a3518 100%);
+}
+
+.cert-thumb-silver {
+    background: linear-gradient(135deg, #6b5c3e 0%, #3d3425 100%);
+}
+
+.cert-thumb-safety {
+    background: linear-gradient(135deg, #8b2020 0%, #5a1515 100%);
+}
+
+.cert-thumb-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+.cert-thumb-sub {
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cert-info {
+    padding: 22px 24px 26px;
+}
+
+.cert-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 6px;
+}
+
+.cert-org {
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #9a8c70;
+    letter-spacing: 0.5px;
+    margin: 0 0 10px;
+}
+
+.cert-desc {
+    font-family: 'Nunito', sans-serif;
+    font-size: 13.5px;
+    color: #555;
+    line-height: 1.6;
+    margin: 0 0 16px;
+}
+
+.cert-stats {
+    display: flex;
+    gap: 20px;
+    padding-top: 14px;
+    border-top: 1px solid #eee;
+}
+
+.cert-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cs-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #4a6b3a;
+    line-height: 1;
+}
+
+.cs-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    color: #9a8c70;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================
+   CERT MODAL / LIGHTBOX
+   ============================================ */
+
+.cert-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.82);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.cert-modal.active {
+    display: flex;
+}
+
+.cert-modal-content {
+    background: #fff;
+    border-radius: 12px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+}
+
+.cert-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    line-height: 1;
+    transition: background 0.2s;
+}
+
+.cert-modal-close:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+.cert-modal-body {
+    padding: 0;
+}
+
+.cert-modal-body iframe,
+.cert-modal-body img {
+    width: 100%;
+    display: block;
+    border-radius: 12px 12px 0 0;
+}
+
+.cert-modal-caption {
+    padding: 16px 24px 20px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .certs-section {
+        padding: 60px 16px;
+    }
+    .certs-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .cert-thumb {
+        height: 130px;
+    }
 }
