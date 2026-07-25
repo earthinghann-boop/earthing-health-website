@@ -683,42 +683,28 @@
                 </div>
 
                 <div class="certs-right">
-                    <div class="cert-marquee">
-                        <div class="cert-marquee-track">
-                            <div class="cert-tile">
+                    <div class="cert-carousel" id="certCarousel">
+                        <div class="cert-carousel-track" id="certTrack">
+                            <div class="cert-slide active">
                                 <img src="images/certs/cert_intertek_antibacterial_en.png" alt="Antibacterial Test Report" loading="lazy">
-                                <div class="cert-tile-label">Antibacterial Performance Test</div>
+                                <div class="cert-slide-label">Antibacterial Performance Test</div>
                             </div>
-                            <div class="cert-tile">
+                            <div class="cert-slide">
                                 <img src="images/certs/cert_shielding_jy03_gjb8820.png" alt="EMF Shielding Report" loading="lazy">
-                                <div class="cert-tile-label">EMF Shielding Effectiveness Report</div>
+                                <div class="cert-slide-label">EMF Shielding Effectiveness Report</div>
                             </div>
-                            <div class="cert-tile">
+                            <div class="cert-slide">
                                 <img src="images/certs/cert_silver_content_gzht02957549.png" alt="Silver Content Test" loading="lazy">
-                                <div class="cert-tile-label">Material Composition Test</div>
+                                <div class="cert-slide-label">Material Composition Test</div>
                             </div>
-                            <div class="cert-tile">
+                            <div class="cert-slide">
                                 <img src="images/certs/cert1_antibacterial_heq09878001.png" alt="Infant Safety Report" loading="lazy">
-                                <div class="cert-tile-label">Infant Textile Safety Compliance</div>
-                            </div>
-                            <!-- duplicate for seamless infinite scroll -->
-                            <div class="cert-tile">
-                                <img src="images/certs/cert_intertek_antibacterial_en.png" alt="" aria-hidden="true" loading="lazy">
-                                <div class="cert-tile-label" aria-hidden="true">Antibacterial Performance Test</div>
-                            </div>
-                            <div class="cert-tile">
-                                <img src="images/certs/cert_shielding_jy03_gjb8820.png" alt="" aria-hidden="true" loading="lazy">
-                                <div class="cert-tile-label" aria-hidden="true">EMF Shielding Effectiveness Report</div>
-                            </div>
-                            <div class="cert-tile">
-                                <img src="images/certs/cert_silver_content_gzht02957549.png" alt="" aria-hidden="true" loading="lazy">
-                                <div class="cert-tile-label" aria-hidden="true">Material Composition Test</div>
-                            </div>
-                            <div class="cert-tile">
-                                <img src="images/certs/cert1_antibacterial_heq09878001.png" alt="" aria-hidden="true" loading="lazy">
-                                <div class="cert-tile-label" aria-hidden="true">Infant Textile Safety Compliance</div>
+                                <div class="cert-slide-label">Infant Textile Safety Compliance</div>
                             </div>
                         </div>
+                        <button class="carousel-btn carousel-prev" onclick="moveCertSlide(-1)">&#10094;</button>
+                        <button class="carousel-btn carousel-next" onclick="moveCertSlide(1)">&#10095;</button>
+                        <div class="carousel-dots" id="carouselDots"></div>
                     </div>
                 </div>
             </div>
@@ -865,7 +851,69 @@
     </footer>
 
     <script src="js/main.js"></script>
-        <!-- Certifications: pure CSS marquee, no JS needed -->
+    
+    <!-- Certifications Modal + Carousel Logic -->
+    <script>
+    var currentSlide = 0;
+    var totalSlides = 0;
+    var carouselTimer = null;
+
+    function buildCarousel() {
+        var slides = document.querySelectorAll('.cert-slide');
+        totalSlides = slides.length;
+        var dots = document.getElementById('carouselDots');
+        if (!dots) return;
+        dots.innerHTML = '';
+        for (var i = 0; i < totalSlides; i++) {
+            var dot = document.createElement('span');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            (function(idx) {
+                dot.onclick = function() { goToSlide(idx); };
+            })(i);
+            dots.appendChild(dot);
+        }
+    }
+
+    function goToSlide(idx) {
+        var slides = document.querySelectorAll('.cert-slide');
+        var dots = document.querySelectorAll('.carousel-dots .dot');
+        if (slides.length === 0) return;
+        if (dots.length === 0) return;
+        slides.forEach(function(s) { s.classList.remove('active'); });
+        dots.forEach(function(d) { d.classList.remove('active'); });
+        currentSlide = ((idx % totalSlides) + totalSlides) % totalSlides;
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+    }
+
+    function moveCertSlide(dir) {
+        goToSlide(currentSlide + dir);
+    }
+
+    function startCarousel() {
+        if (carouselTimer) clearInterval(carouselTimer);
+        carouselTimer = setInterval(function() { moveCertSlide(1); }, 4000);
+    }
+
+    function stopCarousel() {
+        if (carouselTimer) { clearInterval(carouselTimer); carouselTimer = null; }
+    }
+
+    // Pause when user hovers, resume on mouseleave
+    var carouselEl;
+    function attachHoverPause() {
+        carouselEl = document.getElementById('certCarousel');
+        if (!carouselEl) return;
+        carouselEl.addEventListener('mouseenter', stopCarousel);
+        carouselEl.addEventListener('mouseleave', startCarousel);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        buildCarousel();
+        attachHoverPause();
+        startCarousel();
+    });
+    </script>
 
 </body>
 </html> 
