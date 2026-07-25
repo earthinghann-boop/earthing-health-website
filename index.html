@@ -645,81 +645,66 @@
     <section class="certs-section" id="certifications">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">Proof of Quality</span>
-                <h2 class="section-title">Verified by Independent<br>International Labs</h2>
-                <p class="section-intro">Click any certificate to view the full report. All tests conducted by third-party accredited laboratories.</p>
+                <span class="section-label">Third-Party Verified</span>
+                <h2 class="section-title">Certifications & Test Reports</h2>
+                <p class="section-intro">All claims are backed by independent accredited laboratories. Click any image to view the original certificate.</p>
             </div>
 
-            <div class="certs-grid">
-                <div class="cert-card" onclick="openCertModal(this)" data-cert="cert1">
-                    <div class="cert-thumb">
-                        <div class="cert-thumb-inner cert-thumb-intertek">
-                            <span class="cert-thumb-label">INTERTEK</span>
-                            <span class="cert-thumb-sub">Antibacterial Test</span>
+            <div class="certs-layout">
+                <div class="certs-left">
+                    <div class="cert-item" onclick="openCertModal(this)" data-cert="cert1">
+                        <div class="cert-icon">🧪</div>
+                        <div class="cert-text">
+                            <h3>Antibacterial Performance</h3>
+                            <p>Third-party tested by accredited international labs. Effective antibacterial protection that lasts through repeated washing cycles.</p>
                         </div>
                     </div>
-                    <div class="cert-info">
-                        <h3>Antibacterial Efficacy — 99%+</h3>
-                        <p class="cert-org">Intertek Testing Services</p>
-                        <p class="cert-desc">GB/T 20944.3-2008 shake flask method. 99%+ antibacterial rate against S. aureus, E. coli, and Candida albicans after 120 washes.</p>
-                        <div class="cert-stats">
-                            <div class="cert-stat"><span class="cs-num">99%</span><span class="cs-label">Antibacterial</span></div>
-                            <div class="cert-stat"><span class="cs-num">120</span><span class="cs-label">Washes Tested</span></div>
+                    <div class="cert-item" onclick="openCertModal(this)" data-cert="cert2">
+                        <div class="cert-icon">🛡️</div>
+                        <div class="cert-text">
+                            <h3>EMF Shielding Effectiveness</h3>
+                            <p>Military-standard shielding test across full frequency range. Validated by national-level testing institute.</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="cert-card" onclick="openCertModal(this)" data-cert="cert2">
-                    <div class="cert-thumb">
-                        <div class="cert-thumb-inner cert-thumb-shield">
-                            <span class="cert-thumb-label">MILITARY GRADE</span>
-                            <span class="cert-thumb-sub">EMF Shielding</span>
+                    <div class="cert-item" onclick="openCertModal(this)" data-cert="cert3">
+                        <div class="cert-icon">🔬</div>
+                        <div class="cert-text">
+                            <h3>Material Composition & Safety</h3>
+                            <p>Full material safety screening including formaldehyde, pH, azo dyes, and colour fastness. Passes infant-grade textile standards.</p>
                         </div>
                     </div>
-                    <div class="cert-info">
-                        <h3>Shielding Effectiveness — 56~68 dB</h3>
-                        <p class="cert-org">AECC Beijing Institute of Aeronautical Materials</p>
-                        <p class="cert-desc">GJB 8820-2015 military standard. JY03 full-silver cloth blocks 99.9999% of EMF radiation across 1–18 GHz frequency range.</p>
-                        <div class="cert-stats">
-                            <div class="cert-stat"><span class="cs-num">99.9999%</span><span class="cs-label">Blocked</span></div>
-                            <div class="cert-stat"><span class="cs-num">1-18GHz</span><span class="cs-label">Frequency</span></div>
+                    <div class="cert-item" onclick="openCertModal(this)" data-cert="cert4">
+                        <div class="cert-icon">👶</div>
+                        <div class="cert-text">
+                            <h3>Infant Textile Compliance</h3>
+                            <p>Meets GB 31701-2015 national safety standard for infant and children's textile products.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="cert-card" onclick="openCertModal(this)" data-cert="cert3">
-                    <div class="cert-thumb">
-                        <div class="cert-thumb-inner cert-thumb-silver">
-                            <span class="cert-thumb-label">SILVER CONTENT</span>
-                            <span class="cert-thumb-sub">Composition Test</span>
+                <div class="certs-right">
+                    <div class="cert-carousel" id="certCarousel">
+                        <div class="cert-carousel-track" id="certTrack">
+                            <div class="cert-slide active">
+                                <img src="images/certs/cert_intertek_antibacterial_en.png" alt="Antibacterial Test Report" loading="lazy">
+                                <div class="cert-slide-label">Antibacterial Performance Test</div>
+                            </div>
+                            <div class="cert-slide">
+                                <img src="images/certs/cert_shielding_jy03_gjb8820.png" alt="EMF Shielding Report" loading="lazy">
+                                <div class="cert-slide-label">EMF Shielding Effectiveness Report</div>
+                            </div>
+                            <div class="cert-slide">
+                                <img src="images/certs/cert_silver_content_gzht02957549.png" alt="Silver Content Test" loading="lazy">
+                                <div class="cert-slide-label">Material Composition Test</div>
+                            </div>
+                            <div class="cert-slide">
+                                <img src="images/certs/cert1_antibacterial_heq09878001.png" alt="Infant Safety Report" loading="lazy">
+                                <div class="cert-slide-label">Infant Textile Safety Compliance</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="cert-info">
-                        <h3>Silver Fiber Content — 4.1%</h3>
-                        <p class="cert-org">Intertek Testing Services</p>
-                        <p class="cert-desc">GZHT02957549. Metallized silver fibers (polyamide base) confirmed at 4.1% by weight. All safety parameters pass GB 31701-2015 for infant products.</p>
-                        <div class="cert-stats">
-                            <div class="cert-stat"><span class="cs-num">4.1%</span><span class="cs-label">Silver Content</span></div>
-                            <div class="cert-stat"><span class="cs-num">Infant</span><span class="cs-label">Grade Safe</span></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cert-card" onclick="openCertModal(this)" data-cert="cert4">
-                    <div class="cert-thumb">
-                        <div class="cert-thumb-inner cert-thumb-safety">
-                            <span class="cert-thumb-label">INFANT SAFETY</span>
-                            <span class="cert-thumb-sub">Full Safety Screen</span>
-                        </div>
-                    </div>
-                    <div class="cert-info">
-                        <h3>Infant Textile Safety — PASS</h3>
-                        <p class="cert-org">Intertek Testing Services</p>
-                        <p class="cert-desc">GZHT02846422. GB 31701-2015 full compliance. Formaldehyde ND, pH 7.0, no azo dyes, all colour fastness Grade 4-5. Safe for children 3 and under.</p>
-                        <div class="cert-stats">
-                            <div class="cert-stat"><span class="cs-num">A+</span><span class="cs-label">Grade</span></div>
-                            <div class="cert-stat"><span class="cs-num">0</span><span class="cs-label">Formaldehyde</span></div>
-                        </div>
+                        <button class="carousel-btn carousel-prev" onclick="moveCertSlide(-1)">&#10094;</button>
+                        <button class="carousel-btn carousel-next" onclick="moveCertSlide(1)">&#10095;</button>
+                        <div class="carousel-dots" id="carouselDots"></div>
                     </div>
                 </div>
             </div>
@@ -730,9 +715,7 @@
     <div class="cert-modal" id="certModal" onclick="closeCertModal(event)">
         <div class="cert-modal-content" onclick="event.stopPropagation()">
             <button class="cert-modal-close" onclick="closeCertModal()">&times;</button>
-            <div class="cert-modal-body" id="certModalBody">
-                <!-- PDF viewer or image injected here -->
-            </div>
+            <div class="cert-modal-body" id="certModalBody"></div>
             <div class="cert-modal-caption" id="certModalCaption"></div>
         </div>
     </div>
@@ -877,45 +860,74 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <!-- Certifications Modal Logic -->
+    <!-- Certifications Modal + Carousel Logic -->
     <script>
-    function openCertModal(card) {
-        var certId = card.getAttribute('data-cert');
-        var modal = document.getElementById('certModal');
+    // --- Carousel ---
+    var currentSlide = 0;
+    var totalSlides = 0;
+
+    function buildCarousel() {
+        var slides = document.querySelectorAll('.cert-slide');
+        totalSlides = slides.length;
+        var dots = document.getElementById('carouselDots');
+        if (!dots) return;
+        dots.innerHTML = '';
+        for (var i = 0; i < totalSlides; i++) {
+            var dot = document.createElement('span');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.onclick = function(idx) { return function() { goToSlide(idx); }; }(i);
+            dots.appendChild(dot);
+        }
+    }
+
+    function goToSlide(idx) {
+        var slides = document.querySelectorAll('.cert-slide');
+        var dots = document.querySelectorAll('.carousel-dots .dot');
+        slides.forEach(function(s) { s.classList.remove('active'); });
+        dots.forEach(function(d) { d.classList.remove('active'); });
+        currentSlide = ((idx % totalSlides) + totalSlides) % totalSlides;
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+    }
+
+    function moveCertSlide(dir) {
+        goToSlide(currentSlide + dir);
+    }
+
+    // Auto-advance every 4s
+    var carouselTimer = null;
+    function startCarousel() {
+        if (carouselTimer) clearInterval(carouselTimer);
+        carouselTimer = setInterval(function() { goToSlide(currentSlide + 1); }, 4000);
+    }
+
+    // --- Cert Modal (PDF viewer) ---
+    function openCertModal(el) {
+        var certId = el.getAttribute('data-cert');
+        var pdfMap = {
+            'cert1': 'images/certs/cert_intertek_antibacterial_en.pdf',
+            'cert2': 'images/certs/cert_shielding_jy03_gjb8820.pdf',
+            'cert3': 'images/certs/cert_silver_content_gzht02957549.pdf',
+            'cert4': 'images/certs/cert1_antibacterial_heq09878001.pdf'
+        };
+        var nameMap = {
+            'cert1': 'Antibacterial Performance Test Report',
+            'cert2': 'EMF Shielding Effectiveness Test Report',
+            'cert3': 'Material Composition Test Report',
+            'cert4': 'Infant Textile Safety Compliance Report'
+        };
+        var pdf = pdfMap[certId] || '';
         var body = document.getElementById('certModalBody');
         var caption = document.getElementById('certModalCaption');
-        var certData = {
-            'cert1': {
-                title: 'Intertek Antibacterial Test — HEQ09878001',
-                pdf: 'images/certs/cert_intertek_antibacterial_en.pdf',
-                desc: 'Antibacterial efficacy on silver fiber fabric. 99%+ antibacterial rate against S. aureus (ATCC 6538), E. coli (8099) & Candida albicans after 120 washes. GB/T 20944.3-2008 shake flask method. By Center Testing International.'
-            },
-            'cert2': {
-                title: 'GJB 8820-2015 EMF Shielding — JC202606172190',
-                pdf: 'images/certs/cert_shielding_jy03_gjb8820.pdf',
-                desc: 'Shielding effectiveness test on JY03 full-silver cloth by AECC Beijing Institute of Aeronautical Materials (CNAS LO342). Shielding range: 56.7-68.4 dB across 1-18 GHz. Standard: GJB 8820-2015. Blocks 99.9999%+ of EMF radiation.'
-            },
-            'cert3': {
-                title: 'Intertek Silver Content — GZHT02957549',
-                pdf: 'images/certs/cert_silver_content_gzht02957549.pdf',
-                desc: 'Silver fiber content verification. Result: 4.1% metallized silver fibers by weight. All safety parameters pass GB 31701-2015 infant textile safety standard (formaldehyde ND, pH 6.3, no azo dyes, all colour fastness Grade 4-5).'
-            },
-            'cert4': {
-                title: 'Intertek Infant Textile Safety — GZHT02846422',
-                pdf: 'images/certs/cert1_antibacterial_heq09878001.pdf',
-                desc: 'Full infant textile safety compliance per GB 31701-2015. Sample: organic cotton silver fiber fabric. All items PASS. Formaldehyde ND, pH 7.0, no carcinogenic azo dyes (24 amines ND), all colour fastness Grade 4-5. Safe for children 3 and under.'
-            }
-        };
-        var data = certData[certId] || {};
         var iframe = document.createElement('iframe');
-        iframe.src = data.pdf || '';
+        iframe.src = pdf;
         iframe.style.height = '520px';
         iframe.style.border = 'none';
         iframe.style.width = '100%';
         body.innerHTML = '';
         body.appendChild(iframe);
-        caption.innerHTML = '<strong>' + (data.title || '') + '</strong><br>' + (data.desc || '');
-        modal.classList.add('active');
+        caption.textContent = nameMap[certId] || '';
+        document.getElementById('certModal').classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 
@@ -925,7 +937,17 @@
         document.body.style.overflow = '';
         document.getElementById('certModalBody').innerHTML = '';
     }
-    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeCertModal(); });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeCertModal();
+    });
+
+    // Init on load
+    document.addEventListener('DOMContentLoaded', function() {
+        buildCarousel();
+        startCarousel();
+    });
     </script>
+
 </body>
 </html> 
