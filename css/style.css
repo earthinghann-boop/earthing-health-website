@@ -1413,14 +1413,14 @@ ul {
     border: 1px solid #e8e4dc;
     border-radius: 10px;
     background: #fff;
-    cursor: pointer;
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    cursor: default;
+    transition: none;
 }
 
 .cert-item:hover {
-    border-color: #4a6b3a;
-    box-shadow: 0 4px 16px rgba(74,107,58,0.08);
-    transform: translateX(4px);
+    border-color: inherit;
+    box-shadow: none;
+    transform: none;
 }
 
 .cert-icon {
