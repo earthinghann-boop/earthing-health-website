@@ -407,84 +407,90 @@
     // ── Product & Size Data ──────────────────────────────────────────────────
     // 13 products, 1:1 with ecobridgegrounding.com/get-price/ UI structure
     // Prices are their published EXW tier rates (base = 11-200 tier)
+    // tiers[0]=11-200, tiers[1]=201-500, tiers[2]=501-1000 (exact EXW prices from ecobridgegrounding.com)
     const SIZE_DATA = {
         'grounding-sheets': [
-            { label: '90 × 265 cm', base: 14.27 },
-            { label: '60 × 265 cm', base: 10.39 },
+            { label: '90 × 265 cm', tiers: [14.27, 13.91, 13.66] },
+            { label: '60 × 265 cm', tiers: [10.39, 10.13, 9.95] },
         ],
         'fitted-sheet': [
-            { label: 'King 198 × 203 × 30–33 cm', base: 36.29 },
-            { label: 'Cal King 183 × 213 × 30–33 cm', base: 36.45 },
-            { label: 'Queen 153 × 203 × 30–33 cm', base: 29.78 },
-            { label: 'Full 137 × 203 × 30–33 cm', base: 28.69 },
-            { label: 'Twin 99 × 203 × 30–33 cm', base: 23.88 },
-            { label: '71 × 132 × 30–33 cm', base: 18.61 },
-            { label: '76 × 190 × 30–33 cm', base: 21.71 },
+            { label: 'King 198 × 203 × 30 cm', tiers: [36.29, 35.37, 34.75] },
+            { label: 'Cal King 183 × 213 × 30 cm', tiers: [36.45, 35.52, 34.90] },
+            { label: 'Queen 153 × 203 × 30 cm', tiers: [29.78, 29.02, 28.51] },
+            { label: 'Full 137 × 203 × 30 cm', tiers: [28.69, 27.96, 27.48] },
+            { label: 'Twin 99 × 203 × 30 cm', tiers: [23.88, 23.28, 22.87] },
+            { label: '71 × 132 × 30 cm', tiers: [18.61, 18.14, 17.82] },
+            { label: '76 × 190 × 30 cm', tiers: [21.71, 21.16, 20.79] },
         ],
         'grounding-mat': [
-            { label: '46 × 46 cm', base: 7.59 },
-            { label: '50 × 70 cm', base: 8.43 },
-            { label: '70 × 190 cm', base: 22.76 },
+            { label: '46 × 46 cm', tiers: [7.59, 7.39, 7.26] },
+            { label: '50 × 70 cm', tiers: [8.43, 8.21, 8.07] },
+            { label: '70 × 190 cm', tiers: [22.76, 22.18, 21.79] },
         ],
         'pillowcase': [
-            { label: '51 × 76 cm', base: 7.29 },
-            { label: '51 × 92 cm', base: 8.06 },
+            { label: '51 × 76 cm', tiers: [7.29, 7.10, 6.98] },
+            { label: '51 × 92 cm', tiers: [8.06, 7.86, 7.72] },
         ],
         'grounding-blanket': [
-            { label: '124 × 150 cm', base: 22.25 },
-            { label: '137 × 150 cm', base: 22.76 },
-            { label: '150 × 207 cm', base: 31.19 },
+            { label: '124 × 150 cm', tiers: [22.25, 21.69, 21.31] },
+            { label: '137 × 150 cm', tiers: [22.76, 22.18, 21.79] },
+            { label: '150 × 207 cm', tiers: [31.19, 30.39, 29.86] },
         ],
         'pu-mat': [
-            { label: '35 × 55 cm × 0.5 mm', base: 5.90 },
-            { label: '50 × 75 cm × 0.5 mm', base: 7.08 },
+            { label: '35 × 55 cm × 0.5 mm', tiers: [5.90, 5.75, 5.65] },
+            { label: '50 × 75 cm × 0.5 mm', tiers: [7.08, 6.90, 6.78] },
         ],
         'pu-sheet': [
-            { label: '70 × 180 cm × 0.5 mm', base: 15.68 },
-            { label: '140 × 180 cm × 0.5 mm', base: 24.44 },
-            { label: '68 × 99 cm × 0.5 mm', base: 11.46 },
-            { label: '68 × 138 cm × 0.5 mm', base: 13.99 },
-            { label: '68 × 153 cm × 0.5 mm', base: 15.00 },
-            { label: '68 × 183 cm × 0.5 mm', base: 16.01 },
-            { label: '68 × 198 cm × 0.5 mm', base: 16.52 },
+            { label: '70 × 180 cm × 0.5 mm', tiers: [15.68, 15.28, 15.01] },
+            { label: '140 × 180 cm × 0.5 mm', tiers: [24.44, 23.82, 23.41] },
+            { label: '68 × 99 cm × 0.5 mm', tiers: [11.46, 11.17, 10.98] },
+            { label: '68 × 138 cm × 0.5 mm', tiers: [13.99, 13.64, 13.40] },
+            { label: '68 × 153 cm × 0.5 mm', tiers: [15.00, 14.62, 14.37] },
+            { label: '68 × 183 cm × 0.5 mm', tiers: [16.01, 15.61, 15.34] },
+            { label: '68 × 198 cm × 0.5 mm', tiers: [16.52, 16.10, 15.82] },
         ],
         'pu-mouse': [
-            { label: '60 × 26 cm × 2.5 mm', base: 7.08 },
-            { label: '68 × 26 cm × 2.5 mm', base: 7.42 },
+            { label: '60 × 26 cm × 2.5 mm', tiers: [7.08, 6.90, 6.78] },
+            { label: '68 × 26 cm × 2.5 mm', tiers: [7.42, 7.23, 7.10] },
         ],
         'pu-yoga': [
-            { label: '60 × 180 cm × 7 mm', base: 25.29 },
-            { label: '60 × 180 cm × 10 mm', base: 27.48 },
+            { label: '60 × 180 cm × 7 mm', tiers: [25.29, 24.64, 24.21] },
+            { label: '60 × 180 cm × 10 mm', tiers: [27.48, 26.78, 26.31] },
         ],
         'grounding-cord': [
-            { label: '2nd US Version (Adjustable)', base: 6.43 },
+            { label: '2nd US Version (Adjustable)', tiers: [6.43, 6.00, 5.79] },
         ],
         'changeover-plug': [
-            { label: 'EU / UK / ITY / CH / ISR / AU', base: 1.71 },
+            { label: 'EU / UK / ITY / CH / ISR / AU', tiers: [1.71, 1.60, 1.54] },
         ],
         'conductive-tester': [
-            { label: 'Standard', base: 5.57 },
+            { label: 'Standard', tiers: [5.57, 5.20, 5.01] },
         ],
         'testing-pen': [
-            { label: 'Standard', base: 1.07 },
+            { label: 'Standard', tiers: [1.07, 1.00, 0.96] },
         ],
         'outlet-checker': [
-            { label: 'US', base: 1.71 },
-            { label: 'EU / UK', base: 4.29 },
-            { label: 'AU', base: 5.79 },
+            { label: 'US', tiers: [1.71, 1.60, 1.54] },
+            { label: 'EU / UK', tiers: [4.29, 4.00, 3.86] },
+            { label: 'AU', tiers: [5.79, 5.40, 5.21] },
         ],
     };
 
-    // ── Tier Logic (3-tier, matches ecobridgegrounding.com) ─────────────────
-    function getTier(qty) {
-        if (qty >= 501) return { label: 'Tier 3 — 501–1000 pcs (Best Price)',    pct: 4, badge: 'green' };
-        if (qty >= 201) return { label: 'Tier 2 — 201–500 pcs (Volume Discount)', pct: 2, badge: 'blue'  };
-        return           { label: 'Tier 1 — 11–200 pcs (Standard Rate)',        pct: 0, badge: 'gold'  };
+    // ── Tier Logic (exact prices per tier from SIZE_DATA, not calculated) ──
+    function getTierIdx(qty) {
+        if (qty >= 501) return 2;
+        if (qty >= 201) return 1;
+        return 0;
     }
 
-    function getTierBadge(pct) {
-        if (pct >= 3) return 'green';
-        if (pct >= 1) return 'blue';
+    function getTierLabel(qty) {
+        if (qty >= 501) return 'Tier 3 — 501–1000 pcs (Best Price)';
+        if (qty >= 201) return 'Tier 2 — 201–500 pcs (Volume Discount)';
+        return 'Tier 1 — 11–200 pcs (Standard Rate)';
+    }
+
+    function getTierBadge(qty) {
+        if (qty >= 201) return 'blue';
         return 'gold';
     }
 
@@ -559,20 +565,21 @@
             return;
         }
 
-        const base = SIZE_DATA[product][sizeIdx].base;
-        const tier = getTier(qty);
-        const unitPrice = +(base * (1 - tier.pct / 100)).toFixed(2);
-        const total = +(unitPrice * qty).toFixed(2);
+        const tiers     = SIZE_DATA[product][sizeIdx].tiers;
+        const tierIdx  = getTierIdx(qty);
+        const unitPrice = tiers[tierIdx];
+        const total    = +(unitPrice * qty).toFixed(2);
 
         const badgeColor = { gold: '#8a6c34', green: '#3a5c2e', blue: '#3a5c8c' };
         const badgeBg    = { gold: '#fdf3d0', green: '#eef5ea', blue: '#e8f0fa' };
+        const badge      = getTierBadge(qty);
 
         display.className = 'price-display active';
         display.innerHTML = `
-            <div class="price-label">Estimated EXW Price Range</div>
-            <div class="price-amount">$${unitPrice.toFixed(2)} – $${(unitPrice * 1.08).toFixed(2)}</div>
+            <div class="price-label">EXW Price per Piece</div>
+            <div class="price-amount">$${unitPrice.toFixed(2)}</div>
             <div class="price-unit">per piece &nbsp;·&nbsp; ${qty.toLocaleString()} pcs &nbsp;·&nbsp; Total ≈ $${total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
-            <div class="price-tier" style="background:${badgeColor[tier.badge]};color:#fff">${tier.label} — ${tier.pct > 0 ? tier.pct + '% off standard' : 'Standard rate'}</div>
+            <div class="price-tier" style="background:${badgeColor[badge]};color:#fff">${getTierLabel(qty)}</div>
         `;
     }
 
