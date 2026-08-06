@@ -781,19 +781,18 @@
         const qtyRaw   = document.getElementById('qtyInput').value;
         const qty      = parseInt(qtyRaw);
 
-        const display = document.getElementById('priceDisplay');
-
         if (!product || isNaN(sizeIdx) || isNaN(qty) || qty < 11 || qty > 1000) {
-            display.className = 'price-display';
-            display.innerHTML = `
-                <div class="price-placeholder">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="12" cy="12" r="10"/>
-                        <line x1="12" y1="8" x2="12" y2="12"/>
-                        <line x1="12" y1="16" x2="12.01" y2="16"/>
-                    </svg>
-                    Complete the selections above to view your applicable wholesale tier.
-                </div>`;
+            // Reset right column to placeholder state
+            document.getElementById('unitPriceDisplay').textContent = '—';
+            document.getElementById('totalPriceDisplay').textContent = '—';
+            const tierBadge = document.getElementById('tierBadge');
+            if (tierBadge) tierBadge.style.display = 'none';
+            document.getElementById('tierRow0').innerHTML = '<td>11–200 pcs</td><td>—</td>';
+            document.getElementById('tierRow1').innerHTML = '<td>201–500 pcs</td><td>—</td>';
+            document.getElementById('tierRow2').innerHTML = '<td>501–1,000 pcs</td><td>—</td>';
+            document.getElementById('tierRow0').className = '';
+            document.getElementById('tierRow1').className = '';
+            document.getElementById('tierRow2').className = '';
             return;
         }
 
