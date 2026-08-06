@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Price — EARTHING</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ── Reset & Base ───────────────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --green-dark: #3a5c2e;
+            --green-mid:   #4a6b3a;
+            --green-light: #6b8c55;
+            --gold-dark:   #8a6c34;
+            --gold-mid:    #b8902a;
+            --gold-light:  #d4ad3a;
+            --cream:       #f8f5ef;
+            --cream-dark:  #eee8dc;
+            --text-dark:   #2c2c1e;
+            --text-mid:    #55553a;
+            --text-light:  #8a8870;
+            --border:      #e0dbd0;
+            --shadow:      0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg:   0 8px 40px rgba(0,0,0,0.12);
+            --radius:      14px;
+            --radius-sm:   8px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* ── Navigation ────────────────────────────────────────────────── */
+        .navbar {
+            background: rgba(248,245,239,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 40px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--green-dark);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-logo span { color: var(--gold-mid); }
+
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-mid);
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.3px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--green-mid); }
+        .nav-links a.active { color: var(--green-mid); }
+
+        .nav-cta {
+            background: var(--green-mid);
+            color: #fff !important;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 13px !important;
+        }
+
+        .nav-cta:hover { background: var(--green-dark) !important; }
+
+        /* ── Hero ───────────────────────────────────────────────────────── */
+        .gp-hero {
+            background: linear-gradient(135deg, #3a5c2e 0%, #5a7c45 50%, #6b8c55 100%);
+            padding: 80px 40px 90px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gp-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .gp-hero-label {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: rgba(255,255,255,0.9);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+        }
+
+        .gp-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .gp-hero p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.85);
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        /* ── Calculator Card ────────────────────────────────────────────── */
+        .gp-calculator {
+            max-width: 820px;
+            margin: -50px auto 60px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .calc-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .calc-header {
+            background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+            padding: 28px 36px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .calc-header-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .calc-header-icon svg { color: #fff; }
+
+        .calc-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #fff;
+        }
+
+        .calc-header h2 span { color: var(--gold-light); }
+
+        .calc-header p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.75);
+            margin-top: 2px;
+        }
+
+        .calc-body {
+            padding: 36px;
+        }
+
+        /* ── Form Grid ──────────────────────────────────────────────────── */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group { display: flex; flex-direction: column; }
+
+        .form-group.full-width { grid-column: 1 / -1; }
+
+        .form-group label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-mid);
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            margin-bottom: 7px;
+        }
+
+        .form-group label .req { color: var(--gold-mid); margin-left: 2px; }
+
+        .form-select,
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-family: 'Nunito', sans-serif;
+            font-size: 15px;
+            color: var(--text-dark);
+            background: #fff;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+
+        .form-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8870' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 38px;
+        }
+
+        .form-select:focus,
+        .form-input:focus {
+            outline: none;
+            border-color: var(--green-mid);
+            box-shadow: 0 0 0 3px rgba(74,107,58,0.12);
+        }
+
+        .form-input::placeholder { color: #b0aa98; }
+
+        .input-hint {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        /* ── Price Display ──────────────────────────────────────────────── */
+        .price-display {
+            margin-top: 28px;
+            padding: 24px 28px;
+            background: linear-gradient(135deg, #f0ede5, #f8f5ef);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            text-align: center;
+            min-height: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .price-display.active {
+            background: linear-gradient(135deg, #eef5ea, #f4faf2);
+            border-color: var(--green-mid);
+        }
+
+        .price-display .price-placeholder {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .price-display .price-placeholder svg {
+            display: block;
+            margin: 0 auto 10px;
+            opacity: 0.4;
+        }
+
+        .price-display.active .price-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--green-mid);
+            margin-bottom: 6px;
+        }
+
+        .price-display.active .price-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--green-dark);
+            line-height: 1;
+        }
+
+        .price-display.active .price-unit {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .price-display.active .price-tier {
+            display: inline-block;
+            background: var(--green-mid);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-top: 8px;
+        }
+
+        /* ── Tier Guide ─────────────────────────────────────────────────── */
+        .tier-guide {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tier-guide h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-mid);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .tier-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .tier-table th {
+            background: var(--cream-dark);
+            padding: 8px 12px;
+            text-align: left;
+            font-weight: 700;
+            color: var(--text-mid);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tier-table td {
+            padding: 7px 12px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-dark);
+        }
+
+        .tier-table tr:last-child td { border-bottom: none; }
+
+        .tier-table .tier-highlight { background: #f4faf2; }
+
+        .tier-table .tier-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .tier-badge.gold { background: #fdf3d0; color: #8a6c34; }
+        .tier-badge.green { background: #eef5ea; color: var(--green-dark); }
+        .tier-badge.blue { background: #e8f0fa; color: #3a5c8c; }
+
+        /* ── Disclaimer ─────────────────────────────────────────────────── */
+        .calc-disclaimer {
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* ── CTA Strip ──────────────────────────────────────────────────── */
+        .gp-cta-strip {
+            background: var(--cream-dark);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .gp-cta-strip h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .gp-cta-strip p {
+            font-size: 15px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--green-mid);
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0.3px;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--green-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(74,107,58,0.3);
+        }
+
+        /* ── Footer ─────────────────────────────────────────────────────── */
+        .site-footer {
+            background: var(--green-dark);
+            color: rgba(255,255,255,0.7);
+            padding: 40px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .site-footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+        .site-footer a:hover { color: #fff; }
+
+        /* ── Responsive ─────────────────────────────────────────────────── */
+        @media (max-width: 680px) {
+            .nav-links { display: none; }
+            .gp-hero h1 { font-size: 36px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .calc-body { padding: 24px 20px; }
+            .calc-header { padding: 20px 20px; }
+            .tier-table { font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <a href="index.html" class="nav-logo">EARTHING<span>.</span></a>
+    <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="index.html#technology">Technology</a></li>
+        <li><a href="index.html#certifications">Certifications</a></li>
+        <li><a href="get-price.html" class="nav-cta">Get Price</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+<section class="gp-hero">
+    <div class="gp-hero-label">Factory Direct Estimate</div>
+    <h1>Get an Instant<br>Earthing Product Estimate</h1>
+    <p>Select your product specifications and order quantity to view the applicable EXW tier pricing.</p>
+</section>
+
+<!-- Calculator -->
+<div class="gp-calculator">
+    <div class="calc-card">
+        <div class="calc-header">
+            <div class="calc-header-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+            </div>
+            <div>
+                <h2>Product <span>Estimate</span></h2>
+                <p>Online estimates available from 11 to 1,000 pieces per order</p>
+            </div>
+        </div>
+
+        <div class="calc-body">
+            <div class="form-grid">
+                <!-- Product -->
+                <div class="form-group">
+                    <label>Product <span class="req">*</span></label>
+                    <select class="form-select" id="productSelect" onchange="updateSizes()">
+                        <option value="">Select a product</option>
+                        <option value="fitted-sheet">Fitted Sheet (Bed Sheet)</option>
+                        <option value="mattress-pad">Mattress Pad / Mat</option>
+                        <option value="pillowcase">Pillowcase</option>
+                        <option value="half-sheet">Half Sheet / Flat Sheet</option>
+                        <option value="grounding-cord">Grounding Cord</option>
+                        <option value="laundry-bag">Silver Fiber Laundry Bag</option>
+                    </select>
+                </div>
+
+                <!-- Size -->
+                <div class="form-group">
+                    <label>Size / Specification <span class="req">*</span></label>
+                    <select class="form-select" id="sizeSelect" onchange="calculatePrice()" disabled>
+                        <option value="">Select a product first</option>
+                    </select>
+                </div>
+
+                <!-- Quantity -->
+                <div class="form-group full-width">
+                    <label>Quantity (pcs) <span class="req">*</span></label>
+                    <input type="number" class="form-input" id="qtyInput"
+                           placeholder="Enter quantity (11 – 1,000 pcs)"
+                           min="11" max="1000" value=""
+                           oninput="calculatePrice()">
+                    <p class="input-hint">Online estimates are available from 11 to 1,000 pieces per order</p>
+                </div>
+            </div>
+
+            <!-- Price Display -->
+            <div class="price-display" id="priceDisplay">
+                <div class="price-placeholder">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    Complete the selections above to view your applicable wholesale tier.
+                </div>
+            </div>
+
+            <!-- Tier Guide -->
+            <div class="tier-guide">
+                <h4>Wholesale Pricing Tiers (EXW, per piece)</h4>
+                <table class="tier-table">
+                    <thead>
+                        <tr>
+                            <th>Quantity</th>
+                            <th>Tier</th>
+                            <th>Discount vs. Sample</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>11 – 50 pcs</td>
+                            <td><span class="tier-badge gold">Standard</span></td>
+                            <td>—</td>
+                        </tr>
+                        <tr class="tier-highlight">
+                            <td>51 – 200 pcs</td>
+                            <td><span class="tier-badge green">Small Batch</span></td>
+                            <td>5 – 8% off</td>
+                        </tr>
+                        <tr>
+                            <td>201 – 500 pcs</td>
+                            <td><span class="tier-badge blue">Medium Batch</span></td>
+                            <td>10 – 15% off</td>
+                        </tr>
+                        <tr class="tier-highlight">
+                            <td>501 – 1,000 pcs</td>
+                            <td><span class="tier-badge green">Large Batch</span></td>
+                            <td>15 – 20% off</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="calc-disclaimer">
+                Prices shown are EXW (Ex Works) and for reference only — not final quotations.<br>
+                Final pricing varies by material specifications,银纤维 content, customization requirements and current exchange rates.<br>
+                Contact us for a formal PI with confirmed EXW / FOB / CIF terms.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Strip -->
+<section class="gp-cta-strip">
+    <h3>Need a Formal Quotation?</h3>
+    <p>Contact us for customization, branding options and all-inclusive pricing — we respond within 24 hours.</p>
+    <a href="mailto:sale@groundingsafe.com" class="btn-primary">Send us an Inquiry →</a>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <p>© 2026 Guangzhou Earthing Health Technology Co., Ltd. &nbsp;|&nbsp; <a href="index.html">EARTHING.</a></p>
+</footer>
+
+<script>
+    // ── Product & Size Data ──────────────────────────────────────────────────
+    const SIZE_DATA = {
+        'fitted-sheet': [
+            { label: 'Twin — 99 × 191 cm', base: 18 },
+            { label: 'Full — 137 × 191 cm', base: 22 },
+            { label: 'Queen — 153 × 203 cm', base: 25 },
+            { label: 'King — 198 × 203 cm', base: 28 },
+            { label: 'Cal King — 183 × 213 cm', base: 28 },
+        ],
+        'mattress-pad': [
+            { label: '70 × 180 cm', base: 15 },
+            { label: '140 × 180 cm', base: 22 },
+            { label: '150 × 200 cm', base: 26 },
+            { label: '185 × 200 cm', base: 30 },
+        ],
+        'pillowcase': [
+            { label: 'Standard — 51 × 76 cm', base: 6 },
+            { label: 'King — 51 × 92 cm', base: 7 },
+        ],
+        'half-sheet': [
+            { label: '60 × 265 cm', base: 12 },
+            { label: '90 × 265 cm', base: 15 },
+        ],
+        'grounding-cord': [
+            { label: 'Gen-1 (100KΩ resistor) + Type-A plug', base: 8 },
+            { label: 'Gen-1 (100KΩ resistor) + AU plug', base: 9 },
+            { label: 'Gen-1 (100KΩ resistor) + EU plug', base: 9 },
+            { label: 'Gen-1 (100KΩ resistor) + UK plug', base: 9 },
+            { label: 'SafetyValve+™ (Gen-2) + Type-A plug', base: 14 },
+        ],
+        'laundry-bag': [
+            { label: 'Small — 30 × 40 cm', base: 7 },
+            { label: 'Medium — 50 × 70 cm', base: 10 },
+            { label: 'Large — 60 × 90 cm', base: 13 },
+        ]
+    };
+
+    // ── Tier Logic ───────────────────────────────────────────────────────────
+    function getTier(qty) {
+        if (qty >= 501)  return { label: 'Large Batch',  pct: 18, badge: 'green' };
+        if (qty >= 201)  return { label: 'Medium Batch', pct: 12, badge: 'blue'  };
+        if (qty >= 51)   return { label: 'Small Batch',  pct: 6,  badge: 'green' };
+        return            { label: 'Standard',       pct: 0,  badge: 'gold'  };
+    }
+
+    function getTierBadge(pct) {
+        if (pct >= 15) return 'green';
+        if (pct >= 8)  return 'green';
+        if (pct >= 3)  return 'blue';
+        return 'gold';
+    }
+
+    // ── Update Sizes Dropdown ────────────────────────────────────────────────
+    function updateSizes() {
+        const product = document.getElementById('productSelect').value;
+        const sizeSelect = document.getElementById('sizeSelect');
+        sizeSelect.innerHTML = '<option value="">Select a size</option>';
+        sizeSelect.disabled = !product;
+        if (product && SIZE_DATA[product]) {
+            SIZE_DATA[product].forEach((item, i) => {
+                const opt = document.createElement('option');
+                opt.value = i;
+                opt.textContent = item.label;
+                sizeSelect.appendChild(opt);
+            });
+        }
+        calculatePrice();
+    }
+
+    // ── Calculate & Display Price ────────────────────────────────────────────
+    function calculatePrice() {
+        const product = document.getElementById('productSelect').value;
+        const sizeIdx  = parseInt(document.getElementById('sizeSelect').value);
+        const qtyRaw   = document.getElementById('qtyInput').value;
+        const qty      = parseInt(qtyRaw);
+
+        const display = document.getElementById('priceDisplay');
+
+        if (!product || isNaN(sizeIdx) || isNaN(qty) || qty < 11 || qty > 1000) {
+            display.className = 'price-display';
+            display.innerHTML = `
+                <div class="price-placeholder">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    Complete the selections above to view your applicable wholesale tier.
+                </div>`;
+            return;
+        }
+
+        const base = SIZE_DATA[product][sizeIdx].base;
+        const tier = getTier(qty);
+        const unitPrice = +(base * (1 - tier.pct / 100)).toFixed(2);
+        const total = +(unitPrice * qty).toFixed(2);
+
+        const badgeColor = { gold: '#8a6c34', green: '#3a5c2e', blue: '#3a5c8c' };
+        const badgeBg    = { gold: '#fdf3d0', green: '#eef5ea', blue: '#e8f0fa' };
+
+        display.className = 'price-display active';
+        display.innerHTML = `
+            <div class="price-label">Estimated EXW Price Range</div>
+            <div class="price-amount">$${unitPrice.toFixed(2)} – $${(unitPrice * 1.08).toFixed(2)}</div>
+            <div class="price-unit">per piece &nbsp;·&nbsp; ${qty.toLocaleString()} pcs &nbsp;·&nbsp; Total ≈ $${total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+            <div class="price-tier" style="background:${badgeColor[tier.badge]};color:#fff">${tier.label} — ${tier.pct > 0 ? tier.pct + '% off standard' : 'Standard rate'}</div>
+        `;
+    }
+
+    // ── Init ─────────────────────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', function() {
+        // Pre-fill quantity if provided via URL param
+        const params = new URLSearchParams(window.location.search);
+        const qtyParam = params.get('qty');
+        if (qtyParam) {
+            document.getElementById('qtyInput').value = qtyParam;
+        }
+    });
+</script>
+
+</body>
+</html>
