@@ -264,6 +264,197 @@
             .tier-table { font-size: 12px; }
             .gp-cta-strip { padding: 36px 20px; }
         }
+    
+        /* ── Two-column layout (ecobridge style) ─────────────────────────── */
+        .calc-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            padding: 0;
+        }
+        .calc-left {
+            padding: 36px;
+            background: #fff;
+        }
+        .calc-right {
+            padding: 36px;
+            background: linear-gradient(135deg, #3a4a3a, #2d3d2d);
+            color: #fff;
+        }
+        .calc-left-header {
+            margin-bottom: 24px;
+        }
+        .calc-left-header .eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #8a8870;
+            margin-bottom: 8px;
+        }
+        .calc-left-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #2c2c1e;
+            line-height: 1.25;
+            margin: 0 0 12px 0;
+        }
+        .calc-left-header p {
+            font-size: 14px;
+            color: #8a8870;
+            line-height: 1.5;
+        }
+        .calc-right-header {
+            margin-bottom: 20px;
+        }
+        .calc-right-header .eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 8px;
+        }
+
+        /* Price cards in right column */
+        .price-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .price-card {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 16px;
+        }
+        .price-card-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 4px;
+        }
+        .price-card-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .price-tier-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .price-tier-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Tiered pricing table in right column */
+        .tiered-pricing {
+            margin-top: 8px;
+        }
+        .tiered-pricing h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .tier-table-dark {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 13px;
+        }
+        .tier-table-dark th {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 700;
+            color: rgba(255,255,255,0.7);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .tier-table-dark th:last-child,
+        .tier-table-dark td:last-child {
+            text-align: right;
+        }
+        .tier-table-dark td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.9);
+        }
+        .tier-table-dark tr:last-child td {
+            border-bottom: none;
+        }
+        .tier-table-dark tr.active-tier {
+            background: rgba(255,255,255,0.15);
+        }
+        .tier-table-dark tr.active-tier td {
+            color: #fff;
+            font-weight: 600;
+        }
+        .your-tier-badge {
+            display: inline-block;
+            background: #fff;
+            color: #2d3d2d;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .right-disclaimer {
+            margin-top: 16px;
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.5;
+        }
+        .btn-quote {
+            display: inline-block;
+            background: #f0ede5;
+            color: #2d3d2d;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 16px;
+            transition: background 0.2s;
+        }
+        .btn-quote:hover {
+            background: #fff;
+        }
+
+        /* Product preview in left column */
+        .calc-left .product-preview {
+            margin-top: 20px;
+            min-height: 200px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .calc-body {
+                grid-template-columns: 1fr;
+            }
+            .calc-right {
+                order: -1;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -314,76 +505,110 @@
         </div>
 
         <div class="calc-body">
-            <div class="form-grid">
-                <div class="form-group">
-                    <label>Product <span class="req">*</span></label>
-                    <select class="form-select" id="productSelect" onchange="updateSizes();updatePreview()">
-                        <option value="">Select a product</option>
-                        <option value="grounding-sheets">Grounding Sheets</option>
-                        <option value="fitted-sheet">Earthing Fitted Sheet</option>
-                        <option value="grounding-mat">Grounding Mat</option>
-                        <option value="pillowcase">Grounding Pillow Cases</option>
-                        <option value="grounding-blanket">Grounding Blanket</option>
-                        <option value="pu-mat">PU Mat</option>
-                        <option value="pu-sheet">PU Sheet</option>
-                        <option value="pu-mouse">PU Leather Mouse Mat</option>
-                        <option value="pu-yoga">PU Leather Yoga Mat</option>
-                        <option value="grounding-cord">Grounding Cord — Accessory</option>
-                        <option value="changeover-plug">Changeover Plug — Accessory</option>
-                        <option value="conductive-tester">Conductive Tester — Accessory</option>
-                        <option value="testing-pen">Testing Pen — Accessory</option>
-                        <option value="outlet-checker">Outlet Checker — Accessory</option>
-                    </select>
+            <!-- LEFT COLUMN: Form -->
+            <div class="calc-left">
+                <div class="calc-left-header">
+                    <div class="eyebrow">—— Factory Direct Estimate</div>
+                    <h3>Get an Instant Earthing Product Estimate</h3>
+                    <p>Select your product specifications and order quantity to view the applicable EXW tier.</p>
                 </div>
-                <div class="form-group">
-                    <label>Size / Specification <span class="req">*</span></label>
-                    <select class="form-select" id="sizeSelect" onchange="calculatePrice()" disabled>
-                        <option value="">Select a product first</option>
-                    </select>
+
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>Product <span class="req">*</span></label>
+                        <select class="form-select" id="productSelect" onchange="updateSizes();updatePreview()">
+                            <option value="">Select a product</option>
+                            <option value="grounding-sheets">Grounding Sheets</option>
+                            <option value="fitted-sheet">Earthing Fitted Sheet</option>
+                            <option value="grounding-mat">Grounding Mat</option>
+                            <option value="pillowcase">Grounding Pillow Cases</option>
+                            <option value="grounding-blanket">Grounding Blanket</option>
+                            <option value="pu-mat">PU Mat</option>
+                            <option value="pu-sheet">PU Sheet</option>
+                            <option value="pu-mouse">PU Leather Mouse Mat</option>
+                            <option value="pu-yoga">PU Leather Yoga Mat</option>
+                            <option value="grounding-cord">Grounding Cord — Accessory</option>
+                            <option value="changeover-plug">Changeover Plug — Accessory</option>
+                            <option value="conductive-tester">Conductive Tester — Accessory</option>
+                            <option value="testing-pen">Testing Pen — Accessory</option>
+                            <option value="outlet-checker">Outlet Checker — Accessory</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Size / Specification <span class="req">*</span></label>
+                        <select class="form-select" id="sizeSelect" onchange="calculatePrice()" disabled>
+                            <option value="">Select a product first</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Quantity (pcs) <span class="req">*</span></label>
+                        <input type="number" class="form-input" id="qtyInput"
+                               placeholder="Enter quantity (11 – 1,000 pcs)"
+                               min="11" max="1000" value=""
+                               oninput="calculatePrice()">
+                        <p class="input-hint">Online estimates are available from 11 to 1,000 pieces per order</p>
+                    </div>
                 </div>
-                <div class="form-group full-width">
-                    <label>Quantity (pcs) <span class="req">*</span></label>
-                    <input type="number" class="form-input" id="qtyInput"
-                           placeholder="Enter quantity (11 – 1,000 pcs)"
-                           min="11" max="1000" value=""
-                           oninput="calculatePrice()">
-                    <p class="input-hint">Online estimates are available from 11 to 1,000 pieces per order</p>
+
+                <!-- Product Preview -->
+                <div class="product-preview" id="productPreview">
+                    <div class="preview-empty">
+                        <span class="preview-empty-text">PRODUCT PREVIEW</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Product Preview (changes when Product select changes) -->
-            <div class="product-preview" id="productPreview">
-                <div class="preview-empty">
-                    <span class="preview-empty-text">PRODUCT PREVIEW</span>
+            <!-- RIGHT COLUMN: Quote -->
+            <div class="calc-right">
+                <div class="calc-right-header">
+                    <div class="eyebrow">Estimated EXW Quote</div>
                 </div>
-            </div>
 
-            <div class="price-display" id="priceDisplay">
-                <div class="price-placeholder">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <div class="price-cards" id="priceCards">
+                    <div class="price-card">
+                        <div class="price-card-label">Unit Price</div>
+                        <div class="price-card-value" id="unitPriceDisplay">—</div>
+                    </div>
+                    <div class="price-card">
+                        <div class="price-card-label">Product Total</div>
+                        <div class="price-card-value" id="totalPriceDisplay">—</div>
+                    </div>
+                </div>
+
+                <div class="price-tier-badge" id="tierBadge" style="display:none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="10"/>
-                        <line x1="12" y1="8" x2="12" y2="12"/>
-                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                        <path d="M8 12l3 3 5-6"/>
                     </svg>
-                    Complete the selections above to view your applicable wholesale tier.
+                    <span id="tierBadgeText">Applicable tier: 11–200 pcs</span>
                 </div>
-            </div>
 
-            <div class="tier-guide">
-                <h4>Wholesale Pricing Tiers (EXW, per piece)</h4>
-                <table class="tier-table">
-                    <thead>
-                        <tr><th>Quantity</th><th>Tier</th><th>Discount vs. Standard</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>11 – 200 pcs</td><td><span class="tier-badge gold">Standard Rate</span></td><td>—</td></tr>
-                        <tr class="tier-highlight"><td>201 – 500 pcs</td><td><span class="tier-badge blue">Volume Discount</span></td><td>≈ 2% off</td></tr>
-                        <tr><td>501 – 1,000 pcs</td><td><span class="tier-badge green">Best Price</span></td><td>≈ 4% off</td></tr>
-                    </tbody>
-                </table>
-            </div>
+                <div class="tiered-pricing">
+                    <h4>Tiered Pricing</h4>
+                    <table class="tier-table-dark">
+                        <thead>
+                            <tr>
+                                <th>Quantity</th>
+                                <th>Unit Price</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tierTableBody">
+                            <tr id="tierRow0"><td>11–200 pcs</td><td>—</td></tr>
+                            <tr id="tierRow1"><td>201–500 pcs</td><td>—</td></tr>
+                            <tr id="tierRow2"><td>501–1,000 pcs</td><td>—</td></tr>
+                        </tbody>
+                    </table>
+                </div>
 
-            <p class="calc-disclaimer">
+                <p class="right-disclaimer">
+                    Prices shown are estimated EXW prices for reference only. Shipping, custom packaging and other customization costs are not included. Final pricing is subject to order confirmation.
+                </p>
+
+                <a href="mailto:sale@groundingsafe.com" class="btn-quote">Get Official Quote</a>
+            </div>
+        </div>
+
+        <p class="calc-disclaimer">
                 Prices shown are estimated EXW prices for reference only. Shipping, custom packaging and other customization costs are not included.<br>
                 Final pricing is subject to order confirmation. Contact us for a formal PI with confirmed EXW / FOB / CIF terms.
             </p>
@@ -574,13 +799,29 @@
         const badgeBg    = { gold: '#fdf3d0', green: '#eef5ea', blue: '#e8f0fa' };
         const badge      = getTierBadge(qty);
 
-        display.className = 'price-display active';
-        display.innerHTML = `
-            <div class="price-label">EXW Price per Piece</div>
-            <div class="price-amount">$${unitPrice.toFixed(2)}</div>
-            <div class="price-unit">per piece &nbsp;·&nbsp; ${qty.toLocaleString()} pcs &nbsp;·&nbsp; Total ≈ $${total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
-            <div class="price-tier" style="background:${badgeColor[badge]};color:#fff">${getTierLabel(qty)}</div>
-        `;
+        // Update right column price cards
+        document.getElementById('unitPriceDisplay').textContent = '$' + unitPrice.toFixed(2);
+        document.getElementById('totalPriceDisplay').textContent = '$' + total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+        // Update tier badge
+        const tierBadge = document.getElementById('tierBadge');
+        const tierBadgeText = document.getElementById('tierBadgeText');
+        tierBadge.style.display = 'inline-flex';
+        tierBadgeText.textContent = 'Applicable tier: ' + getTierLabel(qty).replace(/Tier \d — /, '').split('(')[0].trim();
+
+        // Update tier table
+        const tierRow0 = document.getElementById('tierRow0');
+        const tierRow1 = document.getElementById('tierRow1');
+        const tierRow2 = document.getElementById('tierRow2');
+
+        tierRow0.innerHTML = `<td>11–200 pcs ${tierIdx === 0 ? '<span class="your-tier-badge">YOUR TIER</span>' : ''}</td><td>$${tiers[0].toFixed(2)}</td>`;
+        tierRow1.innerHTML = `<td>201–500 pcs ${tierIdx === 1 ? '<span class="your-tier-badge">YOUR TIER</span>' : ''}</td><td>$${tiers[1].toFixed(2)}</td>`;
+        tierRow2.innerHTML = `<td>501–1,000 pcs ${tierIdx === 2 ? '<span class="your-tier-badge">YOUR TIER</span>' : ''}</td><td>$${tiers[2].toFixed(2)}</td>`;
+
+        // Highlight active tier row
+        tierRow0.className = tierIdx === 0 ? 'active-tier' : '';
+        tierRow1.className = tierIdx === 1 ? 'active-tier' : '';
+        tierRow2.className = tierIdx === 2 ? 'active-tier' : '';
     }
 
     // ── Init ─────────────────────────────────────────────────────────────────
