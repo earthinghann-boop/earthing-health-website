@@ -267,18 +267,18 @@
     
         /* ── Two-column layout (ecobridge style) ─────────────────────────── */
         .calc-body {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            padding: 0;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 0 !important;
+            padding: 0 !important;
         }
         .calc-left {
-            padding: 36px;
-            background: #fff;
+            padding: 36px !important;
+            background: #fff !important;
         }
         .calc-right {
-            padding: 36px;
-            background: linear-gradient(135deg, #3a4a3a, #2d3d2d);
+            padding: 36px !important;
+            background: linear-gradient(135deg, #3a4a3a, #2d3d2d) !important;
             color: #fff;
         }
         .calc-left-header {
@@ -442,8 +442,12 @@
         /* Product preview in left column */
         .calc-left .product-preview {
             margin-top: 20px;
-            min-height: 200px;
-            display: flex;
+            min-height: 220px;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #f8f5ef;
+            border: 1.5px solid #e0dbd0;
+            display: flex !important;
             align-items: center;
             justify-content: center;
             position: relative;
