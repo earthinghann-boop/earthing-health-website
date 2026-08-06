@@ -319,12 +319,20 @@
                     <label>Product <span class="req">*</span></label>
                     <select class="form-select" id="productSelect" onchange="updateSizes();updatePreview()">
                         <option value="">Select a product</option>
-                        <option value="fitted-sheet">Fitted Sheet (Bed Sheet)</option>
-                        <option value="mattress-pad">Mattress Pad / Mat</option>
-                        <option value="pillowcase">Pillowcase</option>
-                        <option value="half-sheet">Half Sheet / Flat Sheet</option>
-                        <option value="grounding-cord">Grounding Cord</option>
-                        <option value="laundry-bag">Silver Fiber Laundry Bag</option>
+                        <option value="grounding-sheets">Grounding Sheets</option>
+                        <option value="fitted-sheet">Earthing Fitted Sheet</option>
+                        <option value="grounding-mat">Grounding Mat</option>
+                        <option value="pillowcase">Grounding Pillow Cases</option>
+                        <option value="grounding-blanket">Grounding Blanket</option>
+                        <option value="pu-mat">PU Mat</option>
+                        <option value="pu-sheet">PU Sheet</option>
+                        <option value="pu-mouse">PU Leather Mouse Mat</option>
+                        <option value="pu-yoga">PU Leather Yoga Mat</option>
+                        <option value="grounding-cord">Grounding Cord — Accessory</option>
+                        <option value="changeover-plug">Changeover Plug — Accessory</option>
+                        <option value="conductive-tester">Conductive Tester — Accessory</option>
+                        <option value="testing-pen">Testing Pen — Accessory</option>
+                        <option value="outlet-checker">Outlet Checker — Accessory</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -399,40 +407,83 @@
 
 <script>
     // ── Product & Size Data ──────────────────────────────────────────────────
+    // 13 products, 1:1 with ecobridgegrounding.com/get-price/ UI structure
     const SIZE_DATA = {
-        'fitted-sheet': [
-            { label: 'Twin — 99 × 191 cm', base: 18 },
-            { label: 'Full — 137 × 191 cm', base: 22 },
-            { label: 'Queen — 153 × 203 cm', base: 25 },
-            { label: 'King — 198 × 203 cm', base: 28 },
+        'grounding-sheets': [
+            { label: 'Twin — 99 × 191 cm',      base: 18 },
+            { label: 'Full — 137 × 191 cm',     base: 22 },
+            { label: 'Queen — 153 × 203 cm',    base: 25 },
+            { label: 'King — 198 × 203 cm',     base: 28 },
             { label: 'Cal King — 183 × 213 cm', base: 28 },
         ],
-        'mattress-pad': [
-            { label: '70 × 180 cm', base: 15 },
-            { label: '140 × 180 cm', base: 22 },
-            { label: '150 × 200 cm', base: 26 },
-            { label: '185 × 200 cm', base: 30 },
+        'fitted-sheet': [
+            { label: 'Twin — 99 × 191 cm',      base: 18 },
+            { label: 'Full — 137 × 191 cm',     base: 22 },
+            { label: 'Queen — 153 × 203 cm',    base: 25 },
+            { label: 'King — 198 × 203 cm',     base: 28 },
+            { label: 'Cal King — 183 × 213 cm', base: 28 },
+        ],
+        'grounding-mat': [
+            { label: '46 × 46 cm',  base: 10 },
+            { label: '50 × 70 cm',  base: 13 },
+            { label: '70 × 190 cm', base: 22 },
         ],
         'pillowcase': [
             { label: 'Standard — 51 × 76 cm', base: 6 },
-            { label: 'King — 51 × 92 cm', base: 7 },
+            { label: 'King — 51 × 92 cm',     base: 7 },
         ],
-        'half-sheet': [
-            { label: '60 × 265 cm', base: 12 },
-            { label: '90 × 265 cm', base: 15 },
+        'grounding-blanket': [
+            { label: '124 × 150 cm', base: 32 },
+            { label: '137 × 150 cm', base: 35 },
+            { label: '150 × 207 cm', base: 48 },
+        ],
+        'pu-mat': [
+            { label: '35 × 55 cm × 0.5 mm',  base: 9 },
+            { label: '30 × 75 cm × 0.5 mm',  base: 11 },
+        ],
+        'pu-sheet': [
+            { label: '70 × 180 cm × 0.5 mm',  base: 24 },
+            { label: '68 × 99 cm × 0.5 mm',   base: 16 },
+            { label: '68 × 138 cm × 0.5 mm',  base: 20 },
+            { label: '68 × 153 cm × 0.5 mm',  base: 22 },
+            { label: '68 × 183 cm × 0.5 mm',  base: 26 },
+            { label: '68 × 198 cm × 0.5 mm',  base: 28 },
+        ],
+        'pu-mouse': [
+            { label: '60 × 26 cm × 2.5 mm', base: 7 },
+            { label: '68 × 26 cm × 2.5 mm', base: 8 },
+        ],
+        'pu-yoga': [
+            { label: '60 × 180 cm × 7 mm',  base: 26 },
+            { label: '60 × 180 cm × 10 mm', base: 32 },
         ],
         'grounding-cord': [
-            { label: 'Gen-1 (100KΩ resistor) + Type-A plug', base: 8 },
-            { label: 'Gen-1 (100KΩ resistor) + AU plug', base: 9 },
-            { label: 'Gen-1 (100KΩ resistor) + EU plug', base: 9 },
-            { label: 'Gen-1 (100KΩ resistor) + UK plug', base: 9 },
+            { label: 'Gen-1 (100KΩ resistor) + Type-A plug',  base: 8 },
+            { label: 'Gen-1 (100KΩ resistor) + EU plug',     base: 9 },
+            { label: 'Gen-1 (100KΩ resistor) + UK plug',     base: 9 },
+            { label: 'Gen-1 (100KΩ resistor) + AU plug',     base: 9 },
             { label: 'SafetyValve+™ (Gen-2) + Type-A plug', base: 14 },
         ],
-        'laundry-bag': [
-            { label: 'Small — 30 × 40 cm', base: 7 },
-            { label: 'Medium — 50 × 70 cm', base: 10 },
-            { label: 'Large — 60 × 90 cm', base: 13 },
-        ]
+        'changeover-plug': [
+            { label: 'EU plug',  base: 4 },
+            { label: 'UK plug',  base: 4 },
+            { label: 'IT plug',  base: 4 },
+            { label: 'CH plug',  base: 4 },
+            { label: 'ISR plug', base: 4 },
+            { label: 'AU plug',  base: 4 },
+        ],
+        'conductive-tester': [
+            { label: 'Standard (Continuity Tester)', base: 9 },
+        ],
+        'testing-pen': [
+            { label: 'Voltage Detection Pen', base: 6 },
+        ],
+        'outlet-checker': [
+            { label: 'US — 3-wire outlet tester', base: 7 },
+            { label: 'EU — European outlet tester', base: 7 },
+            { label: 'UK — British outlet tester', base: 8 },
+            { label: 'AU — Australian outlet tester', base: 8 },
+        ],
     };
 
     // ── Tier Logic ───────────────────────────────────────────────────────────
@@ -452,12 +503,20 @@
 
     // ── Product Preview ──────────────────────────────────────────────────────
     const PREVIEW_MAP = {
-        'fitted-sheet':    { img: 'images/previews/fitted-sheet.jpg',   name: 'Fitted Sheet (Bed Sheet)' },
-        'mattress-pad':    { img: 'images/previews/mattress-pad.jpg',   name: 'Mattress Pad / Mat' },
-        'pillowcase':      { img: 'images/previews/pillowcase.jpg',     name: 'Pillowcase' },
-        'half-sheet':      { img: 'images/previews/half-sheet.jpg',     name: 'Half Sheet / Flat Sheet' },
-        'grounding-cord':  { img: 'images/previews/grounding-cord.jpg', name: 'Grounding Cord' },
-        'laundry-bag':     { img: 'images/previews/laundry-bag.jpg',    name: 'Silver Fiber Laundry Bag' }
+        'grounding-sheets':    { img: 'images/previews/grounding-sheets.jpg',    name: 'Grounding Sheets' },
+        'fitted-sheet':        { img: 'images/previews/fitted-sheet.jpg',        name: 'Earthing Fitted Sheet' },
+        'grounding-mat':       { img: 'images/previews/grounding-mat.jpg',       name: 'Grounding Mat' },
+        'pillowcase':          { img: 'images/previews/pillowcase.jpg',          name: 'Grounding Pillow Cases' },
+        'grounding-blanket':   { img: 'images/previews/grounding-blanket.jpg',   name: 'Grounding Blanket' },
+        'pu-mat':              { img: 'images/previews/pu-mat.jpg',              name: 'PU Mat' },
+        'pu-sheet':            { img: 'images/previews/pu-sheet.jpg',            name: 'PU Sheet' },
+        'pu-mouse':            { img: 'images/previews/pu-mouse.jpg',            name: 'PU Leather Mouse Mat' },
+        'pu-yoga':             { img: 'images/previews/pu-yoga.jpg',             name: 'PU Leather Yoga Mat' },
+        'grounding-cord':      { img: 'images/previews/grounding-cord.jpg',      name: 'Grounding Cord' },
+        'changeover-plug':     { img: 'images/previews/changeover-plug.jpg',     name: 'Changeover Plug' },
+        'conductive-tester':   { img: 'images/previews/conductive-tester.png',   name: 'Conductive Tester' },
+        'testing-pen':         { img: 'images/previews/testing-pen.jpg',         name: 'Testing Pen' },
+        'outlet-checker':      { img: 'images/previews/outlet-checker.png',      name: 'Outlet Checker' },
     };
 
     function updatePreview() {
