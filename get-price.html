@@ -373,21 +373,19 @@
                 <h4>Wholesale Pricing Tiers (EXW, per piece)</h4>
                 <table class="tier-table">
                     <thead>
-                        <tr><th>Quantity</th><th>Tier</th><th>Discount vs. Sample</th></tr>
+                        <tr><th>Quantity</th><th>Tier</th><th>Discount vs. Standard</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>11 – 50 pcs</td><td><span class="tier-badge gold">Standard</span></td><td>—</td></tr>
-                        <tr class="tier-highlight"><td>51 – 200 pcs</td><td><span class="tier-badge green">Small Batch</span></td><td>5 – 8% off</td></tr>
-                        <tr><td>201 – 500 pcs</td><td><span class="tier-badge blue">Medium Batch</span></td><td>10 – 15% off</td></tr>
-                        <tr class="tier-highlight"><td>501 – 1,000 pcs</td><td><span class="tier-badge green">Large Batch</span></td><td>15 – 20% off</td></tr>
+                        <tr><td>11 – 200 pcs</td><td><span class="tier-badge gold">Standard Rate</span></td><td>—</td></tr>
+                        <tr class="tier-highlight"><td>201 – 500 pcs</td><td><span class="tier-badge blue">Volume Discount</span></td><td>≈ 2% off</td></tr>
+                        <tr><td>501 – 1,000 pcs</td><td><span class="tier-badge green">Best Price</span></td><td>≈ 4% off</td></tr>
                     </tbody>
                 </table>
             </div>
 
             <p class="calc-disclaimer">
-                Prices shown are EXW (Ex Works) and for reference only — not final quotations.<br>
-                Final pricing varies by material specifications, silver fiber content, customization requirements and current exchange rates.<br>
-                Contact us for a formal PI with confirmed EXW / FOB / CIF terms.
+                Prices shown are estimated EXW prices for reference only. Shipping, custom packaging and other customization costs are not included.<br>
+                Final pricing is subject to order confirmation. Contact us for a formal PI with confirmed EXW / FOB / CIF terms.
             </p>
         </div>
     </div>
@@ -408,96 +406,85 @@
 <script>
     // ── Product & Size Data ──────────────────────────────────────────────────
     // 13 products, 1:1 with ecobridgegrounding.com/get-price/ UI structure
+    // Prices are their published EXW tier rates (base = 11-200 tier)
     const SIZE_DATA = {
         'grounding-sheets': [
-            { label: 'Twin — 99 × 191 cm',      base: 18 },
-            { label: 'Full — 137 × 191 cm',     base: 22 },
-            { label: 'Queen — 153 × 203 cm',    base: 25 },
-            { label: 'King — 198 × 203 cm',     base: 28 },
-            { label: 'Cal King — 183 × 213 cm', base: 28 },
+            { label: '90 × 265 cm', base: 14.27 },
+            { label: '60 × 265 cm', base: 10.39 },
         ],
         'fitted-sheet': [
-            { label: 'Twin — 99 × 191 cm',      base: 18 },
-            { label: 'Full — 137 × 191 cm',     base: 22 },
-            { label: 'Queen — 153 × 203 cm',    base: 25 },
-            { label: 'King — 198 × 203 cm',     base: 28 },
-            { label: 'Cal King — 183 × 213 cm', base: 28 },
+            { label: 'King 198 × 203 × 30–33 cm', base: 36.29 },
+            { label: 'Cal King 183 × 213 × 30–33 cm', base: 36.45 },
+            { label: 'Queen 153 × 203 × 30–33 cm', base: 29.78 },
+            { label: 'Full 137 × 203 × 30–33 cm', base: 28.69 },
+            { label: 'Twin 99 × 203 × 30–33 cm', base: 23.88 },
+            { label: '71 × 132 × 30–33 cm', base: 18.61 },
+            { label: '76 × 190 × 30–33 cm', base: 21.71 },
         ],
         'grounding-mat': [
-            { label: '46 × 46 cm',  base: 10 },
-            { label: '50 × 70 cm',  base: 13 },
-            { label: '70 × 190 cm', base: 22 },
+            { label: '46 × 46 cm', base: 7.59 },
+            { label: '50 × 70 cm', base: 8.43 },
+            { label: '70 × 190 cm', base: 22.76 },
         ],
         'pillowcase': [
-            { label: 'Standard — 51 × 76 cm', base: 6 },
-            { label: 'King — 51 × 92 cm',     base: 7 },
+            { label: '51 × 76 cm', base: 7.29 },
+            { label: '51 × 92 cm', base: 8.06 },
         ],
         'grounding-blanket': [
-            { label: '124 × 150 cm', base: 32 },
-            { label: '137 × 150 cm', base: 35 },
-            { label: '150 × 207 cm', base: 48 },
+            { label: '124 × 150 cm', base: 22.25 },
+            { label: '137 × 150 cm', base: 22.76 },
+            { label: '150 × 207 cm', base: 31.19 },
         ],
         'pu-mat': [
-            { label: '35 × 55 cm × 0.5 mm',  base: 9 },
-            { label: '30 × 75 cm × 0.5 mm',  base: 11 },
+            { label: '35 × 55 cm × 0.5 mm', base: 5.90 },
+            { label: '50 × 75 cm × 0.5 mm', base: 7.08 },
         ],
         'pu-sheet': [
-            { label: '70 × 180 cm × 0.5 mm',  base: 24 },
-            { label: '68 × 99 cm × 0.5 mm',   base: 16 },
-            { label: '68 × 138 cm × 0.5 mm',  base: 20 },
-            { label: '68 × 153 cm × 0.5 mm',  base: 22 },
-            { label: '68 × 183 cm × 0.5 mm',  base: 26 },
-            { label: '68 × 198 cm × 0.5 mm',  base: 28 },
+            { label: '70 × 180 cm × 0.5 mm', base: 15.68 },
+            { label: '140 × 180 cm × 0.5 mm', base: 24.44 },
+            { label: '68 × 99 cm × 0.5 mm', base: 11.46 },
+            { label: '68 × 138 cm × 0.5 mm', base: 13.99 },
+            { label: '68 × 153 cm × 0.5 mm', base: 15.00 },
+            { label: '68 × 183 cm × 0.5 mm', base: 16.01 },
+            { label: '68 × 198 cm × 0.5 mm', base: 16.52 },
         ],
         'pu-mouse': [
-            { label: '60 × 26 cm × 2.5 mm', base: 7 },
-            { label: '68 × 26 cm × 2.5 mm', base: 8 },
+            { label: '60 × 26 cm × 2.5 mm', base: 7.08 },
+            { label: '68 × 26 cm × 2.5 mm', base: 7.42 },
         ],
         'pu-yoga': [
-            { label: '60 × 180 cm × 7 mm',  base: 26 },
-            { label: '60 × 180 cm × 10 mm', base: 32 },
+            { label: '60 × 180 cm × 7 mm', base: 25.29 },
+            { label: '60 × 180 cm × 10 mm', base: 27.48 },
         ],
         'grounding-cord': [
-            { label: 'Gen-1 (100KΩ resistor) + Type-A plug',  base: 8 },
-            { label: 'Gen-1 (100KΩ resistor) + EU plug',     base: 9 },
-            { label: 'Gen-1 (100KΩ resistor) + UK plug',     base: 9 },
-            { label: 'Gen-1 (100KΩ resistor) + AU plug',     base: 9 },
-            { label: 'SafetyValve+™ (Gen-2) + Type-A plug', base: 14 },
+            { label: '2nd US Version (Adjustable)', base: 6.43 },
         ],
         'changeover-plug': [
-            { label: 'EU plug',  base: 4 },
-            { label: 'UK plug',  base: 4 },
-            { label: 'IT plug',  base: 4 },
-            { label: 'CH plug',  base: 4 },
-            { label: 'ISR plug', base: 4 },
-            { label: 'AU plug',  base: 4 },
+            { label: 'EU / UK / ITY / CH / ISR / AU', base: 1.71 },
         ],
         'conductive-tester': [
-            { label: 'Standard (Continuity Tester)', base: 9 },
+            { label: 'Standard', base: 5.57 },
         ],
         'testing-pen': [
-            { label: 'Voltage Detection Pen', base: 6 },
+            { label: 'Standard', base: 1.07 },
         ],
         'outlet-checker': [
-            { label: 'US — 3-wire outlet tester', base: 7 },
-            { label: 'EU — European outlet tester', base: 7 },
-            { label: 'UK — British outlet tester', base: 8 },
-            { label: 'AU — Australian outlet tester', base: 8 },
+            { label: 'US', base: 1.71 },
+            { label: 'EU / UK', base: 4.29 },
+            { label: 'AU', base: 5.79 },
         ],
     };
 
-    // ── Tier Logic ───────────────────────────────────────────────────────────
+    // ── Tier Logic (3-tier, matches ecobridgegrounding.com) ─────────────────
     function getTier(qty) {
-        if (qty >= 501)  return { label: 'Large Batch',  pct: 18, badge: 'green' };
-        if (qty >= 201)  return { label: 'Medium Batch', pct: 12, badge: 'blue'  };
-        if (qty >= 51)   return { label: 'Small Batch',  pct: 6,  badge: 'green' };
-        return            { label: 'Standard',       pct: 0,  badge: 'gold'  };
+        if (qty >= 501) return { label: 'Tier 3 — 501–1000 pcs (Best Price)',    pct: 4, badge: 'green' };
+        if (qty >= 201) return { label: 'Tier 2 — 201–500 pcs (Volume Discount)', pct: 2, badge: 'blue'  };
+        return           { label: 'Tier 1 — 11–200 pcs (Standard Rate)',        pct: 0, badge: 'gold'  };
     }
 
     function getTierBadge(pct) {
-        if (pct >= 15) return 'green';
-        if (pct >= 8)  return 'green';
-        if (pct >= 3)  return 'blue';
+        if (pct >= 3) return 'green';
+        if (pct >= 1) return 'blue';
         return 'gold';
     }
 
