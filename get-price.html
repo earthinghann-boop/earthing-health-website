@@ -11,21 +11,50 @@
         body { overflow-x: hidden; }
 
         /* Hero banner */
+        /* ── Hero with slanted bottom edge ─────────────────────────────────── */
         .gp-hero {
             background: url("images/hero-bg.jpg") center / cover no-repeat;
             position: relative;
-            height: 620px;
+            height: 560px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             overflow: hidden;
+            /* slanted bottom edge — left higher, right lower */
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+        }
+        .gp-hero::before {
+            /* dark gradient overlay for text legibility */
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.30) 100%);
+            z-index: 1;
         }
         .gp-hero-inner {
-            /* single block — h1 above, p below, stacked vertically */
+            position: relative;
+            z-index: 2;
             max-width: 820px;
             padding: 0 24px;
             margin: 0 auto;
+        }
+        .gp-hero-inner h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 50px;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 16px;
+            line-height: 1.18;
+            text-shadow: 0 2px 18px rgba(0,0,0,0.5);
+        }
+        .gp-hero-inner p {
+            font-size: 17px;
+            color: rgba(255,255,255,0.92);
+            max-width: 540px;
+            margin: 0 auto;
+            line-height: 1.6;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.45);
         }
         .gp-hero::before {
             content: '';
@@ -92,6 +121,55 @@
         }
         .form-input::placeholder { color: #b0aa98; }
         .input-hint { font-size: 12px; color: #8a8870; margin-top: 5px; }
+
+        /* ── Product Preview ─────────────────────────────────────────── */
+        .product-preview {
+            margin-top: 24px;
+            min-height: 280px;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #f8f5ef;
+            border: 1.5px solid #e0dbd0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: background 0.25s ease;
+        }
+        .product-preview.has-image {
+            background: #ffffff;
+        }
+        .product-preview img {
+            max-width: 100%;
+            max-height: 360px;
+            object-fit: contain;
+            display: block;
+        }
+        .preview-label {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(58, 92, 46, 0.92);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 5px 12px;
+            border-radius: 30px;
+            text-transform: uppercase;
+        }
+        .preview-empty {
+            color: #b0aa98;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+        .preview-empty-text {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1.5px dashed #d4cebd;
+            border-radius: 30px;
+        }
 
         .price-display {
             margin-top: 28px; padding: 22px 28px;
@@ -239,7 +317,7 @@
             <div class="form-grid">
                 <div class="form-group">
                     <label>Product <span class="req">*</span></label>
-                    <select class="form-select" id="productSelect" onchange="updateSizes()">
+                    <select class="form-select" id="productSelect" onchange="updateSizes();updatePreview()">
                         <option value="">Select a product</option>
                         <option value="fitted-sheet">Fitted Sheet (Bed Sheet)</option>
                         <option value="mattress-pad">Mattress Pad / Mat</option>
@@ -262,6 +340,13 @@
                            min="11" max="1000" value=""
                            oninput="calculatePrice()">
                     <p class="input-hint">Online estimates are available from 11 to 1,000 pieces per order</p>
+                </div>
+            </div>
+
+            <!-- Product Preview (changes when Product select changes) -->
+            <div class="product-preview" id="productPreview">
+                <div class="preview-empty">
+                    <span class="preview-empty-text">PRODUCT PREVIEW</span>
                 </div>
             </div>
 
@@ -363,6 +448,29 @@
         if (pct >= 8)  return 'green';
         if (pct >= 3)  return 'blue';
         return 'gold';
+    }
+
+    // ── Product Preview ──────────────────────────────────────────────────────
+    const PREVIEW_MAP = {
+        'fitted-sheet':    { img: 'images/previews/fitted-sheet.jpg',   name: 'Fitted Sheet (Bed Sheet)' },
+        'mattress-pad':    { img: 'images/previews/mattress-pad.jpg',   name: 'Mattress Pad / Mat' },
+        'pillowcase':      { img: 'images/previews/pillowcase.jpg',     name: 'Pillowcase' },
+        'half-sheet':      { img: 'images/previews/half-sheet.jpg',     name: 'Half Sheet / Flat Sheet' },
+        'grounding-cord':  { img: 'images/previews/grounding-cord.jpg', name: 'Grounding Cord' },
+        'laundry-bag':     { img: 'images/previews/laundry-bag.jpg',    name: 'Silver Fiber Laundry Bag' }
+    };
+
+    function updatePreview() {
+        const product = document.getElementById('productSelect').value;
+        const preview = document.getElementById('productPreview');
+        if (!product || !PREVIEW_MAP[product]) {
+            preview.className = 'product-preview';
+            preview.innerHTML = '<div class="preview-empty"><span class="preview-empty-text">PRODUCT PREVIEW</span></div>';
+            return;
+        }
+        const data = PREVIEW_MAP[product];
+        preview.className = 'product-preview has-image';
+        preview.innerHTML = `<img src="${data.img}" alt="${data.name}"><span class="preview-label">${data.name}</span>`;
     }
 
     // ── Update Sizes Dropdown ────────────────────────────────────────────────
