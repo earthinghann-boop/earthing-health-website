@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earthing Fitted Sheet - Premium Grounding Bedding | EARTHING</title>
+    <meta name="description" content="Premium earthing fitted sheet manufacturer offering OEM & wholesale grounding fitted sheets with silver fiber and cotton materials. Custom sizes, colors and private label available.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ── Product Page Hero ── */
+        .product-hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-hero-bg {
+            position: absolute;
+            top: 0; right: 0;
+            width: 50%; height: 100%;
+            background: url('https://ecobridgegrounding.com/wp-content/uploads/2026/07/1166ea2b-301c-4d91-8aeb-5f895d8b1e20.jpg') center/cover no-repeat;
+            opacity: 1;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+        }
+        .product-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 80px;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+        .product-hero-text { max-width: 620px; }
+        .product-hero .section-label {
+            display: inline-block;
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+        .product-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-weight: 500;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: var(--color-text);
+        }
+        .product-hero h1 .highlight { color: var(--color-primary); }
+        .product-hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin-bottom: 35px;
+            line-height: 1.8;
+        }
+        .hero-cta { display: flex; gap: 15px; flex-wrap: wrap; }
+
+        /* ── Quick Features Strip ── */
+        .quick-features {
+            background: var(--color-primary);
+            padding: 40px 0;
+        }
+        .quick-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .quick-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+        }
+        .quick-feature-icon {
+            width: 44px; height: 44px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+        .quick-feature-text strong {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .quick-feature-text span {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* ── Section Shared ── */
+        .section { padding: var(--section-padding) 0; }
+        .section-alt { background: var(--color-bg-alt); }
+        .section-white { background: #fff; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* ── Intro Section ── */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .intro-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        .intro-content .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+        .intro-content h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .intro-content p {
+            color: var(--color-text-light);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        /* ── Specs Table ── */
+        .specs-section { padding: 80px 0; background: var(--color-white); }
+        .specs-section .section-header { text-align: center; margin-bottom: 50px; }
+        .specs-section .section-label {
+            display: inline-block; font-size: 0.8rem; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--color-primary); margin-bottom: 12px;
+        }
+        .specs-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 500; margin-bottom: 16px;
+        }
+        .specs-section > .container > p {
+            text-align: center; color: var(--color-text-light);
+            max-width: 600px; margin: 0 auto 50px;
+        }
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .spec-card {
+            background: var(--color-bg);
+            border-radius: 16px;
+            padding: 35px 30px;
+            border: 1px solid var(--color-border);
+        }
+        .spec-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--color-primary);
+            display: flex; align-items: center; gap: 10px;
+        }
+        .spec-card h3 .spec-icon { font-size: 1.4rem; }
+        .spec-list { list-style: none; }
+        .spec-list li {
+            display: flex; justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.95rem;
+        }
+        .spec-list li:last-child { border-bottom: none; }
+        .spec-list li .spec-key { color: var(--color-text-light); font-weight: 500; }
+        .spec-list li .spec-val { color: var(--color-text); font-weight: 600; }
+
+        /* ── Material Cards ── */
+        .material-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .material-card {
+            background: var(--color-white);
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            text-align: center;
+        }
+        .material-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--color-text);
+        }
+        .material-tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 20px; }
+        .material-tag {
+            background: rgba(45,90,61,0.08);
+            color: var(--color-primary);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .material-card p { color: var(--color-text-light); font-size: 0.9rem; }
+
+        /* ── Feature Icons Grid ── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .feature-card {
+            background: var(--color-white);
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+        }
+        .feature-icon {
+            width: 70px; height: 70px;
+            margin: 0 auto 20px;
+            background: rgba(45,90,61,0.08);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem;
+        }
+        .feature-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .feature-card p {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* ── How It Works ── */
+        .how-it-works { background: var(--color-bg-alt); }
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .how-step {
+            text-align: center;
+            position: relative;
+        }
+        .how-step::after {
+            content: '→';
+            position: absolute;
+            right: -18px; top: 30px;
+            font-size: 1.5rem;
+            color: var(--color-primary);
+        }
+        .how-step:last-child::after { display: none; }
+        .step-num {
+            width: 60px; height: 60px;
+            margin: 0 auto 20px;
+            background: var(--color-primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .how-step h4 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+        .how-step p {
+            color: var(--color-text-light);
+            font-size: 0.88rem;
+        }
+        .how-image {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .how-image img {
+            max-width: 800px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* ── Why Choose ── */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .why-card {
+            padding: 35px;
+            background: var(--color-bg);
+            border-radius: 16px;
+            border: 1px solid var(--color-border);
+        }
+        .why-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        .why-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .why-card p {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+        }
+
+        /* ── FAQ ── */
+        .faq-section { background: var(--color-bg-alt); }
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        details {
+            background: var(--color-white);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+        summary {
+            padding: 20px 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            color: var(--color-text);
+            transition: color 0.2s;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary:hover { color: var(--color-primary); }
+        summary .faq-plus {
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            font-weight: 300;
+            transition: transform 0.3s;
+        }
+        details[open] summary .faq-plus { transform: rotate(45deg); }
+        .faq-answer {
+            padding: 0 25px 22px;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        .cta-section p {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            margin-bottom: 35px;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-section .btn {
+            background: #fff;
+            color: var(--color-primary);
+            border: none;
+            padding: 16px 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .cta-section .btn:hover {
+            background: var(--color-secondary);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .quick-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: 1fr 1fr; }
+            .how-steps { grid-template-columns: repeat(2, 1fr); }
+            .how-step::after { display: none; }
+        }
+        @media (max-width: 768px) {
+            .product-hero-bg {
+                width: 100%; height: 35%;
+                top: auto; bottom: 0;
+                opacity: 0.4;
+                clip-path: none;
+                -webkit-mask-image: none;
+                mask-image: none;
+            }
+            .product-hero-content { padding: 100px 20px 50px; }
+            .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+            .material-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .how-steps { grid-template-columns: 1fr; }
+            .quick-features-grid { grid-template-columns: 1fr 1fr; }
+            .specs-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo/earthing-logo.png" alt="EARTHING Logo">
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li class="nav-dropdown">
+                    <a href="index.html#products">Products <span class="dropdown-arrow">▼</span></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="grounding-sheets.html">Grounding Sheets</a></li>
+                        <li><a href="earthing-fitted-sheet.html">Earthing Fitted Sheet</a></li>
+                        <li><a href="grounding-mat.html">Grounding Mat</a></li>
+                        <li><a href="pu-earthing-mat.html">PU Earthing Mat</a></li>
+                        <li><a href="grounding-pillow-cases.html">Grounding Pillow Cases</a></li>
+                        <li><a href="grounding-blanket.html">Grounding Blanket</a></li>
+                        <li><a href="grounding-kit.html">Grounding Kit</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#technology">Technology</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="get-price.html" class="nav-cta">Get Price</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="product-hero" id="home">
+        <div class="product-hero-bg"></div>
+        <div class="product-hero-content">
+            <div class="product-hero-text">
+                <span class="section-label">Premium Earthing Bedding</span>
+                <h1>
+                    <span class="title-line">Earthing Fitted Sheet</span><br>
+                    <span class="title-line highlight">Sleep Grounded, Live Better</span>
+                </h1>
+                <p class="product-hero-subtitle">
+                    Premium silver fiber grounding fitted sheet for a comfortable and secure mattress fit — factory-direct for wholesalers, brands, and private label partners worldwide.
+                </p>
+                <div class="hero-cta">
+                    <a href="get-price.html" class="btn btn-primary">Get Wholesale Quote</a>
+                    <a href="#specs" class="btn btn-outline">View Specifications</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Features Strip -->
+    <div class="quick-features">
+        <div class="quick-features-grid">
+            <div class="quick-feature">
+                <div class="quick-feature-icon">🏭</div>
+                <div class="quick-feature-text">
+                    <strong>Factory Direct</strong>
+                    <span>10+ Years Experience</span>
+                </div>
+            </div>
+            <div class="quick-feature">
+                <div class="quick-feature-icon">🎨</div>
+                <div class="quick-feature-text">
+                    <strong>OEM &amp; ODM</strong>
+                    <span>Custom Logo &amp; Packaging</span>
+                </div>
+            </div>
+            <div class="quick-feature">
+                <div class="quick-feature-icon">📦</div>
+                <div class="quick-feature-text">
+                    <strong>Low MOQ</strong>
+                    <span>Flexible Order Quantities</span>
+                </div>
+            </div>
+            <div class="quick-feature">
+                <div class="quick-feature-icon">🌍</div>
+                <div class="quick-feature-text">
+                    <strong>Global Shipping</strong>
+                    <span>30+ Countries Served</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Introduction -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-image">
+                    <img src="https://ecobridgegrounding.com/wp-content/uploads/2026/07/1166ea2b-301c-4d91-8aeb-5f895d8b1e20.jpg" alt="Earthing Fitted Sheet Color Options">
+                </div>
+                <div class="intro-content">
+                    <span class="section-label">Product Overview</span>
+                    <h2>Premium Earthing Fitted Sheet Manufacturer</h2>
+                    <p>EcoBridge earthing fitted sheets are engineered for a secure, comfortable mattress fit while delivering reliable grounding performance through high-quality conductive silver fibers woven into premium fabrics.</p>
+                    <p>Designed for global distributors, wellness brands, retailers, and private label businesses, our grounding fitted sheets combine cutting-edge conductive textile technology with exceptional comfort — so your customers sleep better while staying grounded.</p>
+                    <p>With a decade of manufacturing expertise, state-of-the-art production facilities, and rigorous quality control, EcoBridge delivers earthing products that meet the highest international standards.</p>
+                    <a href="get-price.html" class="btn btn-primary" style="margin-top:10px;">Request Wholesale Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Material Options -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Materials</span>
+                <h2>Material Options</h2>
+            </div>
+            <div class="material-grid">
+                <div class="material-card">
+                    <h3>95% Cotton + 5% Silver Fiber</h3>
+                    <div class="material-tags">
+                        <span class="material-tag">Soft &amp; Comfortable</span>
+                        <span class="material-tag">Anti-Static</span>
+                        <span class="material-tag">Antibacterial</span>
+                        <span class="material-tag">Organic Cotton</span>
+                    </div>
+                    <p>The classic grounding fabric blend — combining the softness of organic cotton with silver fiber conductivity. Ideal for everyday use with excellent durability wash after wash.</p>
+                </div>
+                <div class="material-card">
+                    <h3>95% Bamboo Fiber + 5% Silver Fiber</h3>
+                    <div class="material-tags">
+                        <span class="material-tag">Cooling &amp; Breathable</span>
+                        <span class="material-tag">Anti-Static</span>
+                        <span class="material-tag">Moisture-Wicking</span>
+                        <span class="material-tag">Antibacterial</span>
+                    </div>
+                    <p>Naturally temperature-regulating bamboo fiber blended with conductive silver fiber for a cooler, drier sleep surface. Perfect for warmer climates and hot sleepers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications -->
+    <section class="specs-section" id="specs">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Specs</span>
+                <h2>Product Specifications</h2>
+            </div>
+            <p>Standard sizes in stock. Custom dimensions available for OEM orders.</p>
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <h3><span class="spec-icon">📐</span> Available Sizes</h3>
+                    <ul class="spec-list">
+                        <li><span class="spec-key">Twin</span><span class="spec-val">39 × 75 in (99 × 190 cm)</span></li>
+                        <li><span class="spec-key">Full</span><span class="spec-val">54 × 75 in (137 × 190 cm)</span></li>
+                        <li><span class="spec-key">Queen</span><span class="spec-val">60 × 80 in (152 × 203 cm)</span></li>
+                        <li><span class="spec-key">King</span><span class="spec-val">78 × 80 in (198 × 203 cm)</span></li>
+                        <li><span class="spec-key">Custom</span><span class="spec-val">Available on request</span></li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3><span class="spec-icon">🧵</span> Materials</h3>
+                    <ul class="spec-list">
+                        <li><span class="spec-key">Option 1</span><span class="spec-val">95% Cotton + 5% Silver Fiber</span></li>
+                        <li><span class="spec-key">Option 2</span><span class="spec-val">95% Bamboo Fiber + 5% Silver Fiber</span></li>
+                        <li><span class="spec-key">Conductive Fiber</span><span class="spec-val">Silver (Ag)</span></li>
+                        <li><span class="spec-key">Fit Type</span><span class="spec-val">Deep Pocket Fitted Sheet</span></li>
+                        <li><span class="spec-key">Custom</span><span class="spec-val">Custom blends available</span></li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3><span class="spec-icon">🎨</span> Colors &amp; Plugs</h3>
+                    <ul class="spec-list">
+                        <li><span class="spec-key">Colors</span><span class="spec-val">Multiple colors available</span></li>
+                        <li><span class="spec-key">Plug Types</span><span class="spec-val">US / EU / UK / AU / Universal</span></li>
+                        <li><span class="spec-key">Cord Length</span><span class="spec-val">Standard 4.5m / Custom</span></li>
+                        <li><span class="spec-key">Connection</span><span class="spec-val">Snap-on conductive snap</span></li>
+                        <li><span class="spec-key">Custom</span><span class="spec-val">Logo &amp; packaging available</span></li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3><span class="spec-icon">🏆</span> Quality &amp; Certification</h3>
+                    <ul class="spec-list">
+                        <li><span class="spec-key">Factory</span><span class="spec-val">10,000 m² production facility</span></li>
+                        <li><span class="spec-key">Output</span><span class="spec-val">10,000+ pieces daily</span></li>
+                        <li><span class="spec-key">MOQ</span><span class="spec-val">Flexible — brand solutions</span></li>
+                        <li><span class="spec-key">Samples</span><span class="spec-val">Available for quality check</span></li>
+                        <li><span class="spec-key">Lead Time</span><span class="spec-val">Based on order qty</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Available Colors -->
+    <section class="section section-alt">
+        <div class="container" style="text-align:center;">
+            <span class="section-label">Customization</span>
+            <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:500;margin-bottom:10px;">Available Colors</h2>
+            <p style="color:var(--color-text-light);margin-bottom:40px;">A variety of colors to match your brand and market</p>
+            <img src="https://ecobridgegrounding.com/wp-content/uploads/2026/07/1166ea2b-301c-4d91-8aeb-5f895d8b1e20.jpg" alt="Earthing Fitted Sheet Available Colors" style="max-width:900px;width:100%;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.1);">
+        </div>
+    </section>
+
+    <!-- Sizes Diagram -->
+    <section class="section section-white">
+        <div class="container" style="text-align:center;">
+            <span class="section-label">Sizing</span>
+            <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:500;margin-bottom:10px;">Available Sizes</h2>
+            <p style="color:var(--color-text-light);margin-bottom:40px;">Standard sizes in stock — custom sizes available</p>
+            <img src="https://ecobridgegrounding.com/wp-content/uploads/2026/07/904ed570-a703-45e6-ae4b-fd05594a32f51-1024x814.jpg" alt="Earthing Fitted Sheet Size Guide" style="max-width:900px;width:100%;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.1);">
+        </div>
+    </section>
+
+    <!-- Plug Options -->
+    <section class="section section-alt">
+        <div class="container" style="text-align:center;">
+            <span class="section-label">Accessories</span>
+            <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:500;margin-bottom:10px;">Plug &amp; Cord Options</h2>
+            <p style="color:var(--color-text-light);margin-bottom:40px;">Compatible with grounding systems worldwide</p>
+            <img src="https://ecobridgegrounding.com/wp-content/uploads/2026/07/5fc677bf-119a-4c55-8b47-e84f0c3f1d511-1024x572.jpg" alt="Grounding Plug Options" style="max-width:900px;width:100%;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.1);">
+        </div>
+    </section>
+
+    <!-- How Grounding Works -->
+    <section class="section section-white how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Technology</span>
+                <h2>How Grounding Works</h2>
+                <p style="color:var(--color-text-light);max-width:600px;margin:12px auto 0;">Reconnect your body to the Earth's natural electric energy through our conductive silver fiber technology</p>
+            </div>
+            <div class="how-steps">
+                <div class="how-step">
+                    <div class="step-num">1</div>
+                    <h4>Sleep on the Sheet</h4>
+                    <p>The silver fiber woven into the fabric conducts Earth's electrons</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">2</div>
+                    <h4>Connect the Cord</h4>
+                    <p>Snap the grounding cord onto the sheet's conductive snap point</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">3</div>
+                    <h4>Ground to Earth</h4>
+                    <p>Plug into a grounded wall outlet or use a ground rod outdoors</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">4</div>
+                    <h4>Feel the Difference</h4>
+                    <p>Experience improved sleep, reduced inflammation &amp; natural wellness</p>
+                </div>
+            </div>
+            <div class="how-image">
+                <img src="https://ecobridgegrounding.com/wp-content/uploads/2026/07/da7fb670-e5fd-4a12-b18b-14e34c9a279a.png" alt="How Grounding Works Diagram">
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Features -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Features</span>
+                <h2>Product Features</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Premium Silver Fiber</h3>
+                    <p>High-purity silver fibers woven throughout for reliable, lasting electrical conductivity that never washes out.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛏️</div>
+                    <h3>Comfortable &amp; Soft</h3>
+                    <p>Engineered for exceptional comfort — you'll forget you're sleeping on a grounding sheet. Premium feel, every night.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Stable Conductivity</h3>
+                    <p>Consistent electrical connection from edge to edge. No hot spots, no dead zones — full-body grounding coverage.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧺</div>
+                    <h3>Machine Washable</h3>
+                    <p>Easy-care design maintains conductivity and fabric quality through repeated washing cycles.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Eco-Friendly Materials</h3>
+                    <p>Sustainably sourced organic cotton and bamboo fiber with no harmful chemicals or synthetic coatings.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏭</div>
+                    <h3>OEM &amp; ODM Support</h3>
+                    <p>Full custom manufacturing — your logo, your packaging, your brand. Low MOQ for emerging brands and startups.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Why EARTHING</span>
+                <h2>Why Choose EcoBridge Earthing Bedding?</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">🔍</div>
+                    <h3>Reliable Quality Control</h3>
+                    <p>Strict inspection throughout every stage of production. Each piece is tested for conductivity before leaving our facility.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💰</div>
+                    <h3>Competitive Factory Pricing</h3>
+                    <p>Direct-from-manufacturer pricing with no middlemen. Get premium earthing products at wholesale rates.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">📦</div>
+                    <h3>Flexible MOQ</h3>
+                    <p>Whether you're a startup or a major retailer, we have solutions tailored to your order volume and budget.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Factory Stats -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Factory</span>
+                <h2>Built on Experience, Driven by Quality</h2>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center;">
+                <div>
+                    <div style="font-family:var(--font-display);font-size:3rem;font-weight:600;color:var(--color-primary);line-height:1;">10+</div>
+                    <div style="color:var(--color-text-light);font-size:0.9rem;margin-top:6px;">Years Experience</div>
+                </div>
+                <div>
+                    <div style="font-family:var(--font-display);font-size:3rem;font-weight:600;color:var(--color-primary);line-height:1;">30+</div>
+                    <div style="color:var(--color-text-light);font-size:0.9rem;margin-top:6px;">Countries Served</div>
+                </div>
+                <div>
+                    <div style="font-family:var(--font-display);font-size:3rem;font-weight:600;color:var(--color-primary);line-height:1;">10,000m²</div>
+                    <div style="color:var(--color-text-light);font-size:0.9rem;margin-top:6px;">Production Facility</div>
+                </div>
+                <div>
+                    <div style="font-family:var(--font-display);font-size:3rem;font-weight:600;color:var(--color-primary);line-height:1;">10,000+</div>
+                    <div style="color:var(--color-text-light);font-size:0.9rem;margin-top:6px;">Daily Output</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">FAQ</span>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+                <details>
+                    <summary>
+                        How do I use the earthing fitted sheet?
+                        <span class="faq-plus">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        Place the earthing fitted sheet on your mattress with the conductive side facing up. Connect the included grounding cord to the snap point on the sheet and plug it into a properly grounded wall outlet (or use a ground rod for outdoor use). Once connected, the silver fibers conduct Earth's electrons through your body as you sleep.
+                    </div>
+                </details>
+                <details>
+                    <summary>
+                        What materials are used in your earthing fitted sheets?
+                        <span class="faq-plus">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        We offer two premium material options: <strong>95% Organic Cotton + 5% Silver Fiber</strong> for a soft, classic feel, and <strong>95% Bamboo Fiber + 5% Silver Fiber</strong> for superior breathability and cooling. Both blends incorporate high-purity silver fibers that provide reliable, long-lasting conductivity.
+                    </div>
+                </details>
+                <details>
+                    <summary>
+                        Can I wash the earthing fitted sheet?
+                        <span class="faq-plus">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        Yes. Our earthing fitted sheets are fully machine washable. Use a gentle cycle with cold or warm water and mild detergent. Avoid bleach and fabric softeners. Air dry or tumble dry on low heat. The silver fibers maintain their conductivity through hundreds of wash cycles.
+                    </div>
+                </details>
+                <details>
+                    <summary>
+                        What is the minimum order quantity (MOQ)?
+                        <span class="faq-plus">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        MOQ depends on material, customization level, and order quantity requirements. We offer flexible solutions for startups, emerging brands, and established distributors. Contact us for a customized quote based on your specific needs.
+                    </div>
+                </details>
+                <details>
+                    <summary>
+                        Do you offer samples?
+                        <span class="faq-plus">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        Yes. Samples are available so you can evaluate the quality, comfort, and conductivity of our earthing fitted sheets before placing a bulk order. Contact us to request samples and discuss shipping options.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Partner with a Premium Earthing Manufacturer?</h2>
+            <p>Get a custom wholesale quote for your earthing fitted sheet order. We support OEM, ODM, private label, and custom packaging.</p>
+            <a href="get-price.html" class="btn">Get Wholesale Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo/earthing-logo.png" alt="EARTHING" class="footer-logo">
+                    <p>Premium earthing &amp; grounding products manufacturer. Reconnecting humanity with Earth's natural energy through innovative textile technology.</p>
+                    <p class="footer-tagline">"Grounded in Nature, Crafted for Wellness"</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="grounding-sheets.html">Grounding Sheets</a></li>
+                        <li><a href="earthing-fitted-sheet.html">Earthing Fitted Sheet</a></li>
+                        <li><a href="grounding-mat.html">Grounding Mat</a></li>
+                        <li><a href="pu-earthing-mat.html">PU Earthing Mat</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>More</h4>
+                    <ul>
+                        <li><a href="grounding-pillow-cases.html">Grounding Pillow Cases</a></li>
+                        <li><a href="grounding-blanket.html">Grounding Blanket</a></li>
+                        <li><a href="grounding-kit.html">Grounding Kit</a></li>
+                        <li><a href="get-price.html">Get Price</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#technology">Technology</a></li>
+                        <li><a href="get-price.html">Wholesale Quote</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EARTHING. All rights reserved. Premium Earthing Health Technology.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        var btn = document.getElementById('mobileMenuBtn');
+        var nav = document.getElementById('navLinks');
+        if (btn && nav) {
+            btn.addEventListener('click', function () {
+                nav.classList.toggle('active');
+                btn.classList.toggle('active');
+            });
+        }
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            var nav = document.getElementById('navbar');
+            if (nav) {
+                if (window.scrollY > 50) nav.classList.add('scrolled');
+                else nav.classList.remove('scrolled');
+            }
+        });
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+            a.addEventListener('click', function (e) {
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
