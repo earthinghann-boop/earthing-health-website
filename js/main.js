@@ -43,6 +43,16 @@ function initNavigation() {
         });
     });
 
+    // Mobile dropdown toggle
+    document.querySelectorAll('.nav-dropdown > a').forEach(dropdownToggle => {
+        dropdownToggle.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                this.parentElement.classList.toggle('open');
+            }
+        });
+    });
+
     // Active link on scroll
     const sections = document.querySelectorAll('section[id]');
     
