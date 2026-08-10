@@ -21,16 +21,20 @@
             display: flex;
             align-items: center;
             overflow: hidden;
-            background: linear-gradient(135deg, #1D3A2D 0%, #2D5A3D 50%, #3D7A52 100%);
+            background: #ffffff;
         }
 
-        .product-hero-bg {
+        /* 白底右图渐变过渡遮罩：覆盖在图片左侧，形成左白右实的渐变 */
+        .product-hero-image::before {
+            content: '';
             position: absolute;
-            inset: 0;
-            background-image: url('images/hero-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.25;
+            top: 0;
+            left: 0;
+            width: 35%;
+            height: 100%;
+            background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0) 100%);
+            z-index: 3;
+            pointer-events: none;
         }
 
         .product-hero .container {
@@ -49,12 +53,12 @@
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 500;
             line-height: 1.15;
-            color: var(--color-white);
+            color: #1D3A2D;
             margin-bottom: 20px;
         }
 
         .product-hero-text h1 .highlight {
-            color: var(--color-secondary);
+            color: #2D7A4F;
         }
 
         .product-hero-text .hero-subheading {
@@ -63,13 +67,13 @@
             font-weight: 600;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--color-secondary);
+            color: #2D7A4F;
             margin-bottom: 15px;
         }
 
         .product-hero-text .hero-description {
             font-size: 1.1rem;
-            color: rgba(255,255,255,0.85);
+            color: #444;
             line-height: 1.8;
             margin-bottom: 35px;
             max-width: 520px;
@@ -77,13 +81,15 @@
 
         .product-hero-image {
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
+            position: relative;
         }
 
         .product-hero-image img {
             max-height: 580px;
             width: auto;
+            max-width: 100%;
             object-fit: contain;
             border-radius: 8px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.4);
@@ -130,6 +136,18 @@
         .btn-outline-white:hover {
             border-color: var(--color-white);
             background: rgba(255,255,255,0.1);
+        }
+
+        /* Hero on white bg — green outline button */
+        .product-hero .btn-outline-white {
+            color: #2D7A4F;
+            border-color: #2D7A4F;
+        }
+
+        .product-hero .btn-outline-white:hover {
+            background: #2D7A4F;
+            color: #fff;
+            border-color: #2D7A4F;
         }
 
         /* Stats Bar */
@@ -918,7 +936,9 @@
                     <a href="#intro" class="btn-outline-white">Learn More</a>
                 </div>
             </div>
-
+            <div class="product-hero-image">
+                <img src="images/grounding-sheets/hero-naika.jpg" alt="Grounding Sheets - Multiple Colors">
+            </div>
         </div>
     </section>
 
