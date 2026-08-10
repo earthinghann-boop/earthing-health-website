@@ -17,7 +17,7 @@
         /* Product Hero */
         .product-hero {
             position: relative;
-            min-height: 85vh;
+            min-height: auto;
             display: flex;
             align-items: center;
             overflow: hidden;
@@ -82,17 +82,17 @@
         .product-hero-image {
             display: flex;
             justify-content: flex-end;
-            align-items: stretch;
+            align-items: center;
             position: relative;
-            height: 100%;
-            min-height: 580px;
+            height: auto;
             overflow: hidden;
         }
 
         .product-hero-image img {
-            height: 100%;
             width: 100%;
-            object-fit: cover;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
             border-radius: 0;
             box-shadow: none;
         }
