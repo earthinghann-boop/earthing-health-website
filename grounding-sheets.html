@@ -18,34 +18,52 @@
         .product-hero {
             position: relative;
             min-height: auto;
-            display: flex;
-            align-items: center;
             overflow: hidden;
             background: #ffffff;
         }
 
-        /* 白底右图渐变过渡遮罩：覆盖在图片左侧，形成左白右实的渐变 */
-        .product-hero-image::before {
-            content: '';
+        /* 图片顶满整个 hero 背景 */
+        .product-hero-image {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+        .product-hero-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        /* 文字容器覆盖在图片左上方 */
+        .product-hero .container.has-hero-image {
             position: absolute;
             top: 0;
             left: 0;
-            width: 35%;
-            height: 100%;
-            background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0) 100%);
-            z-index: 3;
-            pointer-events: none;
-        }
-
-        .product-hero .container {
-            position: relative;
+            right: 0;
+            bottom: 0;
             z-index: 2;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            display: flex;
             align-items: center;
             padding-top: 100px;
             padding-bottom: 60px;
+            pointer-events: none;
+        }
+
+        .product-hero .container.has-hero-image > * {
+            pointer-events: auto;
+        }
+
+        .product-hero-text {
+            max-width: 520px;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(8px);
+            padding: 40px 50px;
+            border-radius: 8px;
         }
 
         .product-hero-text h1 {
@@ -73,28 +91,9 @@
 
         .product-hero-text .hero-description {
             font-size: 1.1rem;
-            color: #444;
+            color: #333;
             line-height: 1.8;
             margin-bottom: 35px;
-            max-width: 520px;
-        }
-
-        .product-hero-image {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            position: relative;
-            height: auto;
-            overflow: hidden;
-        }
-
-        .product-hero-image img {
-            width: 100%;
-            height: auto;
-            max-height: 80vh;
-            object-fit: contain;
-            border-radius: 0;
-            box-shadow: none;
         }
 
         .product-hero .hero-cta {
@@ -922,8 +921,10 @@
 
     <!-- Hero Section -->
     <section class="product-hero" id="home">
-        <div class="product-hero-bg"></div>
-        <div class="container">
+        <div class="product-hero-image">
+            <img src="images/grounding-sheets/hero-silveryes.jpg" alt="Grounding Sheets - Multiple Colors">
+        </div>
+        <div class="container has-hero-image">
             <div class="product-hero-text">
                 <div class="hero-subheading">Wholesale & OEM Available</div>
                 <h1>
@@ -937,9 +938,6 @@
                     <a href="get-price.html" class="btn-primary">Get Wholesale Quote</a>
                     <a href="#intro" class="btn-outline-white">Learn More</a>
                 </div>
-            </div>
-            <div class="product-hero-image">
-                <img src="images/grounding-sheets/hero-silveryes.jpg" alt="Grounding Sheets - Multiple Colors">
             </div>
         </div>
     </section>
