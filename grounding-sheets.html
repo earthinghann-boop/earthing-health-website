@@ -907,6 +907,55 @@
             opacity: 1;
             z-index: 2;
         }
+
+        /* Intro Image Carousel */
+        .intro-carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .intro-carousel img {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+        }
+        .intro-carousel-img {
+            position: absolute !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            z-index: 1;
+            transition: opacity 0.8s ease-in-out;
+            border-radius: 12px;
+        }
+        .intro-carousel-img.active {
+            opacity: 1;
+            z-index: 2;
+            position: relative !important;
+        }
+        .intro-carousel-dots {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 3;
+        }
+        .intro-carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            border: none;
+            transition: background 0.3s;
+        }
+        .intro-carousel-dot.active {
+            background: rgba(255,255,255,1);
+        }
         .hero-carousel-dots {
             position: absolute;
             bottom: 20px;
@@ -967,12 +1016,7 @@
     <!-- Hero Section -->
     <section class="product-hero" id="home">
         <div class="product-hero-image">
-            <div class="hero-carousel">
-                <img src="images/grounding-sheets/hero-silveryes.jpg" alt="Grounding Sheets - Silveryes" class="hero-carousel-slide active">
-                <img src="images/grounding-sheets/hero-naika-1801.jpg" alt="Grounding Sheets - Naika 1801" class="hero-carousel-slide">
-                <img src="images/grounding-sheets/hero-naika-1769.jpg" alt="Grounding Sheets - Naika 1769" class="hero-carousel-slide">
-                <img src="images/grounding-sheets/hero-naika-1789.jpg" alt="Grounding Sheets - Naika 1789" class="hero-carousel-slide">
-            </div>
+            <img src="images/grounding-sheets/hero-silveryes.jpg" alt="Grounding Sheets - Multiple Colors">
         </div>
         <div class="container has-hero-image">
             <div class="product-hero-text">
@@ -1023,7 +1067,18 @@
             </div>
             <div class="intro-grid">
                 <div class="intro-image">
-                    <img src="images/grounding-sheets/color-white.jpg" alt="Grounding Sheets Product">
+                    <div class="intro-carousel" id="introCarousel">
+                        <img src="images/grounding-sheets/hero-silveryes.jpg" alt="Grounding Sheets" class="intro-carousel-img active">
+                        <img src="images/grounding-sheets/hero-naika-1801.jpg" alt="Grounding Sheets" class="intro-carousel-img">
+                        <img src="images/grounding-sheets/hero-naika-1769.jpg" alt="Grounding Sheets" class="intro-carousel-img">
+                        <img src="images/grounding-sheets/hero-naika-1789.jpg" alt="Grounding Sheets" class="intro-carousel-img">
+                        <div class="intro-carousel-dots">
+                            <button class="intro-carousel-dot active" onclick="goIntroSlide(0)"></button>
+                            <button class="intro-carousel-dot" onclick="goIntroSlide(1)"></button>
+                            <button class="intro-carousel-dot" onclick="goIntroSlide(2)"></button>
+                            <button class="intro-carousel-dot" onclick="goIntroSlide(3)"></button>
+                        </div>
+                    </div>
                 </div>
                 <div class="intro-content">
                     <p>Our grounding sheets are designed to reconnect the human body to the Earth's natural energy while sleeping. Manufactured with <strong>conductive silver fibers</strong> and <strong>premium fabrics</strong>, they provide exceptional comfort, durability, and excellent conductivity.</p>
@@ -1423,17 +1478,29 @@
             });
         }
 
-        // Hero Carousel (4s auto rotate)
+        // Intro Image Carousel (4s auto rotate)
         (function() {
-            const slides = document.querySelectorAll('.hero-carousel-slide');
+            const slides = document.querySelectorAll('.intro-carousel-img');
+            const dots = document.querySelectorAll('.intro-carousel-dot');
             if (slides.length <= 1) return;
             let current = 0;
             setInterval(function() {
                 slides[current].classList.remove('active');
+                if (dots[current]) dots[current].classList.remove('active');
                 current = (current + 1) % slides.length;
                 slides[current].classList.add('active');
+                if (dots[current]) dots[current].classList.add('active');
             }, 4000);
         })();
+
+        function goIntroSlide(index) {
+            const slides = document.querySelectorAll('.intro-carousel-img');
+            const dots = document.querySelectorAll('.intro-carousel-dot');
+            slides.forEach(function(s) { s.classList.remove('active'); });
+            dots.forEach(function(d) { d.classList.remove('active'); });
+            if (slides[index]) slides[index].classList.add('active');
+            if (dots[index]) dots[index].classList.add('active');
+        }
     </script>
 </body>
 </html>
