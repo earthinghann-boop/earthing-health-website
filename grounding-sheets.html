@@ -453,6 +453,51 @@
             background: var(--color-primary, #1D3A2D);
         }
 
+        /* Plugs Card Carousel */
+        .plugs-card-carousel {
+            position: relative;
+            min-height: 220px;
+        }
+        .plugs-card-img {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            max-height: none !important;
+            object-fit: contain !important;
+            background: #ffffff;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            pointer-events: none;
+            margin: 0 !important;
+        }
+        .plugs-card-img.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .plugs-card-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+            z-index: 5;
+        }
+        .plugs-card-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .plugs-card-dot.active {
+            background: var(--color-primary, #1D3A2D);
+        }
+
         /* Sizes Carousel */
         .spec-carousel {
             position: relative;
@@ -1387,8 +1432,21 @@
                 </div>
                 <!-- Plugs -->
                 <div class="spec-card">
-                    <div class="spec-img">
-                        <img src="images/changeover-plug.jpg" alt="Plug Options">
+                    <div class="spec-img plugs-card-carousel">
+                        <img src="images/grounding-sheets/plug-1.png" alt="第二代接地线" class="plugs-card-img active">
+                        <img src="images/grounding-sheets/plug-2.png" alt="AU Plug" class="plugs-card-img">
+                        <img src="images/grounding-sheets/plug-3.png" alt="EU Plug" class="plugs-card-img">
+                        <img src="images/grounding-sheets/plug-4.png" alt="UK Plug" class="plugs-card-img">
+                        <img src="images/grounding-sheets/plug-5.png" alt="ISR Plug" class="plugs-card-img">
+                        <img src="images/grounding-sheets/plug-6.png" alt="ITY Plug" class="plugs-card-img">
+                        <div class="plugs-card-dots">
+                            <span class="plugs-card-dot active" onclick="goPlugsCardSlide(0)"></span>
+                            <span class="plugs-card-dot" onclick="goPlugsCardSlide(1)"></span>
+                            <span class="plugs-card-dot" onclick="goPlugsCardSlide(2)"></span>
+                            <span class="plugs-card-dot" onclick="goPlugsCardSlide(3)"></span>
+                            <span class="plugs-card-dot" onclick="goPlugsCardSlide(4)"></span>
+                            <span class="plugs-card-dot" onclick="goPlugsCardSlide(5)"></span>
+                        </div>
                     </div>
                     <h3>Plug Options</h3>
                     <p>Compatible with grounding systems worldwide. US, EU, UK, AU, and universal plug adapters available.</p>
@@ -1790,6 +1848,44 @@
             };
 
             const container = document.querySelector('.colors-card-carousel');
+            if (container) {
+                container.addEventListener('mouseenter', stop);
+                container.addEventListener('mouseleave', start);
+            }
+
+            start();
+        })();
+
+        // Plugs card carousel (6 images: 第二代线, AU, EU, UK, ISR, ITY)
+        (function() {
+            const slides = document.querySelectorAll('.plugs-card-img');
+            const dots = document.querySelectorAll('.plugs-card-dot');
+            let current = 0;
+            let timer;
+
+            function go(n) {
+                current = (n + slides.length) % slides.length;
+                slides.forEach(function(s) { s.classList.remove('active'); });
+                dots.forEach(function(d) { d.classList.remove('active'); });
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+
+            function start() {
+                stop();
+                timer = setInterval(function() { go(current + 1); }, 3500);
+            }
+
+            function stop() {
+                if (timer) clearInterval(timer);
+            }
+
+            window.goPlugsCardSlide = function(n) {
+                go(n);
+                start();
+            };
+
+            const container = document.querySelector('.plugs-card-carousel');
             if (container) {
                 container.addEventListener('mouseenter', stop);
                 container.addEventListener('mouseleave', start);
