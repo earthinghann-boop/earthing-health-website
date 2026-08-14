@@ -494,6 +494,115 @@
             .quick-features-grid { grid-template-columns: 1fr 1fr; }
             .specs-grid { grid-template-columns: 1fr; }
         }
+
+        /* ── Specs Carousel (Sizes/Colors/Plugs) ── */
+        .spec-img {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 12px;
+            background: var(--color-bg);
+            margin-bottom: 20px;
+        }
+        .spec-carousel-img, .colors-card-img, .plugs-card-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.7s ease-in-out;
+            pointer-events: none;
+        }
+        .spec-carousel-img.active, .colors-card-img.active, .plugs-card-img.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .spec-carousel-dots, .colors-card-dots, .plugs-card-dots {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 5;
+        }
+        .spec-dot, .colors-card-dot, .plugs-card-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.85);
+            border: 1px solid rgba(0,0,0,0.35);
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+        .spec-dot.active, .colors-card-dot.active, .plugs-card-dot.active {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        /* ── OEM Section ── */
+        .oem-section {
+            padding: 80px 0;
+            background: var(--color-bg);
+        }
+        .oem-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .oem-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 22px;
+            background: var(--color-bg);
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+            font-weight: 500;
+            color: var(--color-text);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .oem-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .oem-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .oem-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Spec cards: remove icon strip, use clean header */
+        .spec-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--color-primary);
+        }
+        .spec-card h3 .spec-icon { display: none; }
+        .spec-card p {
+            color: var(--color-text-light);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 <body>
@@ -646,126 +755,77 @@
         </div>
     </section>
 
-    <!-- Specifications -->
+    <!-- Product Specifications -->
     <section class="specs-section" id="specs">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">Specs</span>
-                <h2>Product Specifications</h2>
+                <span class="section-label">Specifications</span>
+                <h2 class="section-title">Product Specifications</h2>
             </div>
-            <p>Standard sizes in stock. Custom dimensions available for OEM orders.</p>
             <div class="specs-grid">
+                <!-- Sizes -->
                 <div class="spec-card">
-                    <h3><span class="spec-icon">📐</span> Available Sizes</h3>
-                    <ul class="spec-list">
-                        <li><span class="spec-key">Twin</span><span class="spec-val">39 × 75 in (99 × 190 cm)</span></li>
-                        <li><span class="spec-key">Full</span><span class="spec-val">54 × 75 in (137 × 190 cm)</span></li>
-                        <li><span class="spec-key">Queen</span><span class="spec-val">60 × 80 in (152 × 203 cm)</span></li>
-                        <li><span class="spec-key">King</span><span class="spec-val">78 × 80 in (198 × 203 cm)</span></li>
-                        <li><span class="spec-key">Custom</span><span class="spec-val">Available on request</span></li>
-                    </ul>
+                    <div class="spec-img spec-carousel">
+                        <img src="images/grounding-sheets/size-99.png" alt="Twin" class="spec-carousel-img active">
+                        <img src="images/grounding-sheets/size-137.png" alt="Full" class="spec-carousel-img">
+                        <img src="images/grounding-sheets/size-153.png" alt="Queen" class="spec-carousel-img">
+                        <div class="spec-carousel-dots">
+                            <span class="spec-dot active" onclick="goSpecSlide(0)"></span>
+                            <span class="spec-dot" onclick="goSpecSlide(1)"></span>
+                            <span class="spec-dot" onclick="goSpecSlide(2)"></span>
+                        </div>
+                    </div>
+                    <h3>Sizes</h3>
+                    <p>Standard sizes in stock: Twin, Full, Queen, King. Custom sizes available for OEM orders.</p>
                 </div>
+                <!-- Colors -->
                 <div class="spec-card">
-                    <h3><span class="spec-icon">🧵</span> Materials</h3>
-                    <ul class="spec-list">
-                        <li><span class="spec-key">Option 1</span><span class="spec-val">95% Cotton + 5% Silver Fiber</span></li>
-                        <li><span class="spec-key">Option 2</span><span class="spec-val">95% Bamboo Fiber + 5% Silver Fiber</span></li>
-                        <li><span class="spec-key">Conductive Fiber</span><span class="spec-val">Silver (Ag)</span></li>
-                        <li><span class="spec-key">Fit Type</span><span class="spec-val">Deep Pocket Fitted Sheet</span></li>
-                        <li><span class="spec-key">Custom</span><span class="spec-val">Custom blends available</span></li>
-                    </ul>
+                    <div class="spec-img colors-card-carousel">
+                        <img src="images/grounding-sheets/color-1.jpg" alt="Color 1" class="colors-card-img active">
+                        <img src="images/grounding-sheets/color-2.jpg" alt="Color 2" class="colors-card-img">
+                        <img src="images/grounding-sheets/color-3.jpg" alt="Color 3" class="colors-card-img">
+                        <img src="images/grounding-sheets/color-4.jpg" alt="Color 4" class="colors-card-img">
+                        <div class="colors-card-dots">
+                            <span class="colors-card-dot active" onclick="goColorsCardSlide(0)"></span>
+                            <span class="colors-card-dot" onclick="goColorsCardSlide(1)"></span>
+                            <span class="colors-card-dot" onclick="goColorsCardSlide(2)"></span>
+                            <span class="colors-card-dot" onclick="goColorsCardSlide(3)"></span>
+                        </div>
+                    </div>
+                    <h3>Colors</h3>
+                    <p>Multiple color options available. Custom colors supported for OEM orders. Color matching service provided.</p>
                 </div>
+                <!-- Plugs -->
                 <div class="spec-card">
-                    <h3><span class="spec-icon">🎨</span> Colors &amp; Plugs</h3>
-                    <ul class="spec-list">
-                        <li><span class="spec-key">Colors</span><span class="spec-val">Multiple colors available</span></li>
-                        <li><span class="spec-key">Plug Types</span><span class="spec-val">US / EU / UK / AU / Universal</span></li>
-                        <li><span class="spec-key">Cord Length</span><span class="spec-val">Standard 4.5m / Custom</span></li>
-                        <li><span class="spec-key">Connection</span><span class="spec-val">Snap-on conductive snap</span></li>
-                        <li><span class="spec-key">Custom</span><span class="spec-val">Logo &amp; packaging available</span></li>
-                    </ul>
-                </div>
-                <div class="spec-card">
-                    <h3><span class="spec-icon">🏆</span> Quality &amp; Certification</h3>
-                    <ul class="spec-list">
-                        <li><span class="spec-key">Factory</span><span class="spec-val">10,000 m2 production facility</span></li>
-                        <li><span class="spec-key">Output</span><span class="spec-val">10,000+ pieces daily</span></li>
-                        <li><span class="spec-key">MOQ</span><span class="spec-val">Flexible — brand solutions</span></li>
-                        <li><span class="spec-key">Samples</span><span class="spec-val">Available for quality check</span></li>
-                        <li><span class="spec-key">Lead Time</span><span class="spec-val">Based on order qty</span></li>
-                    </ul>
+                    <div class="spec-img plugs-card-carousel">
+                        <img src="images/grounding-sheets/plug-1.png" alt="Gen-2 Grounding Cord" class="plugs-card-img active">
+                        <img src="images/grounding-sheets/plug-2.png" alt="AU Plug" class="plugs-card-img">
+                        <img src="images/grounding-sheets/plug-3.png" alt="EU Plug" class="plugs-card-img">
+                        <img src="images/grounding-sheets/plug-4.png" alt="UK Plug" class="plugs-card-img">
+                        <img src="images/grounding-sheets/plug-5.png" alt="ISR Plug" class="plugs-card-img">
+                        <img src="images/grounding-sheets/plug-6.png" alt="ITY Plug" class="plugs-card-img">
+                        <div class="plugs-card-dots">
+                            <span class="plugs-card-dot active" onclick="goPlugsCardSlide(0)"></span>
+                            <span class="plugs-card-dot" onclick="goPlugsCardSlide(1)"></span>
+                            <span class="plugs-card-dot" onclick="goPlugsCardSlide(2)"></span>
+                            <span class="plugs-card-dot" onclick="goPlugsCardSlide(3)"></span>
+                            <span class="plugs-card-dot" onclick="goPlugsCardSlide(4)"></span>
+                            <span class="plugs-card-dot" onclick="goPlugsCardSlide(5)"></span>
+                        </div>
+                    </div>
+                    <h3>Plug Options</h3>
+                    <p>Compatible with grounding systems worldwide. US, EU, UK, AU, and universal plug adapters available.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Available Colors -->
-    <section class="section section-alt">
-        <div class="container" style="text-align:center;">
-            <span class="section-label">Customization</span>
-            <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:500;margin-bottom:10px;">Available Colors</h2>
-            <p style="color:var(--color-text-light);margin-bottom:40px;">A variety of colors to match your brand and market</p>
-            <img src="images/grounding-sheets/colors-available.jpg" alt="Earthing Fitted Sheet Available Colors" style="max-width:900px;width:100%;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.1);">
-        </div>
-    </section>
-
-    <!-- Sizes Diagram -->
-    <section class="section section-white">
         <div class="container" style="text-align:center;">
             <span class="section-label">Sizing</span>
             <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:500;margin-bottom:10px;">Available Sizes</h2>
             <p style="color:var(--color-text-light);margin-bottom:40px;">Standard sizes in stock — custom sizes available</p>
-            <img src="images/products/bedsheet1.jpg" alt="Earthing Fitted Sheet Size Guide" style="max-width:900px;width:100%;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.1);">
-        </div>
-    </section>
+            
 
-    <!-- Plug Options -->
-    <section class="section section-alt">
-        <div class="container" style="text-align:center;">
-            <span class="section-label">Accessories</span>
-            <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:500;margin-bottom:10px;">Plug &amp; Cord Options</h2>
-            <p style="color:var(--color-text-light);margin-bottom:40px;">Compatible with grounding systems worldwide</p>
-            <img src="images/previews/changeover-plug.jpg" alt="Grounding Plug Options" style="max-width:900px;width:100%;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.1);">
-        </div>
-    </section>
-
-    <!-- How Grounding Works -->
-    <section class="section section-white how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Technology</span>
-                <h2>How Grounding Works</h2>
-                <p style="color:var(--color-text-light);max-width:600px;margin:12px auto 0;">Reconnect your body to the Earth's natural electric energy through our conductive silver fiber technology</p>
-            </div>
-            <div class="how-steps">
-                <div class="how-step">
-                    <div class="step-num">1</div>
-                    <h4>Sleep on the Sheet</h4>
-                    <p>The silver fiber woven into the fabric conducts Earth's electrons</p>
-                </div>
-                <div class="how-step">
-                    <div class="step-num">2</div>
-                    <h4>Connect the Cord</h4>
-                    <p>Snap the grounding cord onto the sheet's conductive snap point</p>
-                </div>
-                <div class="how-step">
-                    <div class="step-num">3</div>
-                    <h4>Ground to Earth</h4>
-                    <p>Plug into a grounded wall outlet or use a ground rod outdoors</p>
-                </div>
-                <div class="how-step">
-                    <div class="step-num">4</div>
-                    <h4>Feel the Difference</h4>
-                    <p>Experience improved sleep, reduced inflammation &amp; natural wellness</p>
-                </div>
-            </div>
-            <div class="how-image">
-                <img src="images/video-posters/factory-poster.jpg" alt="How Grounding Works Diagram">
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Features -->
+<!-- Product Features -->
     <section class="section section-alt">
         <div class="container">
             <div class="section-header">
@@ -807,57 +867,20 @@
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="section section-white">
+    <!-- OEM & ODM -->
+    <section class="oem-section" id="oem">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">Why EARTHING</span>
-                <h2>Why Choose EcoBridge Earthing Bedding?</h2>
+                <span class="section-label" style="color: var(--color-secondary);">Customization</span>
+                <h2 class="section-title">OEM & ODM Service</h2>
             </div>
-            <div class="why-grid">
-                <div class="why-card">
-                    <div class="why-icon">🔍</div>
-                    <h3>Reliable Quality Control</h3>
-                    <p>Strict inspection throughout every stage of production. Each piece is tested for conductivity before leaving our facility.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">💰</div>
-                    <h3>Competitive Factory Pricing</h3>
-                    <p>Direct-from-manufacturer pricing with no middlemen. Get premium earthing products at wholesale rates.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">📦</div>
-                    <h3>Flexible MOQ</h3>
-                    <p>Whether you're a startup or a major retailer, we have solutions tailored to your order volume and budget.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Factory Stats -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Our Factory</span>
-                <h2>Built on Experience, Driven by Quality</h2>
-            </div>
-            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center;">
-                <div>
-                    <div style="font-family:var(--font-display);font-size:3rem;font-weight:600;color:var(--color-primary);line-height:1;">10+</div>
-                    <div style="color:var(--color-text-light);font-size:0.9rem;margin-top:6px;">Years Experience</div>
-                </div>
-                <div>
-                    <div style="font-family:var(--font-display);font-size:3rem;font-weight:600;color:var(--color-primary);line-height:1;">30+</div>
-                    <div style="color:var(--color-text-light);font-size:0.9rem;margin-top:6px;">Countries Served</div>
-                </div>
-                <div>
-                    <div style="font-family:var(--font-display);font-size:3rem;font-weight:600;color:var(--color-primary);line-height:1;">10,000m²</div>
-                    <div style="color:var(--color-text-light);font-size:0.9rem;margin-top:6px;">Production Facility</div>
-                </div>
-                <div>
-                    <div style="font-family:var(--font-display);font-size:3rem;font-weight:600;color:var(--color-primary);line-height:1;">10,000+</div>
-                    <div style="color:var(--color-text-light);font-size:0.9rem;margin-top:6px;">Daily Output</div>
-                </div>
+            <div class="oem-list">
+                <div class="oem-item"><span class="oem-icon"><svg class="icon-check" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>Custom Logo & Branding</div>
+                <div class="oem-item"><span class="oem-icon"><svg class="icon-check" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>Custom Packaging Design</div>
+                <div class="oem-item"><span class="oem-icon"><svg class="icon-check" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>Custom Sizes & Colors</div>
+                <div class="oem-item"><span class="oem-icon"><svg class="icon-check" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>Material Customization</div>
+                <div class="oem-item"><span class="oem-icon"><svg class="icon-check" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>Flexible MOQ for Start-ups</div>
+                <div class="oem-item"><span class="oem-icon"><svg class="icon-check" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>Certification Support</div>
             </div>
         </div>
     </section>
@@ -1035,6 +1058,75 @@
                 container.addEventListener('mouseleave', start);
             }
 
+            start();
+        })();
+
+        // Spec carousel (Sizes 3)
+        (function() {
+            const slides = document.querySelectorAll('.spec-carousel-img');
+            const dots = document.querySelectorAll('.spec-dot');
+            if (!slides.length) return;
+            let current = 0;
+            let timer;
+            function go(n) {
+                current = (n + slides.length) % slides.length;
+                slides.forEach((s, i) => s.classList.toggle('active', i === current));
+                dots.forEach((d, i) => d.classList.toggle('active', i === current));
+            }
+            function start() {
+                stop();
+                timer = setInterval(() => go(current + 1), 3500);
+            }
+            function stop() { if (timer) clearInterval(timer); }
+            window.goSpecSlide = function(n) { go(n); start(); };
+            const wrap = document.querySelector('.spec-carousel');
+            if (wrap) { wrap.addEventListener('mouseenter', stop); wrap.addEventListener('mouseleave', start); }
+            start();
+        })();
+
+        // Colors card carousel (4)
+        (function() {
+            const slides = document.querySelectorAll('.colors-card-img');
+            const dots = document.querySelectorAll('.colors-card-dot');
+            if (!slides.length) return;
+            let current = 0;
+            let timer;
+            function go(n) {
+                current = (n + slides.length) % slides.length;
+                slides.forEach((s, i) => s.classList.toggle('active', i === current));
+                dots.forEach((d, i) => d.classList.toggle('active', i === current));
+            }
+            function start() {
+                stop();
+                timer = setInterval(() => go(current + 1), 3500);
+            }
+            function stop() { if (timer) clearInterval(timer); }
+            window.goColorsCardSlide = function(n) { go(n); start(); };
+            const wrap = document.querySelector('.colors-card-carousel');
+            if (wrap) { wrap.addEventListener('mouseenter', stop); wrap.addEventListener('mouseleave', start); }
+            start();
+        })();
+
+        // Plugs card carousel (6)
+        (function() {
+            const slides = document.querySelectorAll('.plugs-card-img');
+            const dots = document.querySelectorAll('.plugs-card-dot');
+            if (!slides.length) return;
+            let current = 0;
+            let timer;
+            function go(n) {
+                current = (n + slides.length) % slides.length;
+                slides.forEach((s, i) => s.classList.toggle('active', i === current));
+                dots.forEach((d, i) => d.classList.toggle('active', i === current));
+            }
+            function start() {
+                stop();
+                timer = setInterval(() => go(current + 1), 3500);
+            }
+            function stop() { if (timer) clearInterval(timer); }
+            window.goPlugsCardSlide = function(n) { go(n); start(); };
+            const wrap = document.querySelector('.plugs-card-carousel');
+            if (wrap) { wrap.addEventListener('mouseenter', stop); wrap.addEventListener('mouseleave', start); }
             start();
         })();
     </script>
