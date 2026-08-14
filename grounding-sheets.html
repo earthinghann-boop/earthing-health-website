@@ -390,6 +390,58 @@
             margin: 0 auto;
         }
 
+        /* Sizes Carousel */
+        .spec-carousel {
+            position: relative;
+            min-height: 220px;
+        }
+        .spec-carousel-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            pointer-events: none;
+        }
+        .spec-carousel-img.active {
+            opacity: 1;
+            position: relative;
+            pointer-events: auto;
+        }
+        .spec-carousel-dots {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 5;
+        }
+        .spec-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .spec-dot.active {
+            background: var(--color-primary, #1D3A2D);
+        }
+        .spec-carousel-label {
+            position: absolute;
+            bottom: 24px;
+            right: 8px;
+            background: rgba(29, 58, 45, 0.85);
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            z-index: 5;
+        }
+
         /* Colors Section */
         .colors-section {
             padding: var(--section-padding) 0;
@@ -1196,8 +1248,20 @@
             <div class="specs-grid">
                 <!-- Sizes -->
                 <div class="spec-card">
-                    <div class="spec-img">
-                        <img src="images/grounding-sheets/spread-full.jpg" alt="Standard Sizes">
+                    <div class="spec-img spec-carousel">
+                        <img src="images/grounding-sheets/size-99.png" alt="Twin 99 inch" class="spec-carousel-img active">
+                        <img src="images/grounding-sheets/size-137.png" alt="Full 137 inch" class="spec-carousel-img">
+                        <img src="images/grounding-sheets/size-153.png" alt="Queen 153 inch" class="spec-carousel-img">
+                        <img src="images/grounding-sheets/size-183.png" alt="Cal King 183 inch" class="spec-carousel-img">
+                        <img src="images/grounding-sheets/size-198.png" alt="King 198 inch" class="spec-carousel-img">
+                        <div class="spec-carousel-dots">
+                            <span class="spec-dot active" onclick="goSpecSlide(0)"></span>
+                            <span class="spec-dot" onclick="goSpecSlide(1)"></span>
+                            <span class="spec-dot" onclick="goSpecSlide(2)"></span>
+                            <span class="spec-dot" onclick="goSpecSlide(3)"></span>
+                            <span class="spec-dot" onclick="goSpecSlide(4)"></span>
+                        </div>
+                        <div class="spec-carousel-label">99" Twin</div>
                     </div>
                     <h3>Sizes</h3>
                     <p>Standard sizes in stock. Custom sizes available for bulk orders. Twin, Full, Queen, King, and Cal King available.</p>
@@ -1505,6 +1569,47 @@
             if (slides[index]) slides[index].classList.add('active');
             if (dots[index]) dots[index].classList.add('active');
         }
+
+        // Sizes carousel
+        (function() {
+            const slides = document.querySelectorAll('.spec-carousel-img');
+            const dots = document.querySelectorAll('.spec-dot');
+            const labels = ['99" Twin', '137" Full', '153" Queen', '183" Cal King', '198" King'];
+            let current = 0;
+            let timer;
+
+            function go(n) {
+                current = (n + slides.length) % slides.length;
+                slides.forEach(function(s) { s.classList.remove('active'); });
+                dots.forEach(function(d) { d.classList.remove('active'); });
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+                const lbl = document.querySelector('.spec-carousel-label');
+                if (lbl) lbl.textContent = labels[current];
+            }
+
+            function start() {
+                stop();
+                timer = setInterval(function() { go(current + 1); }, 3500);
+            }
+
+            function stop() {
+                if (timer) clearInterval(timer);
+            }
+
+            window.goSpecSlide = function(n) {
+                go(n);
+                start();
+            };
+
+            const container = document.querySelector('.spec-carousel');
+            if (container) {
+                container.addEventListener('mouseenter', stop);
+                container.addEventListener('mouseleave', start);
+            }
+
+            start();
+        })();
     </script>
 </body>
 </html>
