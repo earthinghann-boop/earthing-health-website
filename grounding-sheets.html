@@ -485,6 +485,59 @@
             box-shadow: 0 6px 25px var(--color-shadow);
         }
 
+        /* Colors Carousel */
+        .colors-carousel {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            box-shadow: 0 6px 25px var(--color-shadow);
+            background: #ffffff;
+        }
+        .colors-carousel-img {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            max-width: none !important;
+            object-fit: cover !important;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            pointer-events: none;
+            margin: 0 !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+        .colors-carousel-img.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .colors-carousel-dots {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 5;
+        }
+        .colors-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .colors-dot.active {
+            background: var(--color-primary, #1D3A2D);
+        }
+        }
+
         /* Product Features */
         .features-section {
             padding: var(--section-padding) 0;
@@ -1244,7 +1297,18 @@
                 <h2 class="section-title">Available Colors</h2>
             </div>
             <p class="section-desc">A wide variety of colors to match your market needs</p>
-            <img src="images/grounding-sheets/colors-available.jpg" alt="Available Colors for Grounding Sheets">
+            <div class="colors-carousel">
+                <img src="images/grounding-sheets/color-1.jpg" alt="Color 1" class="colors-carousel-img active">
+                <img src="images/grounding-sheets/color-2.jpg" alt="Color 2" class="colors-carousel-img">
+                <img src="images/grounding-sheets/color-3.jpg" alt="Color 3" class="colors-carousel-img">
+                <img src="images/grounding-sheets/color-4.jpg" alt="Color 4" class="colors-carousel-img">
+                <div class="colors-carousel-dots">
+                    <span class="colors-dot active" onclick="goColorsSlide(0)"></span>
+                    <span class="colors-dot" onclick="goColorsSlide(1)"></span>
+                    <span class="colors-dot" onclick="goColorsSlide(2)"></span>
+                    <span class="colors-dot" onclick="goColorsSlide(3)"></span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1574,6 +1638,44 @@
             if (slides[index]) slides[index].classList.add('active');
             if (dots[index]) dots[index].classList.add('active');
         }
+
+        // Colors carousel
+        (function() {
+            const slides = document.querySelectorAll('.colors-carousel-img');
+            const dots = document.querySelectorAll('.colors-dot');
+            let current = 0;
+            let timer;
+
+            function go(n) {
+                current = (n + slides.length) % slides.length;
+                slides.forEach(function(s) { s.classList.remove('active'); });
+                dots.forEach(function(d) { d.classList.remove('active'); });
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+
+            function start() {
+                stop();
+                timer = setInterval(function() { go(current + 1); }, 3500);
+            }
+
+            function stop() {
+                if (timer) clearInterval(timer);
+            }
+
+            window.goColorsSlide = function(n) {
+                go(n);
+                start();
+            };
+
+            const container = document.querySelector('.colors-carousel');
+            if (container) {
+                container.addEventListener('mouseenter', stop);
+                container.addEventListener('mouseleave', start);
+            }
+
+            start();
+        })();
 
         // Sizes carousel
         (function() {
