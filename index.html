@@ -28,13 +28,12 @@
                 <li class="nav-dropdown">
                     <a href="#products">Products </a>
                     <ul class="nav-dropdown-menu">
-                        <li><a href="grounding-sheets.html">Grounding Sheets</a></li>
-                        <li><a href="earthing-fitted-sheet.html">Earthing Fitted Sheet</a></li>
-                        <li><a href="grounding-mat.html">Grounding Mat</a></li>
-                        <li><a href="pu-earthing-mat.html">PU Earthing Mat</a></li>
-                        <li><a href="grounding-pillow-cases.html">Grounding Pillow Cases</a></li>
-                        <li><a href="grounding-blanket.html">Grounding Blanket</a></li>
-                        <li><a href="grounding-kit.html">Grounding Kit</a></li>
+                        <li><a href="#products" onclick="scrollToCategory('grounding-bedding')">🛏️ Grounding Bedding</a></li>
+                        <li><a href="#products" onclick="scrollToCategory('grounding-pu-leather')">🪑 Grounding PU Leather</a></li>
+                        <li><a href="#products" onclick="scrollToCategory('grounding-quilt-mat')">🧘 Grounding Quilt Mat</a></li>
+                        <li><a href="#products" onclick="scrollToCategory('emf-blanket')">🛡️ EMF Blanket</a></li>
+                        <li><a href="#products" onclick="scrollToCategory('emf-wearing')">👕 EMF Wearing</a></li>
+                        <li><a href="#products" onclick="scrollToCategory('accessories')">🔌 Accessories</a></li>
                     </ul>
                 </li>
                 <li><a href="#technology">Technology</a></li>
@@ -131,7 +130,7 @@
             </div>
 
             <!-- 1. Grounding Bedding -->
-            <div class="product-category">
+            <div class="product-category" id="grounding-bedding">
                 <h3 class="category-title"><span class="category-icon">🛏️</span> Grounding Bedding</h3>
                 <div class="products-grid">
                     <div class="product-card">
@@ -248,7 +247,7 @@
             </div>
 
             <!-- 2. Grounding PU Leather -->
-            <div class="product-category">
+            <div class="product-category" id="grounding-pu-leather">
                 <h3 class="category-title"><span class="category-icon">🪑</span> Grounding PU Leather</h3>
                 <div class="products-grid">
                     <div class="product-card">
@@ -313,7 +312,7 @@
             </div>
 
             <!-- 3. Grounding Quilt Mat -->
-            <div class="product-category">
+            <div class="product-category" id="grounding-quilt-mat">
                 <h3 class="category-title"><span class="category-icon">🧘</span> Grounding Quilt Mat</h3>
                 <div class="products-grid">
                     <div class="product-card">
@@ -349,7 +348,7 @@
             </div>
 
             <!-- 4. EMF Blanket -->
-            <div class="product-category">
+            <div class="product-category" id="emf-blanket">
                 <h3 class="category-title"><span class="category-icon">🛡️</span> EMF Blanket</h3>
                 <div class="products-grid">
                     <div class="product-card">
@@ -412,7 +411,7 @@
             </div>
 
             <!-- 5. EMF Wearing -->
-            <div class="product-category">
+            <div class="product-category" id="emf-wearing">
                 <h3 class="category-title"><span class="category-icon">👕</span> EMF Wearing</h3>
                 <div class="products-grid">
                     <div class="product-card">
@@ -593,7 +592,7 @@
             </div>
 
             <!-- 6. Accessories -->
-            <div class="product-category">
+            <div class="product-category" id="accessories">
                 <h3 class="category-title"><span class="category-icon">🔌</span> Accessories</h3>
                 <div class="products-grid">
                     <div class="product-card">
@@ -951,6 +950,14 @@
         attachHoverPause();
         startCarousel();
     });
+
+    // Scroll to product category from nav dropdown
+    function scrollToCategory(categoryId) {
+        const element = document.getElementById(categoryId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
     </script>
 
 </body>
