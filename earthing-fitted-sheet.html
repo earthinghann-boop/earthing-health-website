@@ -755,7 +755,16 @@
             <div class="intro-grid">
                 <div class="intro-image">
                     <div class="intro-carousel">
-                        <img src="images/earthing-fitted/overview-2.jpg" alt="Earthing Fitted Sheet" class="intro-carousel-img active">
+                        <img src="images/earthing-fitted/overview-1.jpg" alt="Earthing Fitted Sheet" class="intro-carousel-img active">
+                        <img src="images/earthing-fitted/overview-2.jpg" alt="Earthing Fitted Sheet" class="intro-carousel-img">
+                        <img src="images/earthing-fitted/overview-3.jpg" alt="Earthing Fitted Sheet" class="intro-carousel-img">
+                        <img src="images/earthing-fitted/overview-4.jpg" alt="Earthing Fitted Sheet" class="intro-carousel-img">
+                        <div class="intro-carousel-dots">
+                            <span class="intro-dot active" onclick="goFittedIntroSlide(0)"></span>
+                            <span class="intro-dot" onclick="goFittedIntroSlide(1)"></span>
+                            <span class="intro-dot" onclick="goFittedIntroSlide(2)"></span>
+                            <span class="intro-dot" onclick="goFittedIntroSlide(3)"></span>
+                        </div>
                     </div>
                 </div>
                 <div class="intro-content">
@@ -1191,7 +1200,43 @@
             });
         });
 
-        // Intro carousel removed (single static image)
+        // Intro carousel (4 images)
+        (function() {
+            const slides = document.querySelectorAll('.intro-carousel-img');
+            const dots = document.querySelectorAll('.intro-dot');
+            let current = 0;
+            let timer;
+
+            function go(n) {
+                current = (n + slides.length) % slides.length;
+                slides.forEach(function(s) { s.classList.remove('active'); });
+                dots.forEach(function(d) { d.classList.remove('active'); });
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+
+            function start() {
+                stop();
+                timer = setInterval(function() { go(current + 1); }, 3500);
+            }
+
+            function stop() {
+                if (timer) clearInterval(timer);
+            }
+
+            window.goFittedIntroSlide = function(n) {
+                go(n);
+                start();
+            };
+
+            const container = document.querySelector('.intro-carousel');
+            if (container) {
+                container.addEventListener('mouseenter', stop);
+                container.addEventListener('mouseleave', start);
+            }
+
+            start();
+        })();
 
         // Spec carousel (Sizes 3)
         (function() {
