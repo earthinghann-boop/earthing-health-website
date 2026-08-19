@@ -1029,6 +1029,7 @@
     }
 
     function goProductSlide(id, n) {
+        // Absolute jump: n is the target slide index
         var wrap = document.getElementById(id);
         if (!wrap) return;
         var slides = wrap.querySelectorAll('.carousel-slide');
@@ -1036,12 +1037,12 @@
         if (!slides.length) return;
         var dots = dotsEl ? dotsEl.querySelectorAll('.dot') : [];
         var total = slides.length;
-        var current = 0;
         // Find current
+        var current = 0;
         for (var i = 0; i < slides.length; i++) {
             if (slides[i].classList.contains('active')) { current = i; break; }
         }
-        var next = ((current + n) % total + total) % total;
+        var next = ((n % total) + total) % total;
         slides[current].classList.remove('active');
         slides[next].classList.add('active');
         if (dots.length) {
@@ -1051,7 +1052,17 @@
     }
 
     function moveProductSlide(id, dir) {
-        goProductSlide(id, dir);
+        // Relative move: dir is +1 (next) or -1 (prev)
+        var wrap = document.getElementById(id);
+        if (!wrap) return;
+        var slides = wrap.querySelectorAll('.carousel-slide');
+        if (!slides.length) return;
+        var total = slides.length;
+        var current = 0;
+        for (var i = 0; i < slides.length; i++) {
+            if (slides[i].classList.contains('active')) { current = i; break; }
+        }
+        goProductSlide(id, current + dir);
     }
 
     // ── Fix onclick handlers for dots & prev/next ──
