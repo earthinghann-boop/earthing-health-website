@@ -1,532 +1,537 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grounding Bedding Collection - Premium Earthing Bedding | Earthing Health</title>
-    <meta name="description" content="Complete grounding bedding collection: fitted sheets, flat sheets, pillow cases, duvet covers and children's bedding — all made with conductive silver fiber for better sleep and natural wellness.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Collection Hero */
-        .collection-hero {
-            background: linear-gradient(135deg, #1D3A2D 0%, #2D5A40 60%, #3D7A55 100%);
-            padding: 100px 20px 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .collection-hero::before {
-            content: '';
-            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><circle cx="30" cy="30" r="1.5" fill="rgba(255,255,255,0.06)"/></svg>') repeat;
-            pointer-events: none;
-        }
-        .collection-hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 500;
-            color: #ffffff;
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
-        }
-        .collection-hero p {
-            font-family: 'Nunito', sans-serif;
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.85);
-            max-width: 620px;
-            margin: 0 auto 35px;
-            line-height: 1.7;
-            font-weight: 300;
-        }
-        .collection-hero .hero-badges {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .collection-hero .hero-badge {
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.25);
-            border-radius: 50px;
-            padding: 8px 20px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.9);
-        }
-        /* Category Section */
-        .gb-category-section {
-            padding: 80px 20px;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-        }
-        .gb-category-section:nth-child(even) { background: #fafaf7; }
-        .gb-category-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .gb-category-header h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 36px;
-            color: #1D3A2D;
-            margin-bottom: 15px;
-        }
-        .gb-category-header p {
-            font-family: 'Nunito', sans-serif;
-            font-size: 16px;
-            color: #6c757d;
-            max-width: 680px;
-            margin: 0 auto;
-            line-height: 1.7;
-            font-weight: 300;
-        }
-        .gb-category-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .gb-category-layout.reverse { direction: rtl; }
-        .gb-category-layout.reverse > * { direction: ltr; }
-        /* Carousel */
-        .gb-carousel {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 1/1;
-            overflow: hidden;
-            border-radius: 16px;
-            box-shadow: 0 12px 48px rgba(0,0,0,0.10);
-        }
-        .gb-carousel-img {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-            border-radius: 16px;
-        }
-        .gb-carousel-img.active { opacity: 1; }
-        .gb-carousel-dots {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 3;
-            background: rgba(0,0,0,0.35);
-            padding: 10px 6px;
-            border-radius: 20px;
-        }
-        .gb-carousel-dot {
-            width: 10px; height: 10px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            cursor: pointer;
-            border: none;
-            padding: 0;
-            transition: background 0.3s, transform 0.3s;
-        }
-        .gb-carousel-dot:hover { background: rgba(255,255,255,0.8); }
-        .gb-carousel-dot.active { background: #ffffff; transform: scale(1.3); }
-        .gb-carousel-btn { display: none; }
-        /* Content */
-        .gb-category-content { padding: 10px 0; }
-        .gb-category-content h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 26px;
-            color: #2c3e35;
-            margin-bottom: 18px;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-        .gb-category-content p {
-            font-family: 'Nunito', sans-serif;
-            font-size: 15px;
-            color: #4a5751;
-            line-height: 1.8;
-            margin-bottom: 25px;
-            font-weight: 300;
-        }
-        .gb-features {
-            list-style: none;
-            padding: 0; margin: 0 0 30px 0;
-        }
-        .gb-features li {
-            font-family: 'Nunito', sans-serif;
-            font-size: 14px;
-            color: #4a5751;
-            padding: 8px 0 8px 28px;
-            position: relative;
-        }
-        .gb-features li::before {
-            content: '\2713';
-            position: absolute;
-            left: 0;
-            color: #2D7A4F;
-            font-weight: 700;
-        }
-        .gb-cta-row {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s;
-            cursor: pointer;
-            border: none;
-        }
-        .btn-primary { background: #1D3A2D; color: #ffffff; }
-        .btn-primary:hover { background: #2D5A40; }
-        .btn-outline { background: transparent; color: #1D3A2D; border: 1.5px solid #1D3A2D; }
-        .btn-outline:hover { background: #1D3A2D; color: #ffffff; }
-        /* Divider */
-        .section-divider {
-            background: #1D3A2D;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        .section-divider p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            color: rgba(255,255,255,0.85);
-            font-style: italic;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-        /* Responsive */
-        @media (max-width: 768px) {
-            .gb-category-layout { grid-template-columns: 1fr; gap: 30px; }
-            .gb-category-layout.reverse { direction: ltr; }
-            .collection-hero h1 { font-size: 2rem; }
-            .gb-category-header h2 { font-size: 28px; }
-        }
-    </style>
-</head>
-<body>
-
-<!-- Navigation -->
-<nav class="nav">
-    <div class="nav-container">
-        <a href="index.html" class="nav-logo">
-            <img src="images/logo/earthing-logo.png" alt="Earthing Health" height="36">
-        </a>
-        <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li class="nav-dropdown">
-                <a href="index.html#gb-bedding">Products <span class="nav-arrow">&#9662;</span></a>
-                <ul class="nav-dropdown-menu">
-                    <li><a href="groundingbedding.html">Grounding Bedding</a></li>
-                    <li><a href="pu-earthing-mat.html">Grounding PU Leather</a></li>
-                    <li><a href="grounding-mat.html">Grounding Quilt Mat</a></li>
-                    <li><a href="grounding-blanket.html">EMF Blanket</a></li>
-                    <li><a href="emf-wearing.html">EMF Wearing</a></li>
-                    <li><a href="grounding-kit.html">Accessories</a></li>
-                </ul>
-            </li>
-            <li><a href="index.html#certifications">Certifications</a></li>
-            <li><a href="get-price.html">Get Price</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-    </div>
-</nav>
-
-<!-- Hero -->
-<section class="collection-hero">
-    <div class="container">
-        <h1>Grounding Bedding Collection</h1>
-        <p>Five essential pieces for a fully grounded sleep environment — each woven with conductive silver fiber to connect your body with the Earth&apos;s natural frequency while you rest.</p>
-        <div class="hero-badges">
-            <span class="hero-badge">Conductive Silver Fiber</span>
-            <span class="hero-badge">Natural Wellness</span>
-            <span class="hero-badge">Multiple Sizes</span>
-            <span class="hero-badge">OEM / ODM Available</span>
-        </div>
-    </div>
-</section>
-
-<!-- 1. Fitted Sheet -->
-<section class="gb-category-section" id="fitted-sheet">
-    <div class="gb-category-header">
-        <h2>Grounding Fitted Sheet</h2>
-        <p>Our signature product — a full-coverage mattress sheet with built-in conductive silver fiber grid. Stays firmly in place all night and connects you to Earth&apos;s electrons the moment you lie down.</p>
-    </div>
-    <div class="gb-category-layout">
-        <div class="gb-carousel" id="fittedCarousel">
-            <img src="images/products/fitted_sheet/1.jpg" alt="Grounding Fitted Sheet - View 1" class="gb-carousel-img active">
-            <img src="images/products/fitted_sheet/2.jpg" alt="Grounding Fitted Sheet - View 2" class="gb-carousel-img">
-            <img src="images/products/fitted_sheet/3.jpg" alt="Grounding Fitted Sheet - View 3" class="gb-carousel-img">
-            <img src="images/products/fitted_sheet/4.jpg" alt="Grounding Fitted Sheet - View 4" class="gb-carousel-img">
-            <div class="gb-carousel-dots">
-                <button class="gb-carousel-dot active" onclick="goGB('fittedCarousel',0)"></button>
-                <button class="gb-carousel-dot" onclick="goGB('fittedCarousel',1)"></button>
-                <button class="gb-carousel-dot" onclick="goGB('fittedCarousel',2)"></button>
-                <button class="gb-carousel-dot" onclick="goGB('fittedCarousel',3)"></button>
-            </div>
-        </div>
-        <div class="gb-category-content">
-            <h3>Sleep Grounded. Wake Restored.</h3>
-            <p>The fitted sheet is the cornerstone of any grounding sleep system. Its elastic skirt wraps securely around your mattress, ensuring constant contact throughout the night. Silver fibers woven throughout the fabric create a conductive pathway between your body and the Earth&apos;s surface potential, supporting better sleep quality and morning recovery.</p>
-            <ul class="gb-features">
-                <li>Full mattress coverage with elastic skirt</li>
-                <li>Conductive silver fiber grid throughout</li>
-                <li>Available in Twin, Full, Queen and King</li>
-                <li>Machine washable, durable construction</li>
-            </ul>
-            <div class="gb-cta-row">
-                <a href="get-price.html" class="btn btn-primary">Request Quote</a>
-                <a href="index.html#contact" class="btn btn-outline">OEM / ODM</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 2. Flat Sheet -->
-<section class="gb-category-section" id="flat-sheet">
-    <div class="gb-category-header">
-        <h2>Grounding Flat Sheet</h2>
-        <p>A versatile top layer that drapes naturally over your bedding — pairs with our fitted sheet to create a fully connected grounding sleep surface.</p>
-    </div>
-    <div class="gb-category-layout reverse">
-        <div class="gb-carousel" id="flatCarousel">
-            <img src="images/products/flat_sheet/1.jpg" alt="Grounding Flat Sheet - View 1" class="gb-carousel-img active">
-            <img src="images/products/flat_sheet/2.jpg" alt="Grounding Flat Sheet - View 2" class="gb-carousel-img">
-            <img src="images/products/flat_sheet/3.jpg" alt="Grounding Flat Sheet - View 3" class="gb-carousel-img">
-            <img src="images/products/flat_sheet/4.jpg" alt="Grounding Flat Sheet - View 4" class="gb-carousel-img">
-            <div class="gb-carousel-dots">
-                <button class="gb-carousel-dot active" onclick="goGB('flatCarousel',0)"></button>
-                <button class="gb-carousel-dot" onclick="goGB('flatCarousel',1)"></button>
-                <button class="gb-carousel-dot" onclick="goGB('flatCarousel',2)"></button>
-                <button class="gb-carousel-dot" onclick="goGB('flatCarousel',3)"></button>
-            </div>
-        </div>
-        <div class="gb-category-content">
-            <h3>Layer In. Ground In.</h3>
-            <p>The flat sheet completes your grounding bedding system. When layered over the fitted sheet, it extends the conductive surface across your entire body — head to toe. Breathable and comfortable for year-round use, it brings the benefits of earthing to every night&apos;s sleep without any change to your routine.</p>
-            <ul class="gb-features">
-                <li>Pairs with fitted sheet for full coverage</li>
-                <li>Lightweight and breathable fabric</li>
-                <li>Available in standard and custom sizes</li>
-                <li>Machine washable</li>
-            </ul>
-            <div class="gb-cta-row">
-                <a href="get-price.html" class="btn btn-primary">Request Quote</a>
-                <a href="index.html#contact" class="btn btn-outline">OEM / ODM</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 3. Pillow Case -->
-<section class="gb-category-section" id="pillow-case">
-    <div class="gb-category-header">
-        <h2>Grounding Pillow Case</h2>
-        <p>Keep your head — the body&apos;s most EMF-sensitive zone — grounded throughout the night with our conductive silver fiber pillowcase.</p>
-    </div>
-    <div class="gb-category-layout">
-        <div class="gb-carousel" id="pillowCarousel">
-            <img src="images/products/pillow_case/1.jpg" alt="Grounding Pillow Case - View 1" class="gb-carousel-img active">
-            <img src="images/products/pillow_case/2.jpg" alt="Grounding Pillow Case - View 2" class="gb-carousel-img">
-            <img src="images/products/pillow_case/3.jpg" alt="Grounding Pillow Case - View 3" class="gb-carousel-img">
-            <img src="images/products/pillow_case/4.jpg" alt="Grounding Pillow Case - View 4" class="gb-carousel-img">
-            <div class="gb-carousel-dots">
-                <button class="gb-carousel-dot active" onclick="goGB('pillowCarousel',0)"></button>
-                <button class="gb-carousel-dot" onclick="goGB('pillowCarousel',1)"></button>
-                <button class="gb-carousel-dot" onclick="goGB('pillowCarousel',2)"></button>
-                <button class="gb-carousel-dot" onclick="goGB('pillowCarousel',3)"></button>
-            </div>
-        </div>
-        <div class="gb-category-content">
-            <h3>Let Your Head Rest at Earth&apos;s Potential</h3>
-            <p>Your head rests on the pillow for 7-8 hours every night — the most EMF-exposed part of your body. Our grounding pillowcase uses high-conductivity silver fiber to keep your head at Earth&apos;s electrical potential while you sleep, supporting the body&apos;s natural electrical balance and recovery processes.</p>
-            <ul class="gb-features">
-                <li>Conductive silver fiber fabric</li>
-                <li>Soft, skin-friendly finish</li>
-                <li>Standard and king sizes available</li>
-                <li>Machine washable</li>
-            </ul>
-            <div class="gb-cta-row">
-                <a href="get-price.html" class="btn btn-primary">Request Quote</a>
-                <a href="index.html#contact" class="btn btn-outline">OEM / ODM</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 4. Duvet Cover -->
-<section class="gb-category-section" id="duvet-cover">
-    <div class="gb-category-header">
-        <h2>Grounding Duvet Cover</h2>
-        <p>Transform your entire duvet into a grounding sleep surface — full-coverage conductive silver fiber for maximum body contact and comfort.</p>
-    </div>
-    <div class="gb-category-layout reverse">
-        <div class="gb-carousel" id="duvetCarousel">
-            <img src="images/products/duvet_cover/1.jpg" alt="Grounding Duvet Cover - View 1" class="gb-carousel-img active">
-            <img src="images/products/duvet_cover/2.jpg" alt="Grounding Duvet Cover - View 2" class="gb-carousel-img">
-            <img src="images/products/duvet_cover/3.jpg" alt="Grounding Duvet Cover - View 3" class="gb-carousel-img">
-            <img src="images/products/duvet_cover/4.jpg" alt="Grounding Duvet Cover - View 4" class="gb-carousel-img">
-            <div class="gb-carousel-dots">
-                <button class="gb-carousel-dot active" onclick="goGB('duvetCarousel',0)"></button>
-                <button class="gb-carousel-dot" onclick="goGB('duvetCarousel',1)"></button>
-                <button class="gb-carousel-dot" onclick="goGB('duvetCarousel',2)"></button>
-                <button class="gb-carousel-dot" onclick="goGB('duvetCarousel',3)"></button>
-            </div>
-        </div>
-        <div class="gb-category-content">
-            <h3>Wrap Yourself in Earth&apos;s Energy</h3>
-            <p>The duvet cover offers the most complete grounding experience — it covers your entire body surface, maximizing conductive contact throughout the night. Made with premium conductive silver fiber and designed for everyday comfort, it&apos;s the ultimate addition to a grounding bedroom.</p>
-            <ul class="gb-features">
-                <li>Full-body grounding coverage</li>
-                <li>Premium silver fiber blend fabric</li>
-                <li>Available in Queen and King sizes</li>
-                <li>Hidden zipper closure</li>
-            </ul>
-            <div class="gb-cta-row">
-                <a href="get-price.html" class="btn btn-primary">Request Quote</a>
-                <a href="index.html#contact" class="btn btn-outline">OEM / ODM</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 5. Kid's Bedding -->
-<section class="gb-category-section" id="kids-bedding">
-    <div class="gb-category-header">
-        <h2>Kid&apos;s Grounding Bedding</h2>
-        <p>Gentle, safe, and effective grounding bedding designed specifically for children — supporting their developing bodies through better, more restorative sleep.</p>
-    </div>
-    <div class="gb-category-layout">
-        <div class="gb-carousel" id="kidsCarousel">
-            <img src="images/products/kids_bedding/1.jpg" alt="Kid's Grounding Bedding - View 1" class="gb-carousel-img active">
-            <img src="images/products/kids_bedding/2.jpg" alt="Kid's Grounding Bedding - View 2" class="gb-carousel-img">
-            <img src="images/products/kids_bedding/3.jpg" alt="Kid's Grounding Bedding - View 3" class="gb-carousel-img">
-            <img src="images/products/kids_bedding/4.jpg" alt="Kid's Grounding Bedding - View 4" class="gb-carousel-img">
-            <div class="gb-carousel-dots">
-                <button class="gb-carousel-dot active" onclick="goGB('kidsCarousel',0)"></button>
-                <button class="gb-carousel-dot" onclick="goGB('kidsCarousel',1)"></button>
-                <button class="gb-carousel-dot" onclick="goGB('kidsCarousel',2)"></button>
-                <button class="gb-carousel-dot" onclick="goGB('kidsCarousel',3)"></button>
-            </div>
-        </div>
-        <div class="gb-category-content">
-            <h3>Little Bodies, Big Benefits</h3>
-            <p>Children&apos;s bodies are particularly sensitive to electrical disturbances during sleep — a time when growth hormones and nervous system recovery are most active. Our kid&apos;s grounding bedding uses the same proven silver fiber technology in a softer, child-friendly construction to support natural, undisturbed sleep.</p>
-            <ul class="gb-features">
-                <li>Child-safe silver fiber construction</li>
-                <li>Soft, comfortable fabric</li>
-                <li>Available in single and custom sizes</li>
-                <li>Machine washable, durable</li>
-            </ul>
-            <div class="gb-cta-row">
-                <a href="get-price.html" class="btn btn-primary">Request Quote</a>
-                <a href="index.html#contact" class="btn btn-outline">OEM / ODM</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Divider Quote -->
-<section class="section-divider">
-    <p>&quot;Grounding sleep isn&apos;t a luxury &mdash; it&apos;s how the body was designed to recover.&quot;</p>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="footer-grid">
-        <div class="footer-brand">
-            <img src="images/logo/earthing-logo.png" alt="Earthing Health" height="32">
-            <p>Professional grounding bedding manufacturer. Conductive silver fiber products designed for better sleep and natural wellness.</p>
-        </div>
-        <div class="footer-links">
-            <h4>Products</h4>
-            <ul>
-                <li><a href="groundingbedding.html">Grounding Bedding</a></li>
-                <li><a href="pu-earthing-mat.html">PU Leather Mat</a></li>
-                <li><a href="grounding-mat.html">Quilt Mat</a></li>
-                <li><a href="grounding-blanket.html">EMF Blanket</a></li>
-                <li><a href="emf-wearing.html">EMF Wearing</a></li>
-                <li><a href="grounding-kit.html">Accessories</a></li>
-            </ul>
-        </div>
-        <div class="footer-links">
-            <h4>Company</h4>
-            <ul>
-                <li><a href="index.html#certifications">Certifications</a></li>
-                <li><a href="index.html#about">About Us</a></li>
-                <li><a href="get-price.html">Get Price</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </div>
-        <div class="footer-contact">
-            <h4>Contact</h4>
-            <p>Guangzhou Earthing Health Technology Co., Ltd.</p>
-            <p>Factory: Haifeng County, Shanwei, Guangdong</p>
-            <p>Email: info@silveryes.com</p>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 Guangzhou Earthing Health Technology Co., Ltd. All rights reserved.</p>
-    </div>
-</footer>
-
-<script>
-(function(){
-    var CAROUSELS = ['fittedCarousel','flatCarousel','pillowCarousel','duvetCarousel','kidsCarousel'];
-    var timers = {};
-    var current = {};
-
-    function goGB(id, n) {
-        var imgs = document.querySelectorAll('#' + id + ' .gb-carousel-img');
-        var dots = document.querySelectorAll('#' + id + ' .gb-carousel-dot');
-        if (!imgs.length) return;
-        imgs.forEach(function(img){ img.classList.remove('active'); });
-        dots.forEach(function(dot){ dot.classList.remove('active'); });
-        current[id] = n;
-        if (imgs[n]) imgs[n].classList.add('active');
-        if (dots[n]) dots[n].classList.add('active');
-        clearInterval(timers[id]);
-        timers[id] = setInterval(function(){ autoNext(id); }, 3500);
-    }
-
-    function moveGB(id, dir) {
-        var imgs = document.querySelectorAll('#' + id + ' .gb-carousel-img');
-        var next = ((current[id] || 0) + dir + imgs.length) % imgs.length;
-        goGB(id, next);
-    }
-
-    function autoNext(id) {
-        var imgs = document.querySelectorAll('#' + id + ' .gb-carousel-img');
-        var next = ((current[id] || 0) + 1) % imgs.length;
-        goGB(id, next);
-    }
-
-    function initGB(id) {
-        current[id] = 0;
-        var el = document.getElementById(id);
-        if (!el) return;
-        el.addEventListener('mouseenter', function(){ clearInterval(timers[id]); });
-        el.addEventListener('mouseleave', function(){ timers[id] = setInterval(function(){ autoNext(id); }, 3500); });
-        timers[id] = setInterval(function(){ autoNext(id); }, 3500);
-    }
-
-    // Expose to global scope so onclick="goGB(...)" inline handlers can find them
-    window.goGB = goGB;
-    window.moveGB = moveGB;
-
-    CAROUSELS.forEach(initGB);
-})();
-</script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grounding Bedding Collection - Premium Earthing Bedding | Earthing Health</title>
+    <meta name="description" content="Complete grounding bedding collection: fitted sheets, flat sheets, pillow cases, duvet covers and children's bedding — all made with conductive silver fiber for better sleep and natural wellness.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Collection Hero */
+        .collection-hero {
+            background: linear-gradient(135deg, #1D3A2D 0%, #2D5A40 60%, #3D7A55 100%);
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .collection-hero::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><circle cx="30" cy="30" r="1.5" fill="rgba(255,255,255,0.06)"/></svg>') repeat;
+            pointer-events: none;
+        }
+        .collection-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        .collection-hero p {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 620px;
+            margin: 0 auto 35px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        .collection-hero .hero-badges {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .collection-hero .hero-badge {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.9);
+        }
+        /* Category Section */
+        .gb-category-section {
+            padding: 80px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .gb-category-section:nth-child(even) { background: #fafaf7; }
+        .gb-category-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .gb-category-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            color: #1D3A2D;
+            margin-bottom: 15px;
+        }
+        .gb-category-header p {
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            color: #6c757d;
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        .gb-category-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gb-category-layout.reverse { direction: rtl; }
+        .gb-category-layout.reverse > * { direction: ltr; }
+        /* Carousel */
+        .gb-carousel {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.10);
+        }
+        .gb-carousel-img {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            border-radius: 16px;
+        }
+        .gb-carousel-img.active { opacity: 1; }
+        .gb-carousel-dots {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 3;
+            background: rgba(0,0,0,0.35);
+            padding: 10px 6px;
+            border-radius: 20px;
+        }
+        .gb-carousel-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            border: none;
+            padding: 0;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .gb-carousel-dot:hover { background: rgba(255,255,255,0.8); }
+        .gb-carousel-dot.active { background: #ffffff; transform: scale(1.3); }
+        .gb-carousel-btn { display: none; }
+        /* Content */
+        .gb-category-content { padding: 10px 0; }
+        .gb-category-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            color: #2c3e35;
+            margin-bottom: 18px;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+        .gb-category-content p {
+            font-family: 'Nunito', sans-serif;
+            font-size: 15px;
+            color: #4a5751;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        .gb-features {
+            list-style: none;
+            padding: 0; margin: 0 0 30px 0;
+        }
+        .gb-features li {
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            color: #4a5751;
+            padding: 8px 0 8px 28px;
+            position: relative;
+        }
+        .gb-features li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: #2D7A4F;
+            font-weight: 700;
+        }
+        .gb-cta-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary { background: #1D3A2D; color: #ffffff; }
+        .btn-primary:hover { background: #2D5A40; }
+        .btn-outline { background: transparent; color: #1D3A2D; border: 1.5px solid #1D3A2D; }
+        .btn-outline:hover { background: #1D3A2D; color: #ffffff; }
+        /* Divider */
+        .section-divider {
+            background: #1D3A2D;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .section-divider p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.85);
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gb-category-layout { grid-template-columns: 1fr; gap: 30px; }
+            .gb-category-layout.reverse { direction: ltr; }
+            .collection-hero h1 { font-size: 2rem; }
+            .gb-category-header h2 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo/earthing-logo.png" alt="EARTHING Logo">
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li class="nav-dropdown">
+                    <a href="#">Products </a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="groundingbedding.html">Grounding Bedding</a></li>
+                        <li><a href="pu-earthing-mat.html">Grounding PU Leather</a></li>
+                        <li><a href="grounding-mat.html">Grounding Quilt Mat</a></li>
+                        <li><a href="grounding-blanket.html">EMF Blanket</a></li>
+                        <li><a href="emf-wearing.html">EMF Wearing</a></li>
+                        <li><a href="grounding-kit.html">Accessories</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#technology">Technology</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="get-price.html" class="nav-cta">Get Price</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<!-- Hero -->
+<section class="collection-hero">
+    <div class="container">
+        <h1>Grounding Bedding Collection</h1>
+        <p>Five essential pieces for a fully grounded sleep environment — each woven with conductive silver fiber to connect your body with the Earth&apos;s natural frequency while you rest.</p>
+        <div class="hero-badges">
+            <span class="hero-badge">Conductive Silver Fiber</span>
+            <span class="hero-badge">Natural Wellness</span>
+            <span class="hero-badge">Multiple Sizes</span>
+            <span class="hero-badge">OEM / ODM Available</span>
+        </div>
+    </div>
+</section>
+
+<!-- 1. Fitted Sheet -->
+<section class="gb-category-section" id="fitted-sheet">
+    <div class="gb-category-header">
+        <h2>Grounding Fitted Sheet</h2>
+        <p>Our signature product — a full-coverage mattress sheet with built-in conductive silver fiber grid. Stays firmly in place all night and connects you to Earth&apos;s electrons the moment you lie down.</p>
+    </div>
+    <div class="gb-category-layout">
+        <div class="gb-carousel" id="fittedCarousel">
+            <img src="images/products/fitted_sheet/1.jpg" alt="Grounding Fitted Sheet - View 1" class="gb-carousel-img active">
+            <img src="images/products/fitted_sheet/2.jpg" alt="Grounding Fitted Sheet - View 2" class="gb-carousel-img">
+            <img src="images/products/fitted_sheet/3.jpg" alt="Grounding Fitted Sheet - View 3" class="gb-carousel-img">
+            <img src="images/products/fitted_sheet/4.jpg" alt="Grounding Fitted Sheet - View 4" class="gb-carousel-img">
+            <div class="gb-carousel-dots">
+                <button class="gb-carousel-dot active" onclick="goGB('fittedCarousel',0)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('fittedCarousel',1)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('fittedCarousel',2)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('fittedCarousel',3)"></button>
+            </div>
+        </div>
+        <div class="gb-category-content">
+            <h3>Sleep Grounded. Wake Restored.</h3>
+            <p>The fitted sheet is the cornerstone of any grounding sleep system. Its elastic skirt wraps securely around your mattress, ensuring constant contact throughout the night. Silver fibers woven throughout the fabric create a conductive pathway between your body and the Earth&apos;s surface potential, supporting better sleep quality and morning recovery.</p>
+            <ul class="gb-features">
+                <li>Full mattress coverage with elastic skirt</li>
+                <li>Conductive silver fiber grid throughout</li>
+                <li>Available in Twin, Full, Queen and King</li>
+                <li>Machine washable, durable construction</li>
+            </ul>
+            <div class="gb-cta-row">
+                <a href="get-price.html" class="btn btn-primary">Request Quote</a>
+                <a href="index.html#contact" class="btn btn-outline">OEM / ODM</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 2. Flat Sheet -->
+<section class="gb-category-section" id="flat-sheet">
+    <div class="gb-category-header">
+        <h2>Grounding Flat Sheet</h2>
+        <p>A versatile top layer that drapes naturally over your bedding — pairs with our fitted sheet to create a fully connected grounding sleep surface.</p>
+    </div>
+    <div class="gb-category-layout reverse">
+        <div class="gb-carousel" id="flatCarousel">
+            <img src="images/products/flat_sheet/1.jpg" alt="Grounding Flat Sheet - View 1" class="gb-carousel-img active">
+            <img src="images/products/flat_sheet/2.jpg" alt="Grounding Flat Sheet - View 2" class="gb-carousel-img">
+            <img src="images/products/flat_sheet/3.jpg" alt="Grounding Flat Sheet - View 3" class="gb-carousel-img">
+            <img src="images/products/flat_sheet/4.jpg" alt="Grounding Flat Sheet - View 4" class="gb-carousel-img">
+            <div class="gb-carousel-dots">
+                <button class="gb-carousel-dot active" onclick="goGB('flatCarousel',0)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('flatCarousel',1)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('flatCarousel',2)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('flatCarousel',3)"></button>
+            </div>
+        </div>
+        <div class="gb-category-content">
+            <h3>Layer In. Ground In.</h3>
+            <p>The flat sheet completes your grounding bedding system. When layered over the fitted sheet, it extends the conductive surface across your entire body — head to toe. Breathable and comfortable for year-round use, it brings the benefits of earthing to every night&apos;s sleep without any change to your routine.</p>
+            <ul class="gb-features">
+                <li>Pairs with fitted sheet for full coverage</li>
+                <li>Lightweight and breathable fabric</li>
+                <li>Available in standard and custom sizes</li>
+                <li>Machine washable</li>
+            </ul>
+            <div class="gb-cta-row">
+                <a href="get-price.html" class="btn btn-primary">Request Quote</a>
+                <a href="index.html#contact" class="btn btn-outline">OEM / ODM</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. Pillow Case -->
+<section class="gb-category-section" id="pillow-case">
+    <div class="gb-category-header">
+        <h2>Grounding Pillow Case</h2>
+        <p>Keep your head — the body&apos;s most EMF-sensitive zone — grounded throughout the night with our conductive silver fiber pillowcase.</p>
+    </div>
+    <div class="gb-category-layout">
+        <div class="gb-carousel" id="pillowCarousel">
+            <img src="images/products/pillow_case/1.jpg" alt="Grounding Pillow Case - View 1" class="gb-carousel-img active">
+            <img src="images/products/pillow_case/2.jpg" alt="Grounding Pillow Case - View 2" class="gb-carousel-img">
+            <img src="images/products/pillow_case/3.jpg" alt="Grounding Pillow Case - View 3" class="gb-carousel-img">
+            <img src="images/products/pillow_case/4.jpg" alt="Grounding Pillow Case - View 4" class="gb-carousel-img">
+            <div class="gb-carousel-dots">
+                <button class="gb-carousel-dot active" onclick="goGB('pillowCarousel',0)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('pillowCarousel',1)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('pillowCarousel',2)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('pillowCarousel',3)"></button>
+            </div>
+        </div>
+        <div class="gb-category-content">
+            <h3>Let Your Head Rest at Earth&apos;s Potential</h3>
+            <p>Your head rests on the pillow for 7-8 hours every night — the most EMF-exposed part of your body. Our grounding pillowcase uses high-conductivity silver fiber to keep your head at Earth&apos;s electrical potential while you sleep, supporting the body&apos;s natural electrical balance and recovery processes.</p>
+            <ul class="gb-features">
+                <li>Conductive silver fiber fabric</li>
+                <li>Soft, skin-friendly finish</li>
+                <li>Standard and king sizes available</li>
+                <li>Machine washable</li>
+            </ul>
+            <div class="gb-cta-row">
+                <a href="get-price.html" class="btn btn-primary">Request Quote</a>
+                <a href="index.html#contact" class="btn btn-outline">OEM / ODM</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. Duvet Cover -->
+<section class="gb-category-section" id="duvet-cover">
+    <div class="gb-category-header">
+        <h2>Grounding Duvet Cover</h2>
+        <p>Transform your entire duvet into a grounding sleep surface — full-coverage conductive silver fiber for maximum body contact and comfort.</p>
+    </div>
+    <div class="gb-category-layout reverse">
+        <div class="gb-carousel" id="duvetCarousel">
+            <img src="images/products/duvet_cover/1.jpg" alt="Grounding Duvet Cover - View 1" class="gb-carousel-img active">
+            <img src="images/products/duvet_cover/2.jpg" alt="Grounding Duvet Cover - View 2" class="gb-carousel-img">
+            <img src="images/products/duvet_cover/3.jpg" alt="Grounding Duvet Cover - View 3" class="gb-carousel-img">
+            <img src="images/products/duvet_cover/4.jpg" alt="Grounding Duvet Cover - View 4" class="gb-carousel-img">
+            <div class="gb-carousel-dots">
+                <button class="gb-carousel-dot active" onclick="goGB('duvetCarousel',0)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('duvetCarousel',1)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('duvetCarousel',2)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('duvetCarousel',3)"></button>
+            </div>
+        </div>
+        <div class="gb-category-content">
+            <h3>Wrap Yourself in Earth&apos;s Energy</h3>
+            <p>The duvet cover offers the most complete grounding experience — it covers your entire body surface, maximizing conductive contact throughout the night. Made with premium conductive silver fiber and designed for everyday comfort, it&apos;s the ultimate addition to a grounding bedroom.</p>
+            <ul class="gb-features">
+                <li>Full-body grounding coverage</li>
+                <li>Premium silver fiber blend fabric</li>
+                <li>Available in Queen and King sizes</li>
+                <li>Hidden zipper closure</li>
+            </ul>
+            <div class="gb-cta-row">
+                <a href="get-price.html" class="btn btn-primary">Request Quote</a>
+                <a href="index.html#contact" class="btn btn-outline">OEM / ODM</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. Kid's Bedding -->
+<section class="gb-category-section" id="kids-bedding">
+    <div class="gb-category-header">
+        <h2>Kid&apos;s Grounding Bedding</h2>
+        <p>Gentle, safe, and effective grounding bedding designed specifically for children — supporting their developing bodies through better, more restorative sleep.</p>
+    </div>
+    <div class="gb-category-layout">
+        <div class="gb-carousel" id="kidsCarousel">
+            <img src="images/products/kids_bedding/1.jpg" alt="Kid's Grounding Bedding - View 1" class="gb-carousel-img active">
+            <img src="images/products/kids_bedding/2.jpg" alt="Kid's Grounding Bedding - View 2" class="gb-carousel-img">
+            <img src="images/products/kids_bedding/3.jpg" alt="Kid's Grounding Bedding - View 3" class="gb-carousel-img">
+            <img src="images/products/kids_bedding/4.jpg" alt="Kid's Grounding Bedding - View 4" class="gb-carousel-img">
+            <div class="gb-carousel-dots">
+                <button class="gb-carousel-dot active" onclick="goGB('kidsCarousel',0)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('kidsCarousel',1)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('kidsCarousel',2)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('kidsCarousel',3)"></button>
+            </div>
+        </div>
+        <div class="gb-category-content">
+            <h3>Little Bodies, Big Benefits</h3>
+            <p>Children&apos;s bodies are particularly sensitive to electrical disturbances during sleep — a time when growth hormones and nervous system recovery are most active. Our kid&apos;s grounding bedding uses the same proven silver fiber technology in a softer, child-friendly construction to support natural, undisturbed sleep.</p>
+            <ul class="gb-features">
+                <li>Child-safe silver fiber construction</li>
+                <li>Soft, comfortable fabric</li>
+                <li>Available in single and custom sizes</li>
+                <li>Machine washable, durable</li>
+            </ul>
+            <div class="gb-cta-row">
+                <a href="get-price.html" class="btn btn-primary">Request Quote</a>
+                <a href="index.html#contact" class="btn btn-outline">OEM / ODM</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Divider Quote -->
+<section class="section-divider">
+    <p>&quot;Grounding sleep isn&apos;t a luxury &mdash; it&apos;s how the body was designed to recover.&quot;</p>
+</section>
+
+<!-- Footer -->
+<!-- Footer -->
+<footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="images/logo/earthing-logo.png" alt="EARTHING Logo" class="footer-logo">
+                    <p>Premium grounding products for better sleep, natural wellness, and EMF protection.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="groundingbedding.html">Grounding Bedding</a></li>
+                        <li><a href="pu-earthing-mat.html">Grounding PU Leather</a></li>
+                        <li><a href="grounding-mat.html">Grounding Quilt Mat</a></li>
+                        <li><a href="grounding-blanket.html">EMF Blanket</a></li>
+                        <li><a href="emf-wearing.html">EMF Wearing</a></li>
+                        <li><a href="grounding-kit.html">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#technology">Technology</a></li>
+                        <li><a href="get-price.html">Get Price</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EARTHING. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="js/main.js"></script>
+    <script>
+(function(){
+    var CAROUSELS = ['fittedCarousel','flatCarousel','pillowCarousel','duvetCarousel','kidsCarousel'];
+    var timers = {};
+    var current = {};
+
+    function goGB(id, n) {
+        var imgs = document.querySelectorAll('#' + id + ' .gb-carousel-img');
+        var dots = document.querySelectorAll('#' + id + ' .gb-carousel-dot');
+        if (!imgs.length) return;
+        imgs.forEach(function(img){ img.classList.remove('active'); });
+        dots.forEach(function(dot){ dot.classList.remove('active'); });
+        current[id] = n;
+        if (imgs[n]) imgs[n].classList.add('active');
+        if (dots[n]) dots[n].classList.add('active');
+        clearInterval(timers[id]);
+        timers[id] = setInterval(function(){ autoNext(id); }, 3500);
+    }
+
+    function moveGB(id, dir) {
+        var imgs = document.querySelectorAll('#' + id + ' .gb-carousel-img');
+        var next = ((current[id] || 0) + dir + imgs.length) % imgs.length;
+        goGB(id, next);
+    }
+
+    function autoNext(id) {
+        var imgs = document.querySelectorAll('#' + id + ' .gb-carousel-img');
+        var next = ((current[id] || 0) + 1) % imgs.length;
+        goGB(id, next);
+    }
+
+    function initGB(id) {
+        current[id] = 0;
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('mouseenter', function(){ clearInterval(timers[id]); });
+        el.addEventListener('mouseleave', function(){ timers[id] = setInterval(function(){ autoNext(id); }, 3500); });
+        timers[id] = setInterval(function(){ autoNext(id); }, 3500);
+    }
+
+    // Expose to global scope so onclick="goGB(...)" inline handlers can find them
+    window.goGB = goGB;
+    window.moveGB = moveGB;
+
+    CAROUSELS.forEach(initGB);
+})();
+</script>
+</body>
+</html>
