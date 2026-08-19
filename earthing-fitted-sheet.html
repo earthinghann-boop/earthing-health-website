@@ -1,15 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earthing Fitted Sheet - Premium Grounding Bedding | EARTHING</title>
-    <meta name="description" content="Premium earthing fitted sheet manufacturer offering OEM & wholesale grounding fitted sheets with silver fiber and cotton materials. Custom sizes, colors and private label available.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
+<style>
         /* ── Product Page Hero ── */
         .product-hero {
             min-height: 90vh;
@@ -158,7 +147,7 @@
             gap: 8px;
             z-index: 5;
         }
-        .cat-dot {
+        .catDot {
             width: 10px; height: 10px;
             border-radius: 50%;
             background: rgba(255,255,255,0.8);
@@ -166,7 +155,7 @@
             cursor: pointer;
             transition: background 0.3s;
         }
-        .cat-dot.active { background: var(--color-primary, #1D3A2D); }
+        .catDot.active { background: var(--color-primary, #1D3A2D); }
         .cat-label {
             display: inline-block;
             font-size: 0.8rem;
@@ -833,10 +822,10 @@
                             <img src="images/earthing-fitted/overview-3.jpg" alt="Grounding Fitted Sheet" class="cat-carousel-img">
                             <img src="images/earthing-fitted/overview-4.jpg" alt="Grounding Fitted Sheet" class="cat-carousel-img">
                             <div class="cat-carousel-dots">
-                                <span class="cat-dot active" onclick="goCatFittedSlide(0)"></span>
-                                <span class="cat-dot" onclick="goCatFittedSlide(1)"></span>
-                                <span class="cat-dot" onclick="goCatFittedSlide(2)"></span>
-                                <span class="cat-dot" onclick="goCatFittedSlide(3)"></span>
+                                <span class="catDot active" onclick="goCatFittedSlide(0)"></span>
+                                <span class="catDot" onclick="goCatFittedSlide(1)"></span>
+                                <span class="catDot" onclick="goCatFittedSlide(2)"></span>
+                                <span class="catDot" onclick="goCatFittedSlide(3)"></span>
                             </div>
                         </div>
                     </div>
@@ -1286,7 +1275,7 @@
         // Category carousel (Fitted Sheet 4 images)
         (function() {
             const slides = document.querySelectorAll('.cat-carousel-img');
-            const dots = document.querySelectorAll('.cat-dot');
+            const dots = document.querySelectorAll('.cat-carousel .catDot');
             if (!slides.length) return;
             let current = 0;
             let timer;
