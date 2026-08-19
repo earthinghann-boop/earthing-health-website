@@ -985,6 +985,111 @@
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
+
+    // ── Product Image Carousels (17 total) ──
+    function initProductCarousel(id) {
+        var wrap = document.getElementById(id);
+        if (!wrap) return;
+        var slides = wrap.querySelectorAll('.carousel-slide');
+        var dotsEl = document.getElementById(id + 'Dots');
+        if (!slides.length) return;
+
+        // Build dots if not already in HTML
+        if (!dotsEl) {
+            dotsEl = document.createElement('div');
+            dotsEl.className = 'carousel-dots';
+            dotsEl.id = id + 'Dots';
+            for (var i = 0; i < slides.length; i++) {
+                var dot = document.createElement('span');
+                dot.className = 'dot' + (i === 0 ? ' active' : '');
+                (function(idx) {
+                    dot.onclick = function() { goProductSlide(id, idx); };
+                })(i);
+                dotsEl.appendChild(dot);
+            }
+            wrap.appendChild(dotsEl);
+        }
+        var dots = dotsEl.querySelectorAll('.dot');
+
+        // Auto-play
+        var timer;
+        function start() {
+            stop();
+            timer = setInterval(function() { moveProductSlide(id, 1); }, 3500);
+        }
+        function stop() { if (timer) clearInterval(timer); }
+        wrap.addEventListener('mouseenter', stop);
+        wrap.addEventListener('mouseleave', start);
+
+        // Expose globals
+        window['moveProductSlide_' + id] = function(dir) { moveProductSlide(id, dir); start(); };
+        window['goProductSlide_' + id] = function(n) { goProductSlide(id, n); start(); };
+
+        start();
+    }
+
+    function goProductSlide(id, n) {
+        var wrap = document.getElementById(id);
+        if (!wrap) return;
+        var slides = wrap.querySelectorAll('.carousel-slide');
+        var dotsEl = document.getElementById(id + 'Dots');
+        if (!slides.length) return;
+        var dots = dotsEl ? dotsEl.querySelectorAll('.dot') : [];
+        var total = slides.length;
+        var current = 0;
+        // Find current
+        for (var i = 0; i < slides.length; i++) {
+            if (slides[i].classList.contains('active')) { current = i; break; }
+        }
+        var next = ((current + n) % total + total) % total;
+        slides[current].classList.remove('active');
+        slides[next].classList.add('active');
+        if (dots.length) {
+            dots[current].classList.remove('active');
+            dots[next].classList.add('active');
+        }
+    }
+
+    function moveProductSlide(id, dir) {
+        goProductSlide(id, dir);
+    }
+
+    // ── Fix onclick handlers for dots & prev/next ──
+    function fixDotHandlers() {
+        document.querySelectorAll('.carousel-dots .dot').forEach(function(dot) {
+            var onclick = dot.getAttribute('onclick') || '';
+            var m = onclick.match(/goToSlide\('([^']+)',\s*(\d+)\)/);
+            if (m) {
+                var id = m[1];
+                var n = parseInt(m[2]);
+                dot.setAttribute('onclick', 'goProductSlide_\u0060' + id + '\u0060(' + n + ')');
+            }
+        });
+        document.querySelectorAll('.carousel-btn').forEach(function(btn) {
+            var onclick = btn.getAttribute('onclick') || '';
+            var m = onclick.match(/moveCarousel\('([^']+)',\s*(-?\d+)\)/);
+            if (m) {
+                var id = m[1];
+                var dir = m[2];
+                btn.setAttribute('onclick', 'moveProductSlide_\u0060' + id + '\u0060(' + dir + ')');
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        buildCarousel();
+        attachHoverPause();
+        startCarousel();
+        fixDotHandlers();
+        var CAROUSEL_IDS = [
+            'bedsheetCarousel','duvetcoverCarousel','pillowcaseCarousel','flatSheetCarousel',
+            'childrenBeddingCarousel','leatherPadCarousel','deskPadCarousel','quiltedPadCarousel',
+            'childrenBlanketCarousel','flannelBlanketCarousel','emfShawlCarousel','emfCapCarousel',
+            'emfCurtainCarousel','socksCarousel','eyeMaskCarousel','clothingCarousel',
+            'groundingCordCarousel'
+        ];
+        CAROUSEL_IDS.forEach(function(id) { initProductCarousel(id); });
+    });
     </script>
 
 </body>
