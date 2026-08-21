@@ -699,12 +699,6 @@
             transition: var(--transition);
         }
 
-        /* How Grounding Works */
-        .grounding-section {
-            padding: var(--section-padding) 0;
-            background: var(--color-bg-alt);
-        }
-
         .grounding-section .section-header {
             text-align: center;
             margin-bottom: 40px;
@@ -2740,6 +2734,14 @@
 
         }
     
+    
+        /* Fix: dot active state — high specificity to beat earlier .active rules */
+        .gb-carousel .gb-carousel-dot.active {
+            background: #ffffff !important;
+            transform: scale(1.3) !important;
+            border-radius: 50% !important;
+        }
+
     </style>
 </head>
 <body>
@@ -2921,110 +2923,17 @@
         </div>
     </section>
 
-<section class="gb-category-section">
-    <div class="gb-category-header">
-        <h2>Premium Material Options</h2>
-    </div>
-    <div class="gb-category-layout">
-        <div class="gb-category-text">
-            <h3>95% Cotton + 5% Silver Fiber</h3>
-            <p>Soft, breathable cotton combined with conductive silver fiber for reliable grounding and everyday comfort. The natural cotton top layer provides a gentle touch against skin, while the integrated silver fiber grid delivers consistent conductive performance.</p>
-            <ul>
-                <li>Soft &amp; Comfortable Against Skin</li>
-                <li>Breathable for All-Night Use</li>
-                <li>Machine Washable</li>
-                <li>Durable &amp; Long-Lasting</li>
-            </ul>
-        </div>
-        <div class="gb-category-text">
-            <h3>95% Bamboo Fiber + 5% Silver Fiber</h3>
-            <p>Eco-friendly bamboo fiber with integrated silver fiber for a smooth, naturally cooling experience. Bamboo fiber is naturally moisture-wicking and anti-bacterial, ideal for users who prioritize breathability and hygiene.</p>
-            <ul>
-                <li>Natural Cooling &amp; Moisture Wicking</li>
-                <li>Anti-Bacterial &amp; Anti-Odor</li>
-                <li>Eco-Friendly &amp; Sustainable</li>
-                <li>Hypoallergenic</li>
-            </ul>
-        </div>
-    </div>
-</section>
 
-<section class="gb-category-section" style="background:#fafaf7;">
-    <div class="gb-category-header">
-        <h2>Key Benefits</h2>
-    </div>
-    <div class="gb-category-layout">
-        <div class="gb-category-text">
-            <h3>Natural Grounding Connection</h3>
-            <p>The integrated silver fiber creates a conductive path from your body through the ground cord to the Earth, helping restore the natural electrical balance that modern living disrupts.</p>
-        </div>
-        <div class="gb-category-text">
-            <h3>EMF Shielding Layer</h3>
-            <p>While primarily a grounding product, the silver fiber mesh also provides RF shielding, helping reduce high-frequency electromagnetic radiation from nearby devices.</p>
-        </div>
-        <div class="gb-category-text">
-            <h3>Comfortable for Daily Use</h3>
-            <p>Unlike rigid conductive mats, our quilt mat feels like a regular quilt &mdash; soft, warm, and comfortable for nightly use without any special setup required.</p>
-        </div>
-    </div>
-</section>
 
-<section class="gb-category-section">
-    <div class="gb-category-header">
-        <h2>How Grounding Works</h2>
-    </div>
-    <div class="gb-category-layout">
-        <div class="gb-category-text">
-            <p>Grounding (earthing) connects your body to the Earth&apos;s natural electrical field. The Earth carries a subtle negative charge that helps neutralize excess positive charges in the human body.</p>
-            <p>Our silver fiber bedding creates a conductive bridge between your body and the ground wire in your electrical outlet (or a dedicated ground rod outdoors). When you lie on the silver fiber surface, your body becomes electrically connected to the Earth.</p>
-            <p>Studies have shown that grounding can help reduce inflammation, improve sleep quality, reduce cortisol levels, and decrease blood viscosity. Our <a href="index.html">homepage</a> has more details on the science behind grounding.</p>
-        </div>
-    </div>
-</section>
 
-<section class="gb-category-section" style="background:#fafaf7;">
-    <div class="gb-category-header">
-        <h2>Compatible Worldwide</h2>
-    </div>
-    <div class="gb-category-layout">
-        <div class="gb-category-text">
-            <p>Our grounding quilt mats are compatible with grounding systems in over 100 countries. Plug options for all major outlet types:</p>
-            <ul>
-                <li><strong>Type B (US / Canada / Japan):</strong> 3-prong grounded outlet</li>
-                <li><strong>Type F (Germany / Europe):</strong> Schuko grounded outlet</li>
-                <li><strong>Type G (UK / Ireland):</strong> BS 1363 grounded outlet</li>
-                <li><strong>Type I (Australia / China):</strong> AS/NZS 3112 grounded outlet</li>
-            </ul>
-            <p>All plugs include a 100K&#937; built-in current-limiting resistor for safety. Custom plug configurations available for OEM orders.</p>
-        </div>
-    </div>
-</section>
 
-<section class="gb-category-section">
-    <div class="gb-category-header">
-        <h2>Frequently Asked Questions</h2>
-    </div>
-    <div class="gb-category-layout">
-        <div class="gb-category-text">
-            <p><strong>Q: Is it safe to use every night?</strong><br>
-            A: Yes. All our grounding products include a 100K&#937; current-limiting resistor that restricts current to safe levels (below 0.2mA). This is the same safety standard used in all certified grounding products worldwide.</p>
-            <p><strong>Q: Does it work without a grounded outlet?</strong><br>
-            A: Yes. A dedicated ground rod can be used outdoors &mdash; simply insert the rod into soil and connect the ground cord directly.</p>
-            <p><strong>Q: Can I wash it?</strong><br>
-            A: Remove the ground cord before washing. The quilt mat can be hand-washed or machine-washed on gentle cycle with mild detergent. Air dry only.</p>
-            <p><strong>Q: What sizes are available?</strong><br>
-            A: Standard sizes include Twin, Full, Queen, King, and Cal King. Custom sizes available for OEM orders. Contact us for details.</p>
-            <p><strong>Q: Do you offer OEM/ODM?</strong><br>
-            A: Yes. We offer full OEM/ODM services including custom branding, packaging, sizing, and material specifications. MOQ varies by configuration.</p>
-        </div>
-    </div>
-</section>
 
-<section class="collection-cta">
-    <h2>Ready to Source Your Grounding Quilt Mat?</h2>
-    <p>Get a custom wholesale quote for your brand or retail channel.</p>
-    <a href="get-price.html" class="cta-btn">Request Wholesale Quote</a>
-</section>
+
+
+
+
+
+
 
 <footer class="footer">
 
