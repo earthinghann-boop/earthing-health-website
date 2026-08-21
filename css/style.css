@@ -1564,3 +1564,9 @@ ul {
     background: #4a6b3a;
 }
 
+
+
+/* Homepage product image zoom on hover */
+.product-image .carousel-img { transition: transform 0.5s ease !important; }
+.product-image:hover .carousel-img.active { transform: scale(1.05); }
+.product-image a { display: block; overflow: hidden; }
