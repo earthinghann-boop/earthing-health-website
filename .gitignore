@@ -6,3 +6,4 @@
 .vercel
 images/previews/full/
 
+*.py*.md
