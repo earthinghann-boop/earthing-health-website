@@ -3080,7 +3080,14 @@
             for (var i = 0; i < total; i++) {
                 if (imgs[i].classList.contains('active')) { cur = i; break; }
             }
-            var next = (cur + n + total) % total;
+            var next;
+            // If n is a small non-negative integer < total, treat as absolute dot index
+            // Otherwise treat as relative offset (±1 for prev/next buttons)
+            if (n >= 0 && n < total) {
+                next = n;
+            } else {
+                next = (cur + n + total) % total;
+            }
             imgs[cur].classList.remove('active');
             dots[cur].classList.remove('active');
             imgs[next].classList.add('active');
