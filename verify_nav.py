@@ -1,0 +1,16 @@
+import re
+with open(r'C:\Users\18574\.qclaw\workspace\earthinghealth-website\groundingbedding.html', 'rb') as f:
+    t = f.read().decode('utf-8')
+print('navbar class:', t.count('class="navbar"'))
+print('logo class:', t.count('class="logo"'))
+print('nav-links:', t.count('nav-links'))
+print('mobile-menu-btn:', t.count('mobile-menu-btn'))
+print('height="36":', t.count('height="36"'))
+print('class="nav":', t.count('class="nav"'))
+print('class="nav-logo":', t.count('class="nav-logo"'))
+print('class="nav-menu":', t.count('class="nav-menu"'))
+print('footer-col:', t.count('footer-col'))
+print('footer-logo:', t.count('footer-logo'))
+print('height="32":', t.count('height="32"'))
+print('&copy; 2026 EARTHING:', t.count('&copy; 2026 EARTHING'))
+print('has js/main.js:', t.count('js/main.js'))
