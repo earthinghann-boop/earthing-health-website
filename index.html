@@ -122,545 +122,450 @@
     </section>
 
     <!-- Products Section -->
-    <section class="products" id="products">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Our Products</span>
-                <h2 class="section-title">Grounding Solutions for <br>Every Aspect of Life</h2>
-            </div>
-
-            <!-- 1. Grounding Bedding -->
-            <div class="product-category" id="grounding-bedding">
-                <h3 class="category-title">Grounding Bedding</h3>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="bedsheetCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/bedsheet2.jpg" alt="Grounding Fitted Sheet" class="carousel-slide active">
-                                    <img src="images/products/bedsheet3.jpg" alt="Grounding Fitted Sheet" class="carousel-slide">
-                                    <img src="images/products/bedsheet1.jpg" alt="Grounding Fitted Sheet" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_bedsheetCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_bedsheetCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots" id="bedsheetDots">
-                                    <span class="dot active" onclick="goProductSlide_bedsheetCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_bedsheetCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_bedsheetCarousel(2)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>Grounding Fitted Sheet</h4>
-                            <p class="product-desc">A good fitted sheet is not just a mattress protector, but the foundation of restful sleep. Made with silver fiber and A-class cotton blend, meeting mother-baby grade safety standards. Third-party tested with 7A antibacterial efficacy - 99.99% antibacterial rate even after 150 washes. High elastic band fits all mattress heights, breathable for all seasons.</p>
-                            <ul class="product-features">
-                                <li>Mother-baby grade safety</li>
-                                <li>7A antibacterial (150 washes)</li>
-                                <li>Custom sizes & colors</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="duvetcoverCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/duvetcover_beige.jpg" alt="Grounding Duvet Cover" class="carousel-slide active">
-                                    <img src="images/products/duvetcover2.jpg" alt="Grounding Duvet Cover" class="carousel-slide">
-                                    <img src="images/products/duvetcover3.jpg" alt="Grounding Duvet Cover" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_duvetcoverCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_duvetcoverCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_duvetcoverCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_duvetcoverCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_duvetcoverCarousel(2)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>Grounding Duvet Cover</h4>
-                            <p class="product-desc">A quality duvet cover is both a protective layer for your duvet and a full-body grounding coverage. Both sides are A-class cotton. Smooth zipper closure, built-in ties to secure the duvet corners, preventing shifting during sleep. Breathable, not stuffy, suitable for all seasons.</p>
-                            <ul class="product-features">
-                                <li>Double-sided A-class cotton</li>
-                                <li>Internal corner ties</li>
-                                <li>Durable zipper design</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="pillowcaseCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/pillowcase1.png" alt="Grounding Pillowcase" class="carousel-slide active">
-                                    <img src="images/products/pillowcase2.jpg" alt="Grounding Pillowcase" class="carousel-slide">
-                                    <img src="images/products/pillowcase3.jpg" alt="Grounding Pillowcase" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_pillowcaseCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_pillowcaseCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_pillowcaseCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_pillowcaseCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_pillowcaseCarousel(2)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>Grounding Pillowcase</h4>
-                            <p class="product-desc">With hours of intimate facial contact every night, pillowcase quality is crucial. It's the first line of defense for your skin and the "head connection point" for grounding sleep. Silver fiber and A-class cotton blend helps discharge static from the head, while physical antibacterial properties reduce bacteria between face and pillow.</p>
-                            <ul class="product-features">
-                                <li>Face-skin friendly</li>
-                                <li>Head static discharge</li>
-                                <li>Physical antibacterial</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="flatSheetCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/flat_sheet1.jpg" alt="Grounding Flat Sheet" class="carousel-slide active">
-                                    <img src="images/products/flat_sheet2.jpg" alt="Grounding Flat Sheet" class="carousel-slide">
-                                    <img src="images/products/flat_sheet3.jpg" alt="Grounding Flat Sheet" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_flatSheetCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_flatSheetCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_flatSheetCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_flatSheetCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_flatSheetCarousel(2)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>Grounding Flat Sheet</h4>
-                            <p class="product-desc">A versatile flat sheet that drapes elegantly over your bed, providing full-body grounding coverage while you sleep. Made with premium silver fiber and A-class cotton blend, it offers the same antibacterial protection and static discharge benefits as our fitted sheets, with the flexibility to use with any mattress type.</p>
-                            <ul class="product-features">
-                                <li>Full-body grounding coverage</li>
-                                <li>Universal mattress compatibility</li>
-                                <li>7A antibacterial protection</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="childrenBeddingCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/children_bedding1.jpg" alt="Children's Bedding" class="carousel-slide active">
-                                    <img src="images/products/children_bedding2.jpg" alt="Children's Bedding" class="carousel-slide">
-                                    <img src="images/products/children_bedding3.jpg" alt="Children's Bedding" class="carousel-slide">
-                                    <img src="images/products/children_bedding4.jpg" alt="Children's Bedding" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_childrenBeddingCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_childrenBeddingCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_childrenBeddingCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_childrenBeddingCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_childrenBeddingCarousel(2)"></span>
-                                    <span class="dot" onclick="goProductSlide_childrenBeddingCarousel(3)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>Children's Bedding</h4>
-                            <p class="product-desc">For children, we're willing to do more. Our children's bedding series uses silver fiber and A-class cotton blend. The excellent conductivity helps discharge static accumulated in children's bodies, letting grounding experience start from childhood. Physical antibacterial mechanism, no chemical coatings, gentle and non-irritating.</p>
-                            <ul class="product-features">
-                                <li>Mother-baby grade cotton</li>
-                                <li>Gentle & non-irritating</li>
-                                <li>Safe for close contact</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. Grounding PU Leather -->
-            <div class="product-category" id="grounding-pu-leather">
-                <h3 class="category-title">Grounding PU Leather</h3>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="leatherPadCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/leather_pad1.jpg" alt="Leather Grounding Pad" class="carousel-slide active">
-                                    <img src="images/products/leather_pad2.jpg" alt="Leather Grounding Pad" class="carousel-slide">
-                                    <img src="images/products/leather_pad3.jpg" alt="Leather Grounding Pad" class="carousel-slide">
-                                    <img src="images/products/leather_pad4.jpg" alt="Leather Grounding Pad" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_leatherPadCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_leatherPadCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_leatherPadCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_leatherPadCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_leatherPadCarousel(2)"></span>
-                                    <span class="dot" onclick="goProductSlide_leatherPadCarousel(3)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>Leather Grounding Pad</h4>
-                            <p class="product-desc">Some things are born to connect two worlds. One side is warm leather with the texture of time, supporting your body's weight; the other side is invisible energy, silently flowing in the silent arrangement of carbon atoms. We combine the two, making every seat a quiet dialogue ceremony with the earth.</p>
-                            <ul class="product-features">
-                                <li>Premium leather surface</li>
-                                <li>Carbon atom conductivity</li>
-                                <li>Elegant for office & home</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="deskPadCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/desk_pad1.png" alt="Grounding Desk Pad" class="carousel-slide active">
-                                    <img src="images/products/desk_pad2.png" alt="Grounding Desk Pad" class="carousel-slide">
-                                    <img src="images/products/desk_pad3.jpg" alt="Grounding Desk Pad" class="carousel-slide">
-                                    <img src="images/products/desk_pad4.jpg" alt="Grounding Desk Pad" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_deskPadCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_deskPadCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_deskPadCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_deskPadCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_deskPadCarousel(2)"></span>
-                                    <span class="dot" onclick="goProductSlide_deskPadCarousel(3)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>Grounding Desk Pad</h4>
-                            <p class="product-desc">This is not just a desk pad, but a breathing conductor. Surface uses carbon atom conductive material - not the coldness of metal, but carbon's unique warmth and lightness. Carbon atoms form an invisible conductive network on the leather surface, like the earth's extended tentacles, quietly discharging static accumulated during the day.</p>
-                            <ul class="product-features">
-                                <li>Carbon atom conductor</li>
-                                <li>Warm & lightweight</li>
-                                <li>Static discharge</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. Grounding Quilt Mat -->
-            <div class="product-category" id="grounding-quilt-mat">
-                <h3 class="category-title">Grounding Quilt Mat</h3>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="quiltedPadCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/quilted_pad1.jpg" alt="Quilted Pad" class="carousel-slide active">
-                                    <img src="images/products/quilted_pad2.jpg" alt="Quilted Pad" class="carousel-slide">
-                                    <img src="images/products/quilted_pad3.jpg" alt="Quilted Pad" class="carousel-slide">
-                                    <img src="images/products/quilted_pad4.jpg" alt="Quilted Pad" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_quiltedPadCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_quiltedPadCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_quiltedPadCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_quiltedPadCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_quiltedPadCarousel(2)"></span>
-                                    <span class="dot" onclick="goProductSlide_quiltedPadCarousel(3)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>Quilted Pad</h4>
-                            <p class="product-desc">Above the earth, there's always a soft place to land. We believe true comfort isn't just physical relaxation, but the invisible connection between human and earth. This seat pad / sleep pad is born for this - making every seat, every rest, a quiet dialogue with natural energy.</p>
-                            <ul class="product-features">
-                                <li>Seat & sleep dual use</li>
-                                <li>Soft & comfortable</li>
-                                <li>Grounding connection</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. EMF Blanket -->
-            <div class="product-category" id="emf-blanket">
-                <h3 class="category-title">EMF Blanket</h3>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="childrenBlanketCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/children_blanket1.jpg" alt="Children's EMF Shield Blanket" class="carousel-slide active">
-                                    <img src="images/products/children_blanket2.jpg" alt="Children's EMF Shield Blanket" class="carousel-slide">
-                                    <img src="images/products/children_blanket3.jpg" alt="Children's EMF Shield Blanket" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_childrenBlanketCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_childrenBlanketCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_childrenBlanketCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_childrenBlanketCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_childrenBlanketCarousel(2)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>Children's EMF Shield Blanket</h4>
-                            <p class="product-desc">Woven with high-purity silver fiber - higher silver content, tighter weave. Based on Faraday principle, high-density silver fiber forms a flexible electromagnetic shielding layer inside the blanket, effectively attenuating electromagnetic radiation from electronic devices, creating a peaceful sleep haven for children.</p>
-                            <ul class="product-features">
-                                <li>Faraday shield principle</li>
-                                <li>Higher silver content</li>
-                                <li>Soft & lightweight</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="flannelBlanketCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/flannel_blanket1.webp" alt="Flannel Grounding Blanket" class="carousel-slide active">
-                                    <img src="images/products/flannel_blanket2.png" alt="Flannel Grounding Blanket" class="carousel-slide">
-                                    <img src="images/products/flannel_blanket3.jpg" alt="Flannel Grounding Blanket" class="carousel-slide">
-                                    <img src="images/products/flannel_blanket4.jpg" alt="Flannel Grounding Blanket" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_flannelBlanketCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_flannelBlanketCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_flannelBlanketCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_flannelBlanketCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_flannelBlanketCarousel(2)"></span>
-                                    <span class="dot" onclick="goProductSlide_flannelBlanketCarousel(3)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>Flannel Grounding Blanket</h4>
-                            <p class="product-desc">One side soft and warm, one side technological protection. Flannel side: premium flannel with rich, delicate pile, cloud-soft and warm. Silver fiber side: high-purity silver fiber woven tight and uniform. Based on Faraday principle, forms a flexible electromagnetic shielding layer inside the blanket.</p>
-                            <ul class="product-features">
-                                <li>Cloud-soft flannel</li>
-                                <li>Dual-sided design</li>
-                                <li>EMF shield + warmth</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 5. EMF Wearing -->
-            <div class="product-category" id="emf-wearing">
-                <h3 class="category-title">EMF Wearing</h3>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="emfShawlCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/emf_shawl1.png" alt="EMF Protection Shawl" class="carousel-slide active">
-                                    <img src="images/products/emf_shawl2.png" alt="EMF Protection Shawl" class="carousel-slide">
-                                    <img src="images/products/emf_shawl3.png" alt="EMF Protection Shawl" class="carousel-slide">
-                                    <img src="images/products/emf_shawl4.png" alt="EMF Protection Shawl" class="carousel-slide">
-                                    <img src="images/products/emf_shawl5.png" alt="EMF Protection Shawl" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_emfShawlCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_emfShawlCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_emfShawlCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_emfShawlCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_emfShawlCarousel(2)"></span>
-                                    <span class="dot" onclick="goProductSlide_emfShawlCarousel(3)"></span>
-                                    <span class="dot" onclick="goProductSlide_emfShawlCarousel(4)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>EMF Protection Shawl</h4>
-                            <p class="product-desc">When the wind rises, it gently falls on your shoulders. Not armor, but better than armor. When you're surrounded by electronic devices, this invisible barrier quietly works, keeping disturbing electromagnetic waves outside. It's understated, not showy, just silently preserving a quiet space for you.</p>
-                            <ul class="product-features">
-                                <li>Silver fiber shield</li>
-                                <li>Lightweight & portable</li>
-                                <li>Elegant daily wear</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="emfCapCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/emf_cap1.jpg" alt="EMF Protection Cap" class="carousel-slide active" style="object-position: center center;">
-                                    <img src="images/products/emf_cap2.jpg" alt="EMF Protection Cap" class="carousel-slide">
-                                    <img src="images/products/emf_cap3.png" alt="EMF Protection Cap" class="carousel-slide" style="object-position: center center;">
-                                    <img src="images/products/emf_cap4.jpg" alt="EMF Protection Cap" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_emfCapCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_emfCapCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_emfCapCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_emfCapCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_emfCapCarousel(2)"></span>
-                                    <span class="dot" onclick="goProductSlide_emfCapCarousel(3)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>EMF Protection Cap</h4>
-                            <p class="product-desc">Inside the brim is high-purity silver fiber woven lining. Based on Faraday principle, silver fiber forms a flexible electromagnetic protection layer inside the cap. When you travel through the city - passing cell towers, phones in pockets, Wi-Fi signals overhead - this invisible barrier quietly works.</p>
-                            <ul class="product-features">
-                                <li>Faraday shield</li>
-                                <li>Blocks Wi-Fi & signals</li>
-                                <li>Comfortable for sports</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="emfCurtainCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/emf_curtain1.jpg" alt="EMF Protection Curtain" class="carousel-slide active">
-                                    <img src="images/products/emf_curtain2.jpg" alt="EMF Protection Curtain" class="carousel-slide">
-                                    <img src="images/products/emf_curtain3.jpg" alt="EMF Protection Curtain" class="carousel-slide">
-                                    <img src="images/products/emf_curtain4.jpg" alt="EMF Protection Curtain" class="carousel-slide">
-                                    <img src="images/products/emf_curtain5.jpg" alt="EMF Protection Curtain" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_emfCurtainCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_emfCurtainCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_emfCurtainCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_emfCurtainCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_emfCurtainCarousel(2)"></span>
-                                    <span class="dot" onclick="goProductSlide_emfCurtainCarousel(3)"></span>
-                                    <span class="dot" onclick="goProductSlide_emfCurtainCarousel(4)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>EMF Protection Curtain</h4>
-                            <p class="product-desc">Let light in, keep disturbance outside. Light sheer fabric moves with the wind, sunlight passes through casting dappled shadows. Based on Faraday principle, silver fiber forms a flexible electromagnetic shielding layer inside the entire curtain. Cell towers outside, signals across the street - those invisible disturbances are quietly stopped.</p>
-                            <ul class="product-features">
-                                <li>Silver fiber woven sheer</li>
-                                <li>Blocks outdoor signals</li>
-                                <li>Decorative & functional</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="socksCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/socks1.png" alt="Antibacterial Grounding Socks" class="carousel-slide active">
-                                    <img src="images/products/socks2.png" alt="Antibacterial Grounding Socks" class="carousel-slide">
-                                    <img src="images/products/socks3.png" alt="Antibacterial Grounding Socks" class="carousel-slide">
-                                    <img src="images/products/socks4.png" alt="Antibacterial Grounding Socks" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_socksCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_socksCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_socksCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_socksCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_socksCarousel(2)"></span>
-                                    <span class="dot" onclick="goProductSlide_socksCarousel(3)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>Antibacterial Grounding Socks</h4>
-                            <p class="product-desc">Feet, the place closest to the earth. Silver fiber woven into the sole - physical antibacterial, 99.99% inhibition rate after 150 washes; simultaneously conducts body static back to earth. Every step is a reconnection with the stability that belongs to you.</p>
-                            <ul class="product-features">
-                                <li>99.99% antibacterial</li>
-                                <li>Static discharge</li>
-                                <li>Soft daily comfort</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="eyeMaskCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/eyemask1.png" alt="EMF Protection Eye Mask" class="carousel-slide active">
-                                    <img src="images/products/eyemask2.png" alt="EMF Protection Eye Mask" class="carousel-slide">
-                                    <img src="images/products/eyemask3.png" alt="EMF Protection Eye Mask" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_eyeMaskCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_eyeMaskCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_eyeMaskCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_eyeMaskCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_eyeMaskCarousel(2)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>EMF Protection Eye Mask</h4>
-                            <p class="product-desc">When you close your eyes, electronic devices around you are still quietly working - routers blinking, phones on standby. This invisible barrier keeps those disturbing energies inches away. Outer layer soft and skin-friendly; inner layer fluffy cotton padding gently supports the eye area.</p>
-                            <ul class="product-features">
-                                <li>Complete light blocking</li>
-                                <li>Adjustable strap</li>
-                                <li>EMF protection</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="clothingCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/products/clothing1.jpg" alt="Antibacterial Home Clothing + Boxer Briefs" class="carousel-slide active">
-                                    <img src="images/products/clothing2.jpg" alt="Antibacterial Home Clothing + Boxer Briefs" class="carousel-slide">
-                                    <img src="images/products/clothing3.jpg" alt="Antibacterial Home Clothing + Boxer Briefs" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_clothingCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_clothingCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_clothingCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_clothingCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_clothingCarousel(2)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>Antibacterial Home Clothing + Boxer Briefs</h4>
-                            <p class="product-desc">From inside out, comfortable as one. Bamboo fiber, naturally soft as clouds, delicate and smooth touch, breathable and refreshing. Silver fiber provides continuous physical antibacterial protection, 99.99% inhibition rate after 150 washes. No chemical coatings, gentle and non-irritating.</p>
-                            <ul class="product-features">
-                                <li>Bamboo fiber comfort</li>
-                                <li>Silver fiber antibacterial</li>
-                                <li>No chemical additives</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 6. Accessories -->
-            <div class="product-category" id="accessories">
-                <h3 class="category-title">Accessories</h3>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="carousel" id="groundingCordCarousel">
-                                <div class="carousel-inner">
-                                    <img src="images/grounding-sheets/plug-1.png" alt="Grounding Cord" class="carousel-slide active">
-                                    <img src="images/grounding-sheets/plug-2.png" alt="Grounding Cord" class="carousel-slide">
-                                    <img src="images/grounding-sheets/plug-3.png" alt="Grounding Cord" class="carousel-slide">
-                                    <img src="images/grounding-sheets/plug-4.png" alt="Grounding Cord" class="carousel-slide">
-                                </div>
-                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_groundingCordCarousel(-1)">&#10094;</button>
-                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_groundingCordCarousel(1)">&#10095;</button>
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="goProductSlide_groundingCordCarousel(0)"></span>
-                                    <span class="dot" onclick="goProductSlide_groundingCordCarousel(1)"></span>
-                                    <span class="dot" onclick="goProductSlide_groundingCordCarousel(2)"></span>
-                                    <span class="dot" onclick="goProductSlide_groundingCordCarousel(3)"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h4>Grounding Cord & Plugs</h4>
-                            <p class="product-desc">Complete your grounding system with our high-quality grounding cords and plug adapters. Compatible with US, EU, UK, AU outlets. Features snap-on connectors for easy attachment to grounding products. Safety tested and certified for reliable performance.</p>
-                            <ul class="product-features">
-                                <li>Multi-region plug options</li>
-                                <li>Snap-on connectors</li>
-                                <li>Safety certified</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- View Full Catalog -->
-            <div class="catalog-cta">
-                <p>Want to see our complete product range?</p>
-                <a href="#contact" class="btn btn-primary">Request Full Catalog</a>
-            </div>
-        </div>
-    </section>    <!-- Technology Section -->
+    
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Products</span>
+                <h2 class="section-title">Grounding Solutions for <br>Every Aspect of Life</h2>
+                <div class="section-cta">
+                    <a href="get-price.html" class="btn btn-primary">Get Wholesale Quote</a>
+                </div>
+            </div>
+
+            <div class="product-category" id="grounding-bedding">
+                <div class="category-header">
+                    <h3 class="category-title">Grounding Bedding</h3>
+                    <a href="groundingbedding.html" class="category-viewall">View All →</a>
+                </div>
+                <div class="products-grid">
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="carousel" id="beddingCarousel">
+                                <div class="carousel-inner">
+                                    <img src="images/products/fitted_sheet/1.jpg" alt="Grounding Fitted Sheet" class="carousel-img active">
+                                    <img src="images/products/fitted_sheet/2.jpg" alt="Grounding Fitted Sheet" class="carousel-img">
+                                    <img src="images/products/fitted_sheet/3.jpg" alt="Grounding Fitted Sheet" class="carousel-img">
+                                    <img src="images/products/fitted_sheet/4.jpg" alt="Grounding Fitted Sheet" class="carousel-img">
+                                </div>
+                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_beddingCarousel(-1)">❮</button>
+                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_beddingCarousel(1)">❯</button>
+                                <div class="carousel-dots" id="beddingCarouselDots">
+                                    <span class="dot active" onclick="goProductSlide_beddingCarousel(0)"></span>
+                                    <span class="dot" onclick="goProductSlide_beddingCarousel(1)"></span>
+                                    <span class="dot" onclick="goProductSlide_beddingCarousel(2)"></span>
+                                    <span class="dot" onclick="goProductSlide_beddingCarousel(3)"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Grounding Fitted Sheet</h4>
+                            <p class="product-desc">The cornerstone of any grounding sleep system. Full-coverage mattress sheet with conductive silver fiber grid — stays firmly in place all night.</p>
+                            <ul class="product-features">
+                                    <li>Conductive silver fiber grid</li>
+                                    <li>Elastic skirt, all-night stay</li>
+                                    <li>Twin / Full / Queen / King sizes</li>
+                                    <li>Machine washable, durable</li>
+                            </ul>
+                            <div class="product-actions">
+                                <a href="groundingbedding.html" class="btn btn-outline">View All →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-category" id="grounding-pu-leather">
+                <div class="category-header">
+                    <h3 class="category-title">Grounding PU Leather</h3>
+                    <a href="pu-earthing-mat.html" class="category-viewall">View All →</a>
+                </div>
+                <div class="products-grid">
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="carousel" id="puCarousel">
+                                <div class="carousel-inner">
+                                    <img src="images/products/pu_sheet/1.jpg" alt="PU Grounding Sheet" class="carousel-img active">
+                                    <img src="images/products/pu_sheet/2.jpg" alt="PU Grounding Sheet" class="carousel-img">
+                                    <img src="images/products/pu_sheet/3.jpg" alt="PU Grounding Sheet" class="carousel-img">
+                                    <img src="images/products/pu_sheet/4.jpg" alt="PU Grounding Sheet" class="carousel-img">
+                                </div>
+                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_puCarousel(-1)">❮</button>
+                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_puCarousel(1)">❯</button>
+                                <div class="carousel-dots" id="puCarouselDots">
+                                    <span class="dot active" onclick="goProductSlide_puCarousel(0)"></span>
+                                    <span class="dot" onclick="goProductSlide_puCarousel(1)"></span>
+                                    <span class="dot" onclick="goProductSlide_puCarousel(2)"></span>
+                                    <span class="dot" onclick="goProductSlide_puCarousel(3)"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>PU Sheet</h4>
+                            <p class="product-desc">Premium PU leather top with built-in grounding grid. Combines the elegance of leather with full-body earthing connectivity.</p>
+                            <ul class="product-features">
+                                    <li>PU leather + silver fiber grid</li>
+                                    <li>Non-slip base</li>
+                                    <li>Desk mat & full sheet options</li>
+                                    <li>OEM colors available</li>
+                            </ul>
+                            <div class="product-actions">
+                                <a href="pu-earthing-mat.html" class="btn btn-outline">View All →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-category" id="grounding-quilt-mat">
+                <div class="category-header">
+                    <h3 class="category-title">Grounding Quilt Mat</h3>
+                    <a href="grounding-mat.html" class="category-viewall">View All →</a>
+                </div>
+                <div class="products-grid">
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="carousel" id="quiltCarousel">
+                                <div class="carousel-inner">
+                                    <img src="images/products/jia_mian_mat/1.jpg" alt="Quilted Grounding Mat" class="carousel-img active">
+                                    <img src="images/products/jia_mian_mat/2.jpg" alt="Quilted Grounding Mat" class="carousel-img">
+                                    <img src="images/products/jia_mian_mat/3.jpg" alt="Quilted Grounding Mat" class="carousel-img">
+                                    <img src="images/products/jia_mian_mat/4.jpg" alt="Quilted Grounding Mat" class="carousel-img">
+                                </div>
+                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_quiltCarousel(-1)">❮</button>
+                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_quiltCarousel(1)">❯</button>
+                                <div class="carousel-dots" id="quiltCarouselDots">
+                                    <span class="dot active" onclick="goProductSlide_quiltCarousel(0)"></span>
+                                    <span class="dot" onclick="goProductSlide_quiltCarousel(1)"></span>
+                                    <span class="dot" onclick="goProductSlide_quiltCarousel(2)"></span>
+                                    <span class="dot" onclick="goProductSlide_quiltCarousel(3)"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Quilted Grounding Mat</h4>
+                            <p class="product-desc">Quilted sandwich construction with outer silver fiber fabric and inner conductive layer. Comfortable enough for daily use, effective enough for clinical results.</p>
+                            <ul class="product-features">
+                                    <li>Quilted 3-layer construction</li>
+                                    <li>Silver fiber outer + conductive inner</li>
+                                    <li>Foldable, portable</li>
+                                    <li>Multiple sizes available</li>
+                            </ul>
+                            <div class="product-actions">
+                                <a href="grounding-mat.html" class="btn btn-outline">View All →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-category" id="emf-blanket">
+                <div class="category-header">
+                    <h3 class="category-title">RF Shielding Blanket</h3>
+                    <a href="grounding-blanket.html" class="category-viewall">View All →</a>
+                </div>
+                <div class="products-grid">
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="carousel" id="blanketCarousel">
+                                <div class="carousel-inner">
+                                    <img src="images/products/emf_blanket/1.jpg" alt="RF Shielding Blanket" class="carousel-img active">
+                                    <img src="images/products/emf_blanket/2.jpg" alt="RF Shielding Blanket" class="carousel-img">
+                                    <img src="images/products/emf_blanket/3.jpg" alt="RF Shielding Blanket" class="carousel-img">
+                                    <img src="images/products/emf_blanket/4.jpg" alt="RF Shielding Blanket" class="carousel-img">
+                                </div>
+                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_blanketCarousel(-1)">❮</button>
+                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_blanketCarousel(1)">❯</button>
+                                <div class="carousel-dots" id="blanketCarouselDots">
+                                    <span class="dot active" onclick="goProductSlide_blanketCarousel(0)"></span>
+                                    <span class="dot" onclick="goProductSlide_blanketCarousel(1)"></span>
+                                    <span class="dot" onclick="goProductSlide_blanketCarousel(2)"></span>
+                                    <span class="dot" onclick="goProductSlide_blanketCarousel(3)"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Grounding & RF Shielding Blanket</h4>
+                            <p class="product-desc">Dual-action blanket: RF shielding layer blocks up to 99.99% of wireless radiation; grounding layer connects you to earth. Two sides, two functions.</p>
+                            <ul class="product-features">
+                                    <li>Up to 63dB RF shielding (GJB 8820)</li>
+                                    <li>Grounding layer for earth connection</li>
+                                    <li>Adult & child sizes</li>
+                                    <li>Machine washable</li>
+                            </ul>
+                            <div class="product-actions">
+                                <a href="grounding-blanket.html" class="btn btn-outline">View All →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-category" id="emf-wearing">
+                <div class="category-header">
+                    <h3 class="category-title">RF Shielding Wearing</h3>
+                    <a href="emf-wearing.html" class="category-viewall">View All →</a>
+                </div>
+                <div class="products-grid">
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="carousel" id="shawlCarousel">
+                                <div class="carousel-inner">
+                                    <img src="images/products/shawl/1.jpg" alt="RF Shielding Shawl" class="carousel-img active">
+                                    <img src="images/products/shawl/2.jpg" alt="RF Shielding Shawl" class="carousel-img">
+                                    <img src="images/products/shawl/3.jpg" alt="RF Shielding Shawl" class="carousel-img">
+                                    <img src="images/products/shawl/4.jpg" alt="RF Shielding Shawl" class="carousel-img">
+                                </div>
+                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_shawlCarousel(-1)">❮</button>
+                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_shawlCarousel(1)">❯</button>
+                                <div class="carousel-dots" id="shawlCarouselDots">
+                                    <span class="dot active" onclick="goProductSlide_shawlCarousel(0)"></span>
+                                    <span class="dot" onclick="goProductSlide_shawlCarousel(1)"></span>
+                                    <span class="dot" onclick="goProductSlide_shawlCarousel(2)"></span>
+                                    <span class="dot" onclick="goProductSlide_shawlCarousel(3)"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>RF Shielding Shawl</h4>
+                            <p class="product-desc">Elegant draped shawl woven with silver fiber for everyday EMF protection. Style and safety in one.</p>
+                            <ul class="product-features">
+                                    <li>Up to 63dB RF shielding</li>
+                                    <li>Lightweight, breathable fabric</li>
+                                    <li>One size fits all</li>
+                                    <li>Antibacterial & grounding</li>
+                            </ul>
+                            <div class="product-actions">
+                                <a href="emf-wearing.html" class="btn btn-outline">View All →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="carousel" id="beanieCarousel">
+                                <div class="carousel-inner">
+                                    <img src="images/products/beanie/1.jpg" alt="RF Shielding Beanie" class="carousel-img active">
+                                    <img src="images/products/beanie/2.jpg" alt="RF Shielding Beanie" class="carousel-img">
+                                    <img src="images/products/beanie/3.jpg" alt="RF Shielding Beanie" class="carousel-img">
+                                    <img src="images/products/beanie/4.jpg" alt="RF Shielding Beanie" class="carousel-img">
+                                </div>
+                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_beanieCarousel(-1)">❮</button>
+                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_beanieCarousel(1)">❯</button>
+                                <div class="carousel-dots" id="beanieCarouselDots">
+                                    <span class="dot active" onclick="goProductSlide_beanieCarousel(0)"></span>
+                                    <span class="dot" onclick="goProductSlide_beanieCarousel(1)"></span>
+                                    <span class="dot" onclick="goProductSlide_beanieCarousel(2)"></span>
+                                    <span class="dot" onclick="goProductSlide_beanieCarousel(3)"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>RF Shielding Beanie</h4>
+                            <p class="product-desc">Knitted beanie cap with embedded silver fiber. Keep your head shielded while on the go.</p>
+                            <ul class="product-features">
+                                    <li>Knitted silver fiber construction</li>
+                                    <li>Unisex, one size</li>
+                                    <li>Machine washable</li>
+                                    <li>RF blocking + grounding</li>
+                            </ul>
+                            <div class="product-actions">
+                                <a href="emf-wearing.html" class="btn btn-outline">View All →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="carousel" id="socksCarousel">
+                                <div class="carousel-inner">
+                                    <img src="images/products/socks/1.jpg" alt="Grounding Socks" class="carousel-img active">
+                                    <img src="images/products/socks/2.jpg" alt="Grounding Socks" class="carousel-img">
+                                    <img src="images/products/socks/3.jpg" alt="Grounding Socks" class="carousel-img">
+                                    <img src="images/products/socks/4.jpg" alt="Grounding Socks" class="carousel-img">
+                                </div>
+                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_socksCarousel(-1)">❮</button>
+                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_socksCarousel(1)">❯</button>
+                                <div class="carousel-dots" id="socksCarouselDots">
+                                    <span class="dot active" onclick="goProductSlide_socksCarousel(0)"></span>
+                                    <span class="dot" onclick="goProductSlide_socksCarousel(1)"></span>
+                                    <span class="dot" onclick="goProductSlide_socksCarousel(2)"></span>
+                                    <span class="dot" onclick="goProductSlide_socksCarousel(3)"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Antibacterial Grounding Socks</h4>
+                            <p class="product-desc">Soft conductive socks that keep your feet grounded throughout the day. Tested for antibacterial performance by Intertek.</p>
+                            <ul class="product-features">
+                                    <li>Intertek A-class antibacterial</li>
+                                    <li>Conductive silver fiber</li>
+                                    <li>Multiple sizes</li>
+                                    <li>Machine washable</li>
+                            </ul>
+                            <div class="product-actions">
+                                <a href="emf-wearing.html" class="btn btn-outline">View All →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="carousel" id="eyemaskCarousel">
+                                <div class="carousel-inner">
+                                    <img src="images/products/eye_mask/1.jpg" alt="RF Shielding Eye Mask" class="carousel-img active">
+                                    <img src="images/products/eye_mask/2.jpg" alt="RF Shielding Eye Mask" class="carousel-img">
+                                    <img src="images/products/eye_mask/3.jpg" alt="RF Shielding Eye Mask" class="carousel-img">
+                                </div>
+                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_eyemaskCarousel(-1)">❮</button>
+                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_eyemaskCarousel(1)">❯</button>
+                                <div class="carousel-dots" id="eyemaskCarouselDots">
+                                    <span class="dot active" onclick="goProductSlide_eyemaskCarousel(0)"></span>
+                                    <span class="dot" onclick="goProductSlide_eyemaskCarousel(1)"></span>
+                                    <span class="dot" onclick="goProductSlide_eyemaskCarousel(2)"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>RF Shielding Eye Mask</h4>
+                            <p class="product-desc">Sleep mask with RF shielding layer for EMF-free rest. Blocks wireless radiation while you sleep.</p>
+                            <ul class="product-features">
+                                    <li>RF shielding layer</li>
+                                    <li>Soft memory foam</li>
+                                    <li>Light-blocking design</li>
+                                    <li>USB-C rechargeable</li>
+                            </ul>
+                            <div class="product-actions">
+                                <a href="emf-wearing.html" class="btn btn-outline">View All →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="carousel" id="sleeveCarousel">
+                                <div class="carousel-inner">
+                                    <img src="images/products/sleeve_shirt/1.jpg" alt="RF Shielding Sleeve Shirt" class="carousel-img active">
+                                    <img src="images/products/sleeve_shirt/2.jpg" alt="RF Shielding Sleeve Shirt" class="carousel-img">
+                                    <img src="images/products/sleeve_shirt/3.jpg" alt="RF Shielding Sleeve Shirt" class="carousel-img">
+                                    <img src="images/products/sleeve_shirt/4.jpg" alt="RF Shielding Sleeve Shirt" class="carousel-img">
+                                </div>
+                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_sleeveCarousel(-1)">❮</button>
+                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_sleeveCarousel(1)">❯</button>
+                                <div class="carousel-dots" id="sleeveCarouselDots">
+                                    <span class="dot active" onclick="goProductSlide_sleeveCarousel(0)"></span>
+                                    <span class="dot" onclick="goProductSlide_sleeveCarousel(1)"></span>
+                                    <span class="dot" onclick="goProductSlide_sleeveCarousel(2)"></span>
+                                    <span class="dot" onclick="goProductSlide_sleeveCarousel(3)"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>RF Shielding Sleeve Shirt</h4>
+                            <p class="product-desc">Long-sleeve shirt with silver fiber weave for full-arm EMF protection during desk work or travel.</p>
+                            <ul class="product-features">
+                                    <li>Silver fiber long-sleeve</li>
+                                    <li>Breathable fabric</li>
+                                    <li>Multiple sizes S-3XL</li>
+                                    <li>RF blocking + grounding</li>
+                            </ul>
+                            <div class="product-actions">
+                                <a href="emf-wearing.html" class="btn btn-outline">View All →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="carousel" id="loungeCarousel">
+                                <div class="carousel-inner">
+                                    <img src="images/products/loungewear/1.jpg" alt="RF Shielding Loungewear" class="carousel-img active">
+                                    <img src="images/products/loungewear/2.jpg" alt="RF Shielding Loungewear" class="carousel-img">
+                                    <img src="images/products/loungewear/3.jpg" alt="RF Shielding Loungewear" class="carousel-img">
+                                    <img src="images/products/loungewear/4.jpg" alt="RF Shielding Loungewear" class="carousel-img">
+                                </div>
+                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_loungeCarousel(-1)">❮</button>
+                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_loungeCarousel(1)">❯</button>
+                                <div class="carousel-dots" id="loungeCarouselDots">
+                                    <span class="dot active" onclick="goProductSlide_loungeCarousel(0)"></span>
+                                    <span class="dot" onclick="goProductSlide_loungeCarousel(1)"></span>
+                                    <span class="dot" onclick="goProductSlide_loungeCarousel(2)"></span>
+                                    <span class="dot" onclick="goProductSlide_loungeCarousel(3)"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>RF Shielding Loungewear</h4>
+                            <p class="product-desc">Comfortable loungewear set with integrated silver fiber for all-day grounding at home.</p>
+                            <ul class="product-features">
+                                    <li>Silver fiber loungewear set</li>
+                                    <li>Relaxed comfortable fit</li>
+                                    <li>Multiple sizes</li>
+                                    <li>Antibacterial & grounding</li>
+                            </ul>
+                            <div class="product-actions">
+                                <a href="emf-wearing.html" class="btn btn-outline">View All →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-category" id="accessories">
+                <div class="category-header">
+                    <h3 class="category-title">Accessories</h3>
+                    <a href="grounding-kit.html" class="category-viewall">View All →</a>
+                </div>
+                <div class="products-grid">
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="carousel" id="kitCarousel">
+                                <div class="carousel-inner">
+                                    <img src="images/products/kit_cord/1.jpg" alt="Grounding Cord Gen 2" class="carousel-img active">
+                                    <img src="images/products/kit_cord/2.jpg" alt="Grounding Cord 2-in-1" class="carousel-img">
+                                    <img src="images/products/kit_cord/3.jpg" alt="Grounding Cord Rod" class="carousel-img">
+                                    <img src="images/products/kit_cord/4.jpg" alt="Grounding Cord Snake" class="carousel-img">
+                                    <img src="images/products/kit_cord/5.jpg" alt="Grounding Cord Golden" class="carousel-img">
+                                    <img src="images/products/kit_cord/6.jpg" alt="Grounding Cord Dual-Head" class="carousel-img">
+                                </div>
+                                <button class="carousel-btn carousel-prev" onclick="moveProductSlide_kitCarousel(-1)">❮</button>
+                                <button class="carousel-btn carousel-next" onclick="moveProductSlide_kitCarousel(1)">❯</button>
+                                <div class="carousel-dots" id="kitCarouselDots">
+                                    <span class="dot active" onclick="goProductSlide_kitCarousel(0)"></span>
+                                    <span class="dot" onclick="goProductSlide_kitCarousel(1)"></span>
+                                    <span class="dot" onclick="goProductSlide_kitCarousel(2)"></span>
+                                    <span class="dot" onclick="goProductSlide_kitCarousel(3)"></span>
+                                    <span class="dot" onclick="goProductSlide_kitCarousel(4)"></span>
+                                    <span class="dot" onclick="goProductSlide_kitCarousel(5)"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Grounding Cord</h4>
+                            <p class="product-desc">The connection lifeline for your grounding system. Second-generation smart cord with built-in safety valve — 6 variants for every application.</p>
+                            <ul class="product-features">
+                                    <li>6 variants: Gen 2 / 2-in-1 / Rod / Snake / Golden / Dual-Head</li>
+                                    <li>Built-in current-limiting protection</li>
+                                    <li>10m / 20m outdoor rod versions</li>
+                                    <li>OEM length customization</li>
+                            </ul>
+                            <div class="product-actions">
+                                <a href="grounding-kit.html" class="btn btn-outline">View All →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Technology Section -->
     <section class="technology" id="technology">
         <div class="container">
             <div class="section-header">
@@ -917,191 +822,279 @@
     <script src="js/main.js"></script>
     
     <!-- Certifications Modal + Carousel Logic -->
-    <script>
-    var currentSlide = 0;
-    var totalSlides = 0;
-    var carouselTimer = null;
+    
+<script>
+function goProductSlide_beddingCarousel(n) {
+    var el = document.getElementById("beddingCarousel");
+    if (!el) return;
+    var slides = el.querySelectorAll(".carousel-img");
+    var dots = el.querySelectorAll(".dot");
+    if (!slides.length) return;
+    var total = slides.length;
+    var cur = Array.from(slides).findIndex(function(s) { return s.classList.contains("active"); });
+    var next;
+    if (n >= 0 && n < total) { next = n; }   // dot: absolute index
+    else { next = (cur + 1 + total) % total; } // auto: relative +1
+    if (slides[cur]) slides[cur].classList.remove("active");
+    if (slides[next]) slides[next].classList.add("active");
+    if (dots[cur]) dots[cur].classList.remove("active");
+    if (dots[next]) dots[next].classList.add("active");
+    return next;
+}
+
+function moveProductSlide_beddingCarousel(dir) {
+    goProductSlide_beddingCarousel(dir);
+}
+
+function goProductSlide_puCarousel(n) {
+    var el = document.getElementById("puCarousel");
+    if (!el) return;
+    var slides = el.querySelectorAll(".carousel-img");
+    var dots = el.querySelectorAll(".dot");
+    if (!slides.length) return;
+    var total = slides.length;
+    var cur = Array.from(slides).findIndex(function(s) { return s.classList.contains("active"); });
+    var next;
+    if (n >= 0 && n < total) { next = n; }   // dot: absolute index
+    else { next = (cur + 1 + total) % total; } // auto: relative +1
+    if (slides[cur]) slides[cur].classList.remove("active");
+    if (slides[next]) slides[next].classList.add("active");
+    if (dots[cur]) dots[cur].classList.remove("active");
+    if (dots[next]) dots[next].classList.add("active");
+    return next;
+}
+
+function moveProductSlide_puCarousel(dir) {
+    goProductSlide_puCarousel(dir);
+}
+
+function goProductSlide_quiltCarousel(n) {
+    var el = document.getElementById("quiltCarousel");
+    if (!el) return;
+    var slides = el.querySelectorAll(".carousel-img");
+    var dots = el.querySelectorAll(".dot");
+    if (!slides.length) return;
+    var total = slides.length;
+    var cur = Array.from(slides).findIndex(function(s) { return s.classList.contains("active"); });
+    var next;
+    if (n >= 0 && n < total) { next = n; }   // dot: absolute index
+    else { next = (cur + 1 + total) % total; } // auto: relative +1
+    if (slides[cur]) slides[cur].classList.remove("active");
+    if (slides[next]) slides[next].classList.add("active");
+    if (dots[cur]) dots[cur].classList.remove("active");
+    if (dots[next]) dots[next].classList.add("active");
+    return next;
+}
+
+function moveProductSlide_quiltCarousel(dir) {
+    goProductSlide_quiltCarousel(dir);
+}
+
+function goProductSlide_blanketCarousel(n) {
+    var el = document.getElementById("blanketCarousel");
+    if (!el) return;
+    var slides = el.querySelectorAll(".carousel-img");
+    var dots = el.querySelectorAll(".dot");
+    if (!slides.length) return;
+    var total = slides.length;
+    var cur = Array.from(slides).findIndex(function(s) { return s.classList.contains("active"); });
+    var next;
+    if (n >= 0 && n < total) { next = n; }   // dot: absolute index
+    else { next = (cur + 1 + total) % total; } // auto: relative +1
+    if (slides[cur]) slides[cur].classList.remove("active");
+    if (slides[next]) slides[next].classList.add("active");
+    if (dots[cur]) dots[cur].classList.remove("active");
+    if (dots[next]) dots[next].classList.add("active");
+    return next;
+}
+
+function moveProductSlide_blanketCarousel(dir) {
+    goProductSlide_blanketCarousel(dir);
+}
+
+function goProductSlide_shawlCarousel(n) {
+    var el = document.getElementById("shawlCarousel");
+    if (!el) return;
+    var slides = el.querySelectorAll(".carousel-img");
+    var dots = el.querySelectorAll(".dot");
+    if (!slides.length) return;
+    var total = slides.length;
+    var cur = Array.from(slides).findIndex(function(s) { return s.classList.contains("active"); });
+    var next;
+    if (n >= 0 && n < total) { next = n; }   // dot: absolute index
+    else { next = (cur + 1 + total) % total; } // auto: relative +1
+    if (slides[cur]) slides[cur].classList.remove("active");
+    if (slides[next]) slides[next].classList.add("active");
+    if (dots[cur]) dots[cur].classList.remove("active");
+    if (dots[next]) dots[next].classList.add("active");
+    return next;
+}
+
+function moveProductSlide_shawlCarousel(dir) {
+    goProductSlide_shawlCarousel(dir);
+}
+
+function goProductSlide_beanieCarousel(n) {
+    var el = document.getElementById("beanieCarousel");
+    if (!el) return;
+    var slides = el.querySelectorAll(".carousel-img");
+    var dots = el.querySelectorAll(".dot");
+    if (!slides.length) return;
+    var total = slides.length;
+    var cur = Array.from(slides).findIndex(function(s) { return s.classList.contains("active"); });
+    var next;
+    if (n >= 0 && n < total) { next = n; }   // dot: absolute index
+    else { next = (cur + 1 + total) % total; } // auto: relative +1
+    if (slides[cur]) slides[cur].classList.remove("active");
+    if (slides[next]) slides[next].classList.add("active");
+    if (dots[cur]) dots[cur].classList.remove("active");
+    if (dots[next]) dots[next].classList.add("active");
+    return next;
+}
+
+function moveProductSlide_beanieCarousel(dir) {
+    goProductSlide_beanieCarousel(dir);
+}
+
+function goProductSlide_socksCarousel(n) {
+    var el = document.getElementById("socksCarousel");
+    if (!el) return;
+    var slides = el.querySelectorAll(".carousel-img");
+    var dots = el.querySelectorAll(".dot");
+    if (!slides.length) return;
+    var total = slides.length;
+    var cur = Array.from(slides).findIndex(function(s) { return s.classList.contains("active"); });
+    var next;
+    if (n >= 0 && n < total) { next = n; }   // dot: absolute index
+    else { next = (cur + 1 + total) % total; } // auto: relative +1
+    if (slides[cur]) slides[cur].classList.remove("active");
+    if (slides[next]) slides[next].classList.add("active");
+    if (dots[cur]) dots[cur].classList.remove("active");
+    if (dots[next]) dots[next].classList.add("active");
+    return next;
+}
+
+function moveProductSlide_socksCarousel(dir) {
+    goProductSlide_socksCarousel(dir);
+}
+
+function goProductSlide_eyemaskCarousel(n) {
+    var el = document.getElementById("eyemaskCarousel");
+    if (!el) return;
+    var slides = el.querySelectorAll(".carousel-img");
+    var dots = el.querySelectorAll(".dot");
+    if (!slides.length) return;
+    var total = slides.length;
+    var cur = Array.from(slides).findIndex(function(s) { return s.classList.contains("active"); });
+    var next;
+    if (n >= 0 && n < total) { next = n; }   // dot: absolute index
+    else { next = (cur + 1 + total) % total; } // auto: relative +1
+    if (slides[cur]) slides[cur].classList.remove("active");
+    if (slides[next]) slides[next].classList.add("active");
+    if (dots[cur]) dots[cur].classList.remove("active");
+    if (dots[next]) dots[next].classList.add("active");
+    return next;
+}
+
+function moveProductSlide_eyemaskCarousel(dir) {
+    goProductSlide_eyemaskCarousel(dir);
+}
+
+function goProductSlide_sleeveCarousel(n) {
+    var el = document.getElementById("sleeveCarousel");
+    if (!el) return;
+    var slides = el.querySelectorAll(".carousel-img");
+    var dots = el.querySelectorAll(".dot");
+    if (!slides.length) return;
+    var total = slides.length;
+    var cur = Array.from(slides).findIndex(function(s) { return s.classList.contains("active"); });
+    var next;
+    if (n >= 0 && n < total) { next = n; }   // dot: absolute index
+    else { next = (cur + 1 + total) % total; } // auto: relative +1
+    if (slides[cur]) slides[cur].classList.remove("active");
+    if (slides[next]) slides[next].classList.add("active");
+    if (dots[cur]) dots[cur].classList.remove("active");
+    if (dots[next]) dots[next].classList.add("active");
+    return next;
+}
+
+function moveProductSlide_sleeveCarousel(dir) {
+    goProductSlide_sleeveCarousel(dir);
+}
+
+function goProductSlide_loungeCarousel(n) {
+    var el = document.getElementById("loungeCarousel");
+    if (!el) return;
+    var slides = el.querySelectorAll(".carousel-img");
+    var dots = el.querySelectorAll(".dot");
+    if (!slides.length) return;
+    var total = slides.length;
+    var cur = Array.from(slides).findIndex(function(s) { return s.classList.contains("active"); });
+    var next;
+    if (n >= 0 && n < total) { next = n; }   // dot: absolute index
+    else { next = (cur + 1 + total) % total; } // auto: relative +1
+    if (slides[cur]) slides[cur].classList.remove("active");
+    if (slides[next]) slides[next].classList.add("active");
+    if (dots[cur]) dots[cur].classList.remove("active");
+    if (dots[next]) dots[next].classList.add("active");
+    return next;
+}
+
+function moveProductSlide_loungeCarousel(dir) {
+    goProductSlide_loungeCarousel(dir);
+}
+
+function goProductSlide_kitCarousel(n) {
+    var el = document.getElementById("kitCarousel");
+    if (!el) return;
+    var slides = el.querySelectorAll(".carousel-img");
+    var dots = el.querySelectorAll(".dot");
+    if (!slides.length) return;
+    var total = slides.length;
+    var cur = Array.from(slides).findIndex(function(s) { return s.classList.contains("active"); });
+    var next;
+    if (n >= 0 && n < total) { next = n; }   // dot: absolute index
+    else { next = (cur + 1 + total) % total; } // auto: relative +1
+    if (slides[cur]) slides[cur].classList.remove("active");
+    if (slides[next]) slides[next].classList.add("active");
+    if (dots[cur]) dots[cur].classList.remove("active");
+    if (dots[next]) dots[next].classList.add("active");
+    return next;
+}
+
+function moveProductSlide_kitCarousel(dir) {
+    goProductSlide_kitCarousel(dir);
+}
+
+function initHomepageCarousel(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var slides = el.querySelectorAll(".carousel-img");
+    var dotsEl = el.querySelector(".carousel-dots");
+    if (!slides.length || !dotsEl) return;
+    dotsEl.innerHTML = "";
+    for (var i = 0; i < slides.length; i++) {
+        var dot = document.createElement("span");
+        dot.className = "dot" + (i === 0 ? " active" : "");
+        (function(idx) {
+            dot.onclick = function() { window["goProductSlide_" + id](idx); };
+        })(i);
+        dotsEl.appendChild(dot);
+    }
+    var timer = null;
+    el.addEventListener("mouseenter", function() { clearInterval(timer); });
+    el.addEventListener("mouseleave", function() {
+        timer = setInterval(function() { window["moveProductSlide_" + id](1); }, 3500);
+        el.dispatchEvent(new Event("mouseleave"));
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    var ids = ["beddingCarousel","puCarousel","quiltCarousel","blanketCarousel","shawlCarousel","beanieCarousel","socksCarousel","eyemaskCarousel","sleeveCarousel","loungeCarousel","kitCarousel"];
+    ids.forEach(function(id) { initHomepageCarousel(id); });
+});
+</script>
 
-    function buildCarousel() {
-        var slides = document.querySelectorAll('.cert-slide');
-        totalSlides = slides.length;
-        var dots = document.getElementById('carouselDots');
-        if (!dots) return;
-        dots.innerHTML = '';
-        for (var i = 0; i < totalSlides; i++) {
-            var dot = document.createElement('span');
-            dot.className = 'dot' + (i === 0 ? ' active' : '');
-            (function(idx) {
-                dot.onclick = function() { goToSlide(idx); };
-            })(i);
-            dots.appendChild(dot);
-        }
-    }
-
-    function goToSlide(idx) {
-        var slides = document.querySelectorAll('.cert-slide');
-        var dots = document.querySelectorAll('.carousel-dots .dot');
-        if (slides.length === 0) return;
-        if (dots.length === 0) return;
-        slides.forEach(function(s) { s.classList.remove('active'); });
-        dots.forEach(function(d) { d.classList.remove('active'); });
-        currentSlide = ((idx % totalSlides) + totalSlides) % totalSlides;
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
-    }
-
-    function moveCertSlide(dir) {
-        goToSlide(currentSlide + dir);
-    }
-
-    function startCarousel() {
-        if (carouselTimer) clearInterval(carouselTimer);
-        carouselTimer = setInterval(function() { moveCertSlide(1); }, 4000);
-    }
-
-    function stopCarousel() {
-        if (carouselTimer) { clearInterval(carouselTimer); carouselTimer = null; }
-    }
-
-    // Pause when user hovers, resume on mouseleave
-    var carouselEl;
-    function attachHoverPause() {
-        carouselEl = document.getElementById('certCarousel');
-        if (!carouselEl) return;
-        carouselEl.addEventListener('mouseenter', stopCarousel);
-        carouselEl.addEventListener('mouseleave', startCarousel);
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        buildCarousel();
-        attachHoverPause();
-        startCarousel();
-    });
-
-    // Scroll to product category from nav dropdown
-    function scrollToCategory(categoryId) {
-        const element = document.getElementById(categoryId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-
-    // ── Product Image Carousels (17 total) ──
-    function initProductCarousel(id) {
-        var wrap = document.getElementById(id);
-        if (!wrap) return;
-        var slides = wrap.querySelectorAll('.carousel-slide');
-        var dotsEl = document.getElementById(id + 'Dots');
-        if (!slides.length) return;
-
-        // Build dots if not already in HTML
-        if (!dotsEl) {
-            dotsEl = document.createElement('div');
-            dotsEl.className = 'carousel-dots';
-            dotsEl.id = id + 'Dots';
-            for (var i = 0; i < slides.length; i++) {
-                var dot = document.createElement('span');
-                dot.className = 'dot' + (i === 0 ? ' active' : '');
-                (function(idx) {
-                    dot.onclick = function() { goProductSlide(id, idx); };
-                })(i);
-                dotsEl.appendChild(dot);
-            }
-            wrap.appendChild(dotsEl);
-        }
-        var dots = dotsEl.querySelectorAll('.dot');
-
-        // Auto-play
-        var timer;
-        function start() {
-            stop();
-            timer = setInterval(function() { moveProductSlide(id, 1); }, 3500);
-        }
-        function stop() { if (timer) clearInterval(timer); }
-        wrap.addEventListener('mouseenter', stop);
-        wrap.addEventListener('mouseleave', start);
-
-        // Expose globals
-        window['moveProductSlide_' + id] = function(dir) { moveProductSlide(id, dir); start(); };
-        window['goProductSlide_' + id] = function(n) { goProductSlide(id, n); start(); };
-
-        start();
-    }
-
-    function goProductSlide(id, n) {
-        // Absolute jump: n is the target slide index
-        var wrap = document.getElementById(id);
-        if (!wrap) return;
-        var slides = wrap.querySelectorAll('.carousel-slide');
-        var dotsEl = document.getElementById(id + 'Dots');
-        if (!slides.length) return;
-        var dots = dotsEl ? dotsEl.querySelectorAll('.dot') : [];
-        var total = slides.length;
-        // Find current
-        var current = 0;
-        for (var i = 0; i < slides.length; i++) {
-            if (slides[i].classList.contains('active')) { current = i; break; }
-        }
-        var next = ((n % total) + total) % total;
-        slides[current].classList.remove('active');
-        slides[next].classList.add('active');
-        if (dots.length) {
-            dots[current].classList.remove('active');
-            dots[next].classList.add('active');
-        }
-    }
-
-    function moveProductSlide(id, dir) {
-        // Relative move: dir is +1 (next) or -1 (prev)
-        var wrap = document.getElementById(id);
-        if (!wrap) return;
-        var slides = wrap.querySelectorAll('.carousel-slide');
-        if (!slides.length) return;
-        var total = slides.length;
-        var current = 0;
-        for (var i = 0; i < slides.length; i++) {
-            if (slides[i].classList.contains('active')) { current = i; break; }
-        }
-        goProductSlide(id, current + dir);
-    }
-
-    // ── Fix onclick handlers for dots & prev/next ──
-    function fixDotHandlers() {
-        document.querySelectorAll('.carousel-dots .dot').forEach(function(dot) {
-            var onclick = dot.getAttribute('onclick') || '';
-            var m = onclick.match(/goToSlide\('([^']+)',\s*(\d+)\)/);
-            if (m) {
-                var id = m[1];
-                var n = parseInt(m[2]);
-                dot.setAttribute('onclick', 'goProductSlide_\u0060' + id + '\u0060(' + n + ')');
-            }
-        });
-        document.querySelectorAll('.carousel-btn').forEach(function(btn) {
-            var onclick = btn.getAttribute('onclick') || '';
-            var m = onclick.match(/moveCarousel\('([^']+)',\s*(-?\d+)\)/);
-            if (m) {
-                var id = m[1];
-                var dir = m[2];
-                btn.setAttribute('onclick', 'moveProductSlide_\u0060' + id + '\u0060(' + dir + ')');
-            }
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        buildCarousel();
-        attachHoverPause();
-        startCarousel();
-        fixDotHandlers();
-        var CAROUSEL_IDS = [
-            'bedsheetCarousel','duvetcoverCarousel','pillowcaseCarousel','flatSheetCarousel',
-            'childrenBeddingCarousel','leatherPadCarousel','deskPadCarousel','quiltedPadCarousel',
-            'childrenBlanketCarousel','flannelBlanketCarousel','emfShawlCarousel','emfCapCarousel',
-            'emfCurtainCarousel','socksCarousel','eyeMaskCarousel','clothingCarousel',
-            'groundingCordCarousel'
-        ];
-        CAROUSEL_IDS.forEach(function(id) { initProductCarousel(id); });
-    });
-    </script>
 
 </body>
 </html> 
