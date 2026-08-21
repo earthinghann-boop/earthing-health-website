@@ -2743,7 +2743,13 @@
         }
 
     
-        /* grCarousel: fixed 550x550 size */
+        
+        /* Constrain carousel containers to actual carousel size */
+        .gb-category-carousel {
+            flex: 0 0 auto;
+            min-width: 0;
+        }
+/* grCarousel: fixed 550x550 size */
         #grCarousel {
             width: 550px !important;
             height: 550px !important;
@@ -2953,9 +2959,9 @@
     </section>
 
     <!-- Natural Grounding -->
-    <section class="gb-category-layout" style="background:#fff;">
+    <section class="gb-category-section">
         <div class="container">
-            <div class="gb-category-layout reverse">
+            <div class="gb-category-layout">
                 <div class="gb-category-carousel">
                             <div class="gb-carousel" id="grCarousel">
             
@@ -2964,6 +2970,7 @@
             <img src="images/products/grounding_blanket/3.jpg" alt="Grounding Blanket Close-up" class="gb-carousel-img">
             <img src="images/products/grounding_blanket/4.jpg" alt="Grounding Blanket Style" class="gb-carousel-img">
             <img src="images/products/grounding_blanket/5.jpg" alt="Grounding Blanket Detail" class="gb-carousel-img">
+            <img src="images/products/grounding_blanket/6.jpg" alt="Grounding Blanket Extra" class="gb-carousel-img">
             <div class="gb-carousel-dots">
             
             <button class="gb-carousel-dot active" onclick="goGB('grCarousel',0)"></button>
@@ -2971,6 +2978,7 @@
             <button class="gb-carousel-dot" onclick="goGB('grCarousel',2)"></button>
             <button class="gb-carousel-dot" onclick="goGB('grCarousel',3)"></button>
             <button class="gb-carousel-dot" onclick="goGB('grCarousel',4)"></button>
+            <button class="gb-carousel-dot" onclick="goGB('grCarousel',5)"></button>
             </div>
         </div>
                 </div>
