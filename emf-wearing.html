@@ -3,112 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMF Wearing - Silver Fiber Protective Apparel & Accessories</title>
-    <meta name="description" content="Premium EMF protection apparel made with silver fiber technology. Shawls, caps, curtains, socks, eye masks and clothing for everyday EMF protection.">
+    <title>EMF Wearing - Silver Fiber Protective Apparel | Earthing Health</title>
+    <meta name="description" content="Wholesale EMF wearing line: shawl, cap (fishman/beanie/hood/baseball), curtain, socks, eye mask, sleeve shirt, loungewear, boxer shorts. Silver fiber technology, OEM/ODM available.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .emf-product-section {
-            padding: 80px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .emf-product-section:last-child {
-            border-bottom: none;
-        }
-        .emf-product-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .emf-product-header h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 36px;
-            color: #2c3e35;
-            margin-bottom: 15px;
-        }
-        .emf-product-header p {
-            font-size: 16px;
-            color: #6c757d;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-        .emf-product-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .emf-product-layout.reverse {
-            direction: rtl;
-        }
-        .emf-product-layout.reverse > * {
-            direction: ltr;
-        }
-        .emf-product-image {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-        }
-        .emf-product-image img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            display: block;
-        }
-        .emf-product-features {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0 0 0;
-        }
-        .emf-product-features li {
-            padding: 8px 0 8px 28px;
-            position: relative;
-            color: #4a5751;
-            font-size: 15px;
-            line-height: 1.5;
-        }
-        .emf-product-features li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            top: 8px;
-            width: 20px;
-            height: 20px;
-            background: #4a7c59;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        .emf-cta-row {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-        }
-        @media (max-width: 768px) {
-            .emf-product-layout,
-            .emf-product-layout.reverse {
-                grid-template-columns: 1fr;
-                direction: ltr;
-            }
-            .emf-product-image img {
-                height: 280px;
-            }
-        }
-    </style>
+    
+<style>
+/* ============= EMF Wearing - unified carousel styles ============= */
+.gb-carousel {
+    position: relative;
+    width: 550px;
+    height: 550px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.10);
+    background: #fff;
+    flex-shrink: 0;
+}
+.gb-carousel-img {
+    position: absolute; top: 0; left: 0;
+    width: 550px; height: 550px;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+.gb-carousel-img.active { opacity: 1; }
+.gb-carousel-dots {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 10;
+}
+.gb-carousel-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    transition: all 0.25s ease;
+}
+.gb-carousel .gb-carousel-dot.active {
+    background: #ffffff !important;
+    transform: scale(1.3);
+}
+
+/* ============= Page sections ============= */
+.collection-hero {
+    background: linear-gradient(135deg, #1a2e3a 0%, #2d4a5a 100%);
+    color: #fff;
+    padding: 100px 20px 80px;
+    text-align: center;
+}
+.collection-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    margin: 0 0 20px;
+    font-weight: 500;
+}
+.collection-hero p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.85);
+    max-width: 720px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+}
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+.hero-badge {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.gb-category-section {
+    padding: 60px 0;
+}
+.gb-category-section:nth-of-type(even) {
+    background: #f8f5f0;
+}
+
+.gb-category-layout {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    flex-wrap: wrap;
+}
+.gb-category-layout.reverse {
+    flex-direction: row-reverse;
+}
+.gb-category-carousel {
+    flex: 0 0 auto;
+    min-width: 0;
+}
+.gb-category-content {
+    flex: 1;
+    min-width: 300px;
+}
+.gb-category-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: #1a2e3a;
+    margin: 0 0 20px;
+    font-weight: 500;
+}
+.gb-category-content > p {
+    color: #4a5a65;
+    line-height: 1.7;
+    font-size: 1rem;
+    margin: 0 0 24px;
+}
+.gb-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+}
+.gb-features li {
+    padding: 8px 0;
+    color: #2d4a5a;
+    position: relative;
+    padding-left: 28px;
+    line-height: 1.6;
+}
+.gb-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    color: #5a8a7a;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.gb-cta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 100px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+.btn-primary {
+    background: #1a2e3a;
+    color: #fff;
+}
+.btn-primary:hover {
+    background: #2d4a5a;
+}
+.btn-outline {
+    background: transparent;
+    color: #1a2e3a;
+    border-color: #1a2e3a;
+}
+.btn-outline:hover {
+    background: #1a2e3a;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .gb-category-layout { flex-direction: column; gap: 32px; }
+    .gb-carousel { width: 100% !important; height: auto !important; aspect-ratio: 1/1; }
+    .gb-carousel-img { width: 100%; height: 100%; }
+    .collection-hero h1 { font-size: 2.2rem; }
+}
+</style>
+
 </head>
 <body>
-    <!-- Navigation -->
+
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -139,250 +227,309 @@
             </ul>
         </div>
     </nav>
+    
+<section class="collection-hero">
+    <div class="container">
+        <h1>EMF Wearing</h1>
+        <p>Silver Fiber Protection. Every Moment. A complete line of wearable EMF protection crafted from premium silver fiber. From shawls and caps to socks and eye masks — carry invisible protection with you throughout your day.</p>
+        <div class="hero-badges">
+            <span class="hero-badge">Faraday Shield</span>
+            <span class="hero-badge">11 Product Lines</span>
+            <span class="hero-badge">Daily Wear</span>
+            <span class="hero-badge">OEM Available</span>
+        </div>
+    </div>
+</section>
 
-    <!-- Hero Section -->
-    <section class="product-hero">
-        <div class="hero-bg"></div>
+
+    <section class="gb-category-section" id="shawl">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-image">
-                    <img src="images/products/emf_shawl1.png" alt="EMF Wearing - Silver Fiber Protective Apparel">
+            <div class="gb-category-layout">
+                <div class="gb-category-carousel">
+                                            <div class="gb-carousel" id="shawlCarousel">
+                            
+                            <img src="images/products/shawl/1.jpg" alt="EMF Shawl" class="gb-carousel-img active">
+                            <img src="images/products/shawl/2.jpg" alt="EMF Shawl" class="gb-carousel-img">
+                            <img src="images/products/shawl/3.jpg" alt="EMF Shawl" class="gb-carousel-img">
+                            <img src="images/products/shawl/4.jpg" alt="EMF Shawl" class="gb-carousel-img">
+                            <img src="images/products/shawl/5.jpg" alt="EMF Shawl" class="gb-carousel-img">
+                            <div class="gb-carousel-dots">
+                            
+                            <button class="gb-carousel-dot active" onclick="goGB('shawlCarousel',0)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('shawlCarousel',1)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('shawlCarousel',2)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('shawlCarousel',3)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('shawlCarousel',4)"></button>
+                            </div>
+                        </div>
                 </div>
-                <div class="hero-text">
-                    <h1 class="hero-title">EMF Wearing</h1>
-                    <p class="hero-subtitle">Silver Fiber Protection. Every Moment.</p>
-                    <p class="hero-desc">A complete line of wearable EMF protection crafted from premium silver fiber. From shawls and caps to socks and eye masks — carry invisible protection with you throughout your day.</p>
-                    <div class="hero-features">
-                        <div class="feature-item">
-                            <span class="feature-text">Faraday Shield</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-text">6 Product Lines</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-text">Daily Wear</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-text">OEM Available</span>
-                        </div>
-                    </div>
-                    <div class="hero-cta">
-                        <a href="get-price.html" class="btn btn-primary">Get Wholesale Quote</a>
-                    </div>
+                <div class="gb-category-content">
+                    <h3>EMF Protection Shawl</h3><p>Lightweight, elegant silver fiber wrap for everyday use — perfect for travel, office, or home. When the wind rises, it gently falls on your shoulders. Not armor, but better than armor. This invisible barrier quietly works, keeping disturbing electromagnetic waves outside.</p><ul class="gb-features"><li>Silver fiber Faraday shield</li><li>Lightweight & portable design</li><li>Elegant for daily wear</li><li>Available in multiple colors</li></ul><div class="gb-cta-row"><a href="get-price.html" class="btn btn-primary">Request Quote</a></div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Product Introduction -->
-    <section class="product-intro">
+    <section class="gb-category-section" id="fishman_cap">
         <div class="container">
-            <div class="intro-grid">
-                <div class="intro-content">
-                    <span class="section-label">Wear Protection</span>
-                    <h2 class="section-title">Carry Protection With You</h2>
-                    <p class="intro-text">Modern life surrounds us with electromagnetic fields from cell towers, Wi-Fi routers, and the devices in our pockets. Our EMF Wearing line brings silver fiber shielding into everyday apparel.</p>
-                    <p class="intro-text">Based on Faraday cage principle, silver fiber forms a flexible electromagnetic shield that attenuates radiation while remaining soft, breathable, and comfortable for daily wear.</p>
-                    <p class="intro-text">From accessories like shawls and caps that complete your outfit, to functional items like curtains and sleep masks that protect your environment — each piece is woven with care.</p>
-                    <div class="intro-stats">
-                        <div class="stat">
-                            <span class="stat-number">6</span>
-                            <span class="stat-label">Product Lines</span>
+            <div class="gb-category-layout reverse">
+                <div class="gb-category-carousel">
+                                            <div class="gb-carousel" id="fishman_capCarousel">
+                            
+                            <img src="images/products/fishman_cap/1.jpg" alt="Fishman Cap" class="gb-carousel-img active">
+                            <img src="images/products/fishman_cap/2.jpg" alt="Fishman Cap" class="gb-carousel-img">
+                            <img src="images/products/fishman_cap/3.jpg" alt="Fishman Cap" class="gb-carousel-img">
+                            <img src="images/products/fishman_cap/4.jpg" alt="Fishman Cap" class="gb-carousel-img">
+                            <div class="gb-carousel-dots">
+                            
+                            <button class="gb-carousel-dot active" onclick="goGB('fishman_capCarousel',0)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('fishman_capCarousel',1)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('fishman_capCarousel',2)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('fishman_capCarousel',3)"></button>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <span class="stat-number">99%+</span>
-                            <span class="stat-label">Shield Effect</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">OEM/ODM</span>
-                            <span class="stat-label">Custom Orders</span>
-                        </div>
-                    </div>
                 </div>
-                <div class="intro-image">
-                    <img src="images/products/emf_cap2.jpg" alt="EMF Wearing Materials">
+                <div class="gb-category-content">
+                    <h3>Fishman Cap</h3><p>Traditional fisherman-style cap with built-in silver fiber lining. The classic silhouette reimagined for modern EMF protection — comfortable, breathable, and grounded in craftsmanship.</p><ul class="gb-features"><li>Silver fiber Faraday shield lining</li><li>Classic fisherman silhouette</li><li>Comfortable for all-day wear</li><li>Available in black and white</li></ul><div class="gb-cta-row"><a href="get-price.html" class="btn btn-primary">Request Quote</a></div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- 1. Shawl -->
-    <section class="emf-product-section">
-        <div class="emf-product-header">
-            <h2>EMF Protection Shawl</h2>
-            <p>Lightweight, elegant silver fiber wrap for everyday use — perfect for travel, office, or home.</p>
-        </div>
-        <div class="emf-product-layout">
-            <div class="emf-product-image">
-                <img src="images/products/emf_shawl1.png" alt="EMF Protection Shawl">
-            </div>
-            <div>
-                <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#2c3e35;margin-bottom:15px;">Silver Fiber Shield, Wrapped in Comfort</h3>
-                <p style="color:#4a5751;line-height:1.7;margin-bottom:15px;">When the wind rises, it gently falls on your shoulders. Not armor, but better than armor. When you're surrounded by electronic devices, this invisible barrier quietly works, keeping disturbing electromagnetic waves outside.</p>
-                <p style="color:#4a5751;line-height:1.7;margin-bottom:15px;">It's understated, not showy, just silently preserving a quiet space for you. Perfect for travel, work commutes, or relaxed evenings at home.</p>
-                <ul class="emf-product-features">
-                    <li>Silver fiber Faraday shield</li>
-                    <li>Lightweight & portable design</li>
-                    <li>Elegant for daily wear</li>
-                    <li>Available in multiple colors</li>
-                </ul>
-                <div class="emf-cta-row">
-                    <a href="get-price.html" class="btn btn-primary">Request Quote</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2. Cap -->
-    <section class="emf-product-section" style="background:#fafaf7;">
-        <div class="emf-product-header">
-            <h2>EMF Protection Cap</h2>
-            <p>Premium baseball cap with built-in silver fiber lining for everyday EMF protection.</p>
-        </div>
-        <div class="emf-product-layout reverse">
-            <div class="emf-product-image">
-                <img src="images/products/emf_cap1.jpg" alt="EMF Protection Cap" style="object-position: center center;">
-            </div>
-            <div>
-                <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#2c3e35;margin-bottom:15px;">Head Protection, On the Go</h3>
-                <p style="color:#4a5751;line-height:1.7;margin-bottom:15px;">Inside the brim is high-purity silver fiber woven lining. Based on Faraday principle, silver fiber forms a flexible electromagnetic protection layer inside the cap.</p>
-                <p style="color:#4a5751;line-height:1.7;margin-bottom:15px;">When you travel through the city — passing cell towers, phones in pockets, Wi-Fi signals overhead — this invisible barrier quietly works.</p>
-                <ul class="emf-product-features">
-                    <li>Faraday shield silver fiber lining</li>
-                    <li>Blocks Wi-Fi & cell signals</li>
-                    <li>Comfortable for sports & travel</li>
-                    <li>Adjustable strap</li>
-                </ul>
-                <div class="emf-cta-row">
-                    <a href="get-price.html" class="btn btn-primary">Request Quote</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. Curtain -->
-    <section class="emf-product-section">
-        <div class="emf-product-header">
-            <h2>EMF Protection Curtain</h2>
-            <p>Light sheer curtain with built-in silver fiber shielding — block outdoor signals while letting light in.</p>
-        </div>
-        <div class="emf-product-layout">
-            <div class="emf-product-image">
-                <img src="images/products/emf_curtain1.jpg" alt="EMF Protection Curtain">
-            </div>
-            <div>
-                <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#2c3e35;margin-bottom:15px;">Let Light In, Keep Disturbance Out</h3>
-                <p style="color:#4a5751;line-height:1.7;margin-bottom:15px;">Light sheer fabric moves with the wind, sunlight passes through casting dappled shadows. Based on Faraday principle, silver fiber forms a flexible electromagnetic shielding layer inside the entire curtain.</p>
-                <p style="color:#4a5751;line-height:1.7;margin-bottom:15px;">Cell towers outside, signals across the street — those invisible disturbances are quietly stopped.</p>
-                <ul class="emf-product-features">
-                    <li>Silver fiber woven sheer fabric</li>
-                    <li>Blocks outdoor cell signals</li>
-                    <li>Decorative & functional</li>
-                    <li>Custom sizes available</li>
-                </ul>
-                <div class="emf-cta-row">
-                    <a href="get-price.html" class="btn btn-primary">Request Quote</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. Socks -->
-    <section class="emf-product-section" style="background:#fafaf7;">
-        <div class="emf-product-header">
-            <h2>Antibacterial Grounding Socks</h2>
-            <p>Silver fiber woven into the sole for 99.99% antibacterial protection and static discharge.</p>
-        </div>
-        <div class="emf-product-layout reverse">
-            <div class="emf-product-image">
-                <img src="images/products/socks1.png" alt="Antibacterial Grounding Socks">
-            </div>
-            <div>
-                <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#2c3e35;margin-bottom:15px;">Feet, Closest to Earth</h3>
-                <p style="color:#4a5751;line-height:1.7;margin-bottom:15px;">Feet, the place closest to the earth. Silver fiber woven into the sole — physical antibacterial, 99.99% inhibition rate after 150 washes; simultaneously conducts body static back to earth.</p>
-                <p style="color:#4a5751;line-height:1.7;margin-bottom:15px;">Every step is a reconnection with the stability that belongs to you.</p>
-                <ul class="emf-product-features">
-                    <li>99.99% antibacterial (150 washes)</li>
-                    <li>Static discharge</li>
-                    <li>Soft daily comfort</li>
-                    <li>Multiple sizes available</li>
-                </ul>
-                <div class="emf-cta-row">
-                    <a href="get-price.html" class="btn btn-primary">Request Quote</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. Eye Mask -->
-    <section class="emf-product-section">
-        <div class="emf-product-header">
-            <h2>EMF Protection Eye Mask</h2>
-            <p>Sleep eye mask with silver fiber shielding for complete light blocking and EMF protection.</p>
-        </div>
-        <div class="emf-product-layout">
-            <div class="emf-product-image">
-                <img src="images/products/eyemask1.png" alt="EMF Protection Eye Mask">
-            </div>
-            <div>
-                <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#2c3e35;margin-bottom:15px;">Sleep Without Disturbance</h3>
-                <p style="color:#4a5751;line-height:1.7;margin-bottom:15px;">When you close your eyes, electronic devices around you are still quietly working — routers blinking, phones on standby. This invisible barrier keeps those disturbing energies inches away.</p>
-                <p style="color:#4a5751;line-height:1.7;margin-bottom:15px;">Outer layer soft and skin-friendly; inner layer fluffy cotton padding gently supports the eye area.</p>
-                <ul class="emf-product-features">
-                    <li>Complete light blocking</li>
-                    <li>Adjustable strap</li>
-                    <li>EMF protection inner layer</li>
-                    <li>Skin-friendly fabric</li>
-                </ul>
-                <div class="emf-cta-row">
-                    <a href="get-price.html" class="btn btn-primary">Request Quote</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. Clothing -->
-    <section class="emf-product-section" style="background:#fafaf7;">
-        <div class="emf-product-header">
-            <h2>Antibacterial Home Clothing & Underwear</h2>
-            <p>Bamboo fiber + silver fiber blend for home wear — soft, breathable, and antibacterial.</p>
-        </div>
-        <div class="emf-product-layout reverse">
-            <div class="emf-product-image">
-                <img src="images/products/clothing1.jpg" alt="Antibacterial Home Clothing + Boxer Briefs">
-            </div>
-            <div>
-                <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#2c3e35;margin-bottom:15px;">Comfortable as One</h3>
-                <p style="color:#4a5751;line-height:1.7;margin-bottom:15px;">From inside out, comfortable as one. Bamboo fiber, naturally soft as clouds, delicate and smooth touch, breathable and refreshing. Silver fiber provides continuous physical antibacterial protection, 99.99% inhibition rate after 150 washes.</p>
-                <p style="color:#4a5751;line-height:1.7;margin-bottom:15px;">No chemical coatings, gentle and non-irritating.</p>
-                <ul class="emf-product-features">
-                    <li>Bamboo fiber comfort</li>
-                    <li>Silver fiber antibacterial</li>
-                    <li>No chemical additives</li>
-                    <li>Breathable & refreshing</li>
-                </ul>
-                <div class="emf-cta-row">
-                    <a href="get-price.html" class="btn btn-primary">Request Quote</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="product-cta">
+    <section class="gb-category-section" id="beanie">
         <div class="container">
-            <div class="cta-content">
-                <h2>Looking for Custom EMF Protection Apparel?</h2>
-                <p>OEM/ODM services available for all 6 EMF Wearing product lines. Custom sizes, colors, and branding.</p>
-                <div class="cta-buttons">
-                    <a href="get-price.html" class="btn btn-primary">Get Wholesale Quote</a>
-                    <a href="index.html#contact" class="btn btn-outline">Contact Us</a>
+            <div class="gb-category-layout">
+                <div class="gb-category-carousel">
+                                            <div class="gb-carousel" id="beanieCarousel">
+                            
+                            <img src="images/products/beanie/1.jpg" alt="Beanie" class="gb-carousel-img active">
+                            <img src="images/products/beanie/2.jpg" alt="Beanie" class="gb-carousel-img">
+                            <img src="images/products/beanie/3.jpg" alt="Beanie" class="gb-carousel-img">
+                            <img src="images/products/beanie/4.jpg" alt="Beanie" class="gb-carousel-img">
+                            <img src="images/products/beanie/5.jpg" alt="Beanie" class="gb-carousel-img">
+                            <div class="gb-carousel-dots">
+                            
+                            <button class="gb-carousel-dot active" onclick="goGB('beanieCarousel',0)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('beanieCarousel',1)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('beanieCarousel',2)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('beanieCarousel',3)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('beanieCarousel',4)"></button>
+                            </div>
+                        </div>
+                </div>
+                <div class="gb-category-content">
+                    <h3>EMF Protection Beanie</h3><p>Cozy knit beanie with woven silver fiber threading throughout. Ideal for cold-weather EMF protection — keeps you warm while maintaining a quiet shield against ambient radiation.</p><ul class="gb-features"><li>Silver fiber woven throughout</li><li>Soft, stretchy knit fabric</li><li>Cold weather comfort</li><li>One size fits most</li></ul><div class="gb-cta-row"><a href="get-price.html" class="btn btn-primary">Request Quote</a></div>
                 </div>
             </div>
         </div>
     </section>
+    <section class="gb-category-section" id="hood">
+        <div class="container">
+            <div class="gb-category-layout reverse">
+                <div class="gb-category-carousel">
+                                            <div class="gb-carousel" id="hoodCarousel">
+                            
+                            <img src="images/products/hood/1.jpg" alt="Hood" class="gb-carousel-img active">
+                            <img src="images/products/hood/2.jpg" alt="Hood" class="gb-carousel-img">
+                            <img src="images/products/hood/3.jpg" alt="Hood" class="gb-carousel-img">
+                            <img src="images/products/hood/4.jpg" alt="Hood" class="gb-carousel-img">
+                            <img src="images/products/hood/5.jpg" alt="Hood" class="gb-carousel-img">
+                            <div class="gb-carousel-dots">
+                            
+                            <button class="gb-carousel-dot active" onclick="goGB('hoodCarousel',0)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('hoodCarousel',1)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('hoodCarousel',2)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('hoodCarousel',3)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('hoodCarousel',4)"></button>
+                            </div>
+                        </div>
+                </div>
+                <div class="gb-category-content">
+                    <h3>EMF Protection Hood</h3><p>Full-coverage hood designed for deep EMF protection around the head and neck. Wear it under a helmet, or on its own — the soft knit construction ensures all-day comfort.</p><ul class="gb-features"><li>Full head & neck coverage</li><li>Silver fiber Faraday weave</li><li>Soft, breathable knit</li><li>Lightweight & packable</li></ul><div class="gb-cta-row"><a href="get-price.html" class="btn btn-primary">Request Quote</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="gb-category-section" id="baseball_cap">
+        <div class="container">
+            <div class="gb-category-layout">
+                <div class="gb-category-carousel">
+                                            <div class="gb-carousel" id="baseball_capCarousel">
+                            
+                            <img src="images/products/baseball_cap/1.jpg" alt="Baseball Cap" class="gb-carousel-img active">
+                            <img src="images/products/baseball_cap/2.jpg" alt="Baseball Cap" class="gb-carousel-img">
+                            <img src="images/products/baseball_cap/3.jpg" alt="Baseball Cap" class="gb-carousel-img">
+                            <div class="gb-carousel-dots">
+                            
+                            <button class="gb-carousel-dot active" onclick="goGB('baseball_capCarousel',0)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('baseball_capCarousel',1)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('baseball_capCarousel',2)"></button>
+                            </div>
+                        </div>
+                </div>
+                <div class="gb-category-content">
+                    <h3>EMF Protection Baseball Cap</h3><p>Premium baseball cap with built-in silver fiber lining for everyday EMF protection. When you travel through the city — passing cell towers, phones in pockets, Wi-Fi signals overhead — this invisible barrier quietly works.</p><ul class="gb-features"><li>Faraday shield silver fiber lining</li><li>Blocks Wi-Fi & cell signals</li><li>Comfortable for sports & travel</li><li>Adjustable strap</li></ul><div class="gb-cta-row"><a href="get-price.html" class="btn btn-primary">Request Quote</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="gb-category-section" id="curtain">
+        <div class="container">
+            <div class="gb-category-layout reverse">
+                <div class="gb-category-carousel">
+                                            <div class="gb-carousel" id="curtainCarousel">
+                            
+                            <img src="images/products/curtain/1.jpg" alt="Curtain" class="gb-carousel-img active">
+                            <img src="images/products/curtain/2.jpg" alt="Curtain" class="gb-carousel-img">
+                            <img src="images/products/curtain/3.jpg" alt="Curtain" class="gb-carousel-img">
+                            <img src="images/products/curtain/4.jpg" alt="Curtain" class="gb-carousel-img">
+                            <img src="images/products/curtain/5.jpg" alt="Curtain" class="gb-carousel-img">
+                            <div class="gb-carousel-dots">
+                            
+                            <button class="gb-carousel-dot active" onclick="goGB('curtainCarousel',0)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('curtainCarousel',1)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('curtainCarousel',2)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('curtainCarousel',3)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('curtainCarousel',4)"></button>
+                            </div>
+                        </div>
+                </div>
+                <div class="gb-category-content">
+                    <h3>EMF Protection Curtain</h3><p>Light sheer curtain with built-in silver fiber shielding — block outdoor signals while letting light in. Cell towers outside, signals across the street — those invisible disturbances are quietly stopped.</p><ul class="gb-features"><li>Silver fiber woven sheer fabric</li><li>Blocks outdoor cell signals</li><li>Decorative & functional</li><li>Custom sizes available</li></ul><div class="gb-cta-row"><a href="get-price.html" class="btn btn-primary">Request Quote</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="gb-category-section" id="socks">
+        <div class="container">
+            <div class="gb-category-layout">
+                <div class="gb-category-carousel">
+                                            <div class="gb-carousel" id="socksCarousel">
+                            
+                            <img src="images/products/socks/1.jpg" alt="Socks" class="gb-carousel-img active">
+                            <img src="images/products/socks/2.jpg" alt="Socks" class="gb-carousel-img">
+                            <img src="images/products/socks/3.jpg" alt="Socks" class="gb-carousel-img">
+                            <img src="images/products/socks/4.jpg" alt="Socks" class="gb-carousel-img">
+                            <div class="gb-carousel-dots">
+                            
+                            <button class="gb-carousel-dot active" onclick="goGB('socksCarousel',0)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('socksCarousel',1)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('socksCarousel',2)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('socksCarousel',3)"></button>
+                            </div>
+                        </div>
+                </div>
+                <div class="gb-category-content">
+                    <h3>Antibacterial Grounding Socks</h3><p>Silver fiber woven into the sole for 99.99% antibacterial protection and static discharge. Feet, the place closest to the earth. Every step is a reconnection with the stability that belongs to you.</p><ul class="gb-features"><li>99.99% antibacterial (150 washes)</li><li>Static discharge</li><li>Soft daily comfort</li><li>Multiple sizes available</li></ul><div class="gb-cta-row"><a href="get-price.html" class="btn btn-primary">Request Quote</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="gb-category-section" id="eye_mask">
+        <div class="container">
+            <div class="gb-category-layout reverse">
+                <div class="gb-category-carousel">
+                                            <div class="gb-carousel" id="eye_maskCarousel">
+                            
+                            <img src="images/products/eye_mask/1.jpg" alt="Eye Mask" class="gb-carousel-img active">
+                            <img src="images/products/eye_mask/2.jpg" alt="Eye Mask" class="gb-carousel-img">
+                            <img src="images/products/eye_mask/3.jpg" alt="Eye Mask" class="gb-carousel-img">
+                            <div class="gb-carousel-dots">
+                            
+                            <button class="gb-carousel-dot active" onclick="goGB('eye_maskCarousel',0)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('eye_maskCarousel',1)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('eye_maskCarousel',2)"></button>
+                            </div>
+                        </div>
+                </div>
+                <div class="gb-category-content">
+                    <h3>EMF Protection Eye Mask</h3><p>Sleep eye mask with silver fiber shielding for complete light blocking and EMF protection. When you close your eyes, electronic devices around you are still quietly working — this eye mask keeps both light and radiation at bay.</p><ul class="gb-features"><li>100% light blocking</li><li>Silver fiber shielding</li><li>Soft, contoured design</li><li>Adjustable strap</li></ul><div class="gb-cta-row"><a href="get-price.html" class="btn btn-primary">Request Quote</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="gb-category-section" id="sleeve_shirt">
+        <div class="container">
+            <div class="gb-category-layout">
+                <div class="gb-category-carousel">
+                                            <div class="gb-carousel" id="sleeve_shirtCarousel">
+                            
+                            <img src="images/products/sleeve_shirt/1.jpg" alt="Sleeve Shirt" class="gb-carousel-img active">
+                            <img src="images/products/sleeve_shirt/2.jpg" alt="Sleeve Shirt" class="gb-carousel-img">
+                            <img src="images/products/sleeve_shirt/3.jpg" alt="Sleeve Shirt" class="gb-carousel-img">
+                            <img src="images/products/sleeve_shirt/4.jpg" alt="Sleeve Shirt" class="gb-carousel-img">
+                            <div class="gb-carousel-dots">
+                            
+                            <button class="gb-carousel-dot active" onclick="goGB('sleeve_shirtCarousel',0)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('sleeve_shirtCarousel',1)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('sleeve_shirtCarousel',2)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('sleeve_shirtCarousel',3)"></button>
+                            </div>
+                        </div>
+                </div>
+                <div class="gb-category-content">
+                    <h3>EMF Sleeve Shirt</h3><p>Long-sleeve shirt with silver fiber woven throughout for full upper-body EMF protection. Wear it as a base layer or on its own — soft, breathable, and ready for daily wear.</p><ul class="gb-features"><li>Full upper-body silver fiber shield</li><li>Soft, breathable cotton blend</li><li>Long sleeve coverage</li><li>OEM color & logo available</li></ul><div class="gb-cta-row"><a href="get-price.html" class="btn btn-primary">Request Quote</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="gb-category-section" id="loungewear">
+        <div class="container">
+            <div class="gb-category-layout reverse">
+                <div class="gb-category-carousel">
+                                            <div class="gb-carousel" id="loungewearCarousel">
+                            
+                            <img src="images/products/loungewear/1.jpg" alt="Loungewear" class="gb-carousel-img active">
+                            <img src="images/products/loungewear/2.jpg" alt="Loungewear" class="gb-carousel-img">
+                            <img src="images/products/loungewear/3.jpg" alt="Loungewear" class="gb-carousel-img">
+                            <img src="images/products/loungewear/4.jpg" alt="Loungewear" class="gb-carousel-img">
+                            <div class="gb-carousel-dots">
+                            
+                            <button class="gb-carousel-dot active" onclick="goGB('loungewearCarousel',0)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('loungewearCarousel',1)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('loungewearCarousel',2)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('loungewearCarousel',3)"></button>
+                            </div>
+                        </div>
+                </div>
+                <div class="gb-category-content">
+                    <h3>EMF Loungewear</h3><p>Full-coverage loungewear for at-home EMF protection. Slip into it after work, and let the silver fiber lining quietly attenuate ambient radiation while you rest, read, or sleep.</p><ul class="gb-features"><li>Full-coverage silver fiber lining</li><li>Soft, comfortable loungewear cut</li><li>Home & travel ready</li><li>Multiple colors available</li></ul><div class="gb-cta-row"><a href="get-price.html" class="btn btn-primary">Request Quote</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="gb-category-section" id="boxer">
+        <div class="container">
+            <div class="gb-category-layout">
+                <div class="gb-category-carousel">
+                                            <div class="gb-carousel" id="boxerCarousel">
+                            
+                            <img src="images/products/boxer/1.jpg" alt="Boxer Shorts" class="gb-carousel-img active">
+                            <img src="images/products/boxer/2.jpg" alt="Boxer Shorts" class="gb-carousel-img">
+                            <img src="images/products/boxer/3.jpg" alt="Boxer Shorts" class="gb-carousel-img">
+                            <img src="images/products/boxer/4.jpg" alt="Boxer Shorts" class="gb-carousel-img">
+                            <div class="gb-carousel-dots">
+                            
+                            <button class="gb-carousel-dot active" onclick="goGB('boxerCarousel',0)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('boxerCarousel',1)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('boxerCarousel',2)"></button>
+                            <button class="gb-carousel-dot" onclick="goGB('boxerCarousel',3)"></button>
+                            </div>
+                        </div>
+                </div>
+                <div class="gb-category-content">
+                    <h3>EMF Boxer Shorts</h3><p>Antibacterial boxer shorts with silver fiber woven throughout. 99.99% antibacterial protection meets EMF shielding — the most intimate layer of daily defense.</p><ul class="gb-features"><li>Silver fiber full coverage</li><li>99.99% antibacterial</li><li>Soft, breathable cotton blend</li><li>Multiple sizes & colors</li></ul><div class="gb-cta-row"><a href="get-price.html" class="btn btn-primary">Request Quote</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+<section class="gb-category-section" style="background: linear-gradient(135deg, #1a2e3a 0%, #2d4a5a 100%); text-align: center;">
+    <div class="container">
+        <h2 style="color: #fff; font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; margin: 0 0 16px; font-weight: 500;">Build Your EMF Apparel Line</h2>
+        <p style="color: rgba(255,255,255,0.85); font-size: 1.1rem; max-width: 640px; margin: 0 auto 32px;">OEM / ODM available for all 11 product lines. Custom colors, sizes, and packaging. Sample lead time 7 days, bulk 30 days.</p>
+        <a href="get-price.html" class="btn btn-primary" style="background: #fff; color: #1a2e3a;">Get Wholesale Quote</a>
+    </div>
+</section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -417,6 +564,43 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    
+<script>
+var timers = {};
+function goGB(id, n) {
+    var c = document.getElementById(id);
+    if (!c) return;
+    var imgs = c.querySelectorAll('.gb-carousel-img');
+    var dots = c.querySelectorAll('.gb-carousel-dot');
+    var total = imgs.length;
+    var cur = 0;
+    for (var i = 0; i < total; i++) {
+        if (imgs[i].classList.contains('active')) { cur = i; break; }
+    }
+    var next;
+    if (n >= 0 && n < total) { next = n; }
+    else { next = (cur + n + total) % total; }
+    imgs[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    imgs[next].classList.add('active');
+    dots[next].classList.add('active');
+    var t = timers[id];
+    if (t) { clearInterval(t); }
+    timers[id] = setInterval(function() { goGB(id, 1); }, 3500);
+}
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.gb-carousel').forEach(function(c) {
+        if (timers[c.id]) return;
+        timers[c.id] = setInterval(function() { goGB(c.id, 1); }, 3500);
+        c.addEventListener('mouseenter', function() {
+            if (timers[c.id]) { clearInterval(timers[c.id]); timers[c.id] = null; }
+        });
+        c.addEventListener('mouseleave', function() {
+            if (!timers[c.id]) { timers[c.id] = setInterval(function() { goGB(c.id, 1); }, 3500); }
+        });
+    });
+});
+</script>
+
 </body>
 </html>
