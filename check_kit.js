@@ -1,7 +1,12 @@
 var fs = require('fs');
 var h = fs.readFileSync('grounding-kit.html', 'utf8');
-var idx = h.indexOf('<h1>');
-console.log('h1:', JSON.stringify(h.slice(idx, idx + 100)));
-console.log('title:', h.match(/<title>([^<]+)</)[1]);
-console.log('Grounding Kit count:', (h.match(/Grounding Kit/g) || []).length);
-console.log('Grounding Accessories count:', (h.match(/Grounding Accessories/g) || []).length);
+var ids = [];
+var re = /<section[^>]*id="([^"]+)"/g;
+var m;
+while ((m = re.exec(h)) !== null) ids.push(m[1]);
+console.log('Kit anchors:', ids.join(', '));
+
+var titles = [];
+var tre = /<h[34][^>]*>([^<]+)<\/h[34]>/g;
+while ((m = tre.exec(h)) !== null) titles.push(m[1].trim());
+console.log('First 6 titles:', titles.slice(0, 6).join(' | '));
