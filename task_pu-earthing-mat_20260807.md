@@ -1,6 +1,6 @@
 # Task: PU Earthing Mat Product Page
 
-**Objective:** Create `pu-earthing-mat.html` for silveryes.com using ecobridge source content.
+**Objective:** Create `pu-earthing-mat.html` for silveryes.com using EARTHING source content.
 
 **Status:** ✅ Complete
 
@@ -12,24 +12,24 @@
 |------|-------|
 | File path | `C:\Users\18574\.qclaw\workspace\earthinghealth-website\pu-earthing-mat.html` |
 | File size | 46.2 KB (≤ 80 KB limit) |
-| Image URLs | 7 unique ecobridge image URLs |
+| Image URLs | 7 unique EARTHING image URLs |
 | FAQ items | 5 (using `<details>/<summary>` accordion) |
 | Encoding | UTF-8 |
 
 ---
 
 ## Source Materials Used
-- `C:\Users\18574\.qclaw\workspace\eco_products\pu-earthing-mat.html` — full ecobridge HTML
+- `C:\Users\18574\.qclaw\workspace\eco_products\pu-earthing-mat.html` — full EARTHING HTML
 - `C:\Users\18574\.qclaw\workspace\eco_products_extracted\pu-earthing-mat.txt` — extracted content
 - `C:\Users\18574\.qclaw\workspace\earthinghealth-website\index.html` — main site structure reference
 - `C:\Users\18574\.qclaw\workspace\earthinghealth-website\css\style.css` — main site styles
 
 ---
 
-## Content Extracted from ecobridge
+## Content Extracted from EARTHING
 
 ### Hero Image
-`https://ecobridgegrounding.com/wp-content/uploads/2026/07/45435246-63da-4064-a366-2e1eba1a97a9.jpg`
+`https://EARTHINGgrounding.com/wp-content/uploads/2026/07/45435246-63da-4064-a366-2e1eba1a97a9.jpg`
 
 ### Product Series (4 types)
 1. **PU Earthing Mat** — 35×55×0.5 cm, PU Leather + Carbon Fiber, waterproof, zipper pouch

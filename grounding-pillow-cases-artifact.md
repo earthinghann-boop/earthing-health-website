@@ -10,9 +10,9 @@ Successfully created `grounding-pillow-cases.html` for the earthinghealth-websit
 
 ## Content Summary
 
-### Extracted from ecobridge
+### Extracted from EARTHING
 - **H1:** Grounding Pillow Cases - Better Sleep Starts with Better Connection
-- **Hero Image:** `https://ecobridgegrounding.com/wp-content/uploads/2026/07/4b5140c0-ff79-4772-a026-21b7955e408b-1024x819.jpg`
+- **Hero Image:** `https://EARTHINGgrounding.com/wp-content/uploads/2026/07/4b5140c0-ff79-4772-a026-21b7955e408b-1024x819.jpg`
 - **Additional Images:** 2 more (intro section + how-it-works)
 - **Materials:** 95% Cotton + 5% Silver Fiber; 95% Bamboo Fiber + 5% Silver Fiber
 - **Colors:** Blue, Gray, Yellow, Black, Navy, Pink, White (7 colors)
@@ -35,7 +35,7 @@ Successfully created `grounding-pillow-cases.html` for the earthinghealth-websit
 13. **Footer** — Consistent with main site
 
 ### Key Metrics
-- **Image URLs from ecobridge:** 3 (Hero, Intro, How It Works)
+- **Image URLs from EARTHING:** 3 (Hero, Intro, How It Works)
 - **FAQ Count:** 7
 - **Style:** Matches main site `index.html` CSS variables, typography, and component styles
 - **No JavaScript:** FAQ uses native `<details>/<summary>` — no JS required
