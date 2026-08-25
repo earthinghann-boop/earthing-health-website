@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>获取报价 - 批发价格咨询</title>
+    <title>获取报价 — 银纤维接地产品工厂直供 | EARTHING</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <style>
@@ -13,7 +13,7 @@
         /* Hero banner */
         /* ── Hero with slanted bottom edge ─────────────────────────────────── */
         .gp-hero {
-            background: url("images/hero-bg.jpg") center / cover no-repeat;
+            background: url("../images/hero-bg.jpg") center / cover no-repeat;
             position: relative;
             height: 560px;
             display: flex;
@@ -466,34 +466,6 @@
             }
         }
 
-    
-    /* Language Switcher */
-    .lang-switcher {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        border: 1.5px solid rgba(255,255,255,0.35);
-        border-radius: 20px;
-        padding: 2px 10px 2px 4px;
-        margin-right: 10px;
-    }
-    .lang-switcher a, .lang-switcher span {
-        text-decoration: none;
-        color: rgba(255,255,255,0.7);
-        padding: 3px 8px;
-        border-radius: 16px;
-        transition: all 0.2s;
-        cursor: pointer;
-    }
-    .lang-switcher a:hover { color: #fff; background: rgba(255,255,255,0.1); }
-    .lang-switcher .lang-current {
-        color: #fff;
-        background: rgba(255,255,255,0.18);
-    }
-
     </style>
 </head>
 <body>
@@ -508,15 +480,14 @@
             <span></span><span></span><span></span>
         </button>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#home">首页</a></li>
-            <li><a href="index.html#about">关于我们</a></li>
-            <li><a href="index.html#products">产品中心</a></li>
-            <li><a href="index.html#technology">技术介绍</a></li>
-            <li><a href="index.html#contact">联系我们</a></li>
-            <li><div class="lang-switcher"><a href="../index.html">EN</a><span class="lang-current">中文</span></div><a href="../get-price.html" class="nav-cta">获取报价</a></li>
-        
-                        <li class="lang-switcher-item"><div class="lang-switcher"><a href="../index.html">EN</a><span class="lang-current">中文</span></div></li>
-                    </ul>
+            <li><a href="../index.html#home">首页</a></li>
+            <li><a href="../index.html#about">关于我们</a></li>
+            <li><a href="../index.html#products">产品中心</a></li>
+            <li><a href="../index.html#technology">技术介绍</a></li>
+            <li><a href="../index.html#contact">联系我们</a></li>
+            <li><a href="../get-price.html" class="nav-cta">获取报价</a></li>
+                    <li class="lang-switcher-item"><div class="lang-switcher"><a href="zh/index.html" class="lang-other">中文</a><span class="lang-current">EN</span></div></li>
+        </ul>
     </div>
 </nav>
 
@@ -524,7 +495,7 @@
 <section class="gp-hero">
     <div class="gp-hero-inner">
         <h1>立即获取<br>接地产品价格估算</h1>
-        <p>选择产品规格和订单数量，即可查看适用的 EXW 阶梯报价。</p>
+        <p>选择产品规格和数量，立即查看 EXW 工厂直供阶梯报价区间。</p>
     </div>
 </section>
 
@@ -541,7 +512,7 @@
             </div>
             <div>
                 <h2>产品 <span>价格估算</span></h2>
-                <p>在线估算适用于每单 11 至 1,000 件的订单</p>
+                <p>在线估算 11 至 1,000 件订单的 EXW 报价</p>
             </div>
         </div>
 
@@ -549,45 +520,45 @@
             <!-- LEFT COLUMN: Form -->
             <div class="calc-left">
                 <div class="calc-left-header">
-                    <div class="eyebrow">—— 工厂直供价格估算</div>
+                    <div class="eyebrow">—— Factory Direct Estimate</div>
                     <h3>立即获取接地产品价格估算</h3>
-                    <p>选择产品规格和订单数量，即可查看适用的 EXW 阶梯报价区间。</p>
+                    <p>选择产品规格和数量，即可查看适用的 EXW 阶梯报价区间。</p>
                 </div>
 
                 <div class="form-grid">
                     <div class="form-group full-width">
                         <label>产品 <span class="req">*</span></label>
                         <select class="form-select" id="productSelect" onchange="updateSizes();updatePreview()">
-                            <option value="">选择产品</option>
+                            <option value="">请选择产品</option>
                             <option value="grounding-sheets">Grounding Sheets</option>
                             <option value="fitted-sheet">接地床笠</option>
                             <option value="grounding-mat">接地垫</option>
-                            <option value="pillowcase">接地枕套s</option>
+                            <option value="pillowcase">接地枕套</option>
                             <option value="grounding-blanket">接地毯</option>
-                            <option value="pu-mat">PU Mat</option>
-                            <option value="pu-sheet">PU Sheet</option>
+                            <option value="pu-mat">PU接地垫</option>
+                            <option value="pu-sheet">PU接地床单</option>
                             <option value="pu-mouse">PU皮革鼠标垫</option>
-                            <option value="pu-yoga">PU Leather Yoga Mat</option>
-                            <option value="grounding-cord">接地线 — Accessory</option>
+                            <option value="pu-yoga">PU皮革瑜伽垫</option>
+                            <option value="grounding-cord">接地线 — 配件</option>
                             <option value="changeover-plug">转换插头 — 配件</option>
-                            <option value="conductive-tester">导通测试仪 — Accessory</option>
+                            <option value="conductive-tester">导通测试仪 — 配件</option>
                             <option value="testing-pen">测试笔 — 配件</option>
                             <option value="outlet-checker">插座检测器 — 配件</option>
                         </select>
                     </div>
                     <div class="form-group full-width">
-                        <label>尺寸/规格 <span class="req">*</span></label>
+                        <label>尺寸 / 规格 <span class="req">*</span></label>
                         <select class="form-select" id="sizeSelect" onchange="calculatePrice()" disabled>
                             <option value="">请先选择产品</option>
                         </select>
                     </div>
                     <div class="form-group full-width">
-                        <label>数量 (件) <span class="req">*</span></label>
+                        <label>数量（件）<span class="req">*</span></label>
                         <input type="number" class="form-input" id="qtyInput"
-                               placeholder="输入数量 (11 – 1,000 件)"
+                               placeholder="Enter quantity (11 – 1,000 pcs)"
                                min="11" max="1000" value=""
                                oninput="calculatePrice()">
-                        <p class="input-hint">在线估算适用于每单 11 至 1,000 件</p>
+                        <p class="input-hint">在线报价适用于 11 至 1,000 件订单</p>
                     </div>
                 </div>
 
@@ -602,16 +573,16 @@
             <!-- RIGHT COLUMN: Quote -->
             <div class="calc-right">
                 <div class="calc-right-header">
-                    <div class="eyebrow">估算 EXW 报价</div>
+                    <div class="eyebrow">Estimated EXW Quote</div>
                 </div>
 
                 <div class="price-cards" id="priceCards">
                     <div class="price-card">
-                        <div class="price-card-label">单价</div>
+                        <div class="price-card-label">Unit Price</div>
                         <div class="price-card-value" id="unitPriceDisplay">—</div>
                     </div>
                     <div class="price-card">
-                        <div class="price-card-label">产品总价</div>
+                        <div class="price-card-label">Product Total</div>
                         <div class="price-card-value" id="totalPriceDisplay">—</div>
                     </div>
                 </div>
@@ -621,15 +592,15 @@
                         <circle cx="12" cy="12" r="10"/>
                         <path d="M8 12l3 3 5-6"/>
                     </svg>
-                    <span id="tierBadgeText">适用阶梯：11–200 件</span>
+                    <span id="tierBadgeText">Applicable tier: 11–200 pcs</span>
                 </div>
 
                 <div class="tiered-pricing">
-                    <h4>阶梯定价</h4>
+                    <h4>Tiered Pricing</h4>
                     <table class="tier-table-dark">
                         <thead>
                             <tr>
-                                <th>Quantity</th>
+                                <th>数量</th>
                                 <th>Unit Price</th>
                             </tr>
                         </thead>
@@ -642,10 +613,10 @@
                 </div>
 
                 <p class="right-disclaimer">
-                    所示价格为参考性 EXW 估算价格，不含运费、定制包装及其他定制费用。最终价格以订单确认为准。
+                    Prices shown are estimated EXW prices for reference only. Shipping, custom packaging and other customization costs are not included. Final pricing is subject to order confirmation.
                 </p>
 
-                <a href="mailto:sale@groundingsafe.com" class="btn-quote">获取正式报价</a>
+                <a href="mailto:sale@groundingsafe.com" class="btn-quote">Get Official Quote</a>
             </div>
         </div>
 
@@ -659,14 +630,14 @@
 
 <!-- CTA -->
 <section class="gp-cta-strip">
-    <h3>需要正式报价单？</h3>
-    <p>如需定制、贴牌及含全包价格，请联系我们 — 24 小时内回复。</p>
-    <a href="mailto:sale@groundingsafe.com" class="btn-primary">发送询价 →</a>
+    <h3>需要正式报价？</h3>
+    <p>如需定制、品牌方案或含运费的全包报价，请联系我们。业务团队 24 小时内回复。</p>
+    <a href="mailto:sale@groundingsafe.com" class="btn-primary">Send us an Inquiry →</a>
 </section>
 
 <!-- Footer -->
 <footer class="site-footer">
-    <p>© 2026 广州接地健康科技有限公司 &nbsp;|&nbsp; <a href="../index.html">EARTHING.</a></p>
+    <p>© 2026 Guangzhou Earthing Health Technology Co., Ltd. &nbsp;|&nbsp; <a href="../index.html">EARTHING.</a></p>
 </footer>
 
 <script>
@@ -750,9 +721,9 @@
     }
 
     function getTierLabel(qty) {
-        if (qty >= 501) return '第3档 — 501–1,000 件（最优价格）';
-        if (qty >= 201) return '第2档 — 201–500 件（批量优惠）';
-        return '第1档 — 11–200 件（标准价格）';
+        if (qty >= 501) return 'Tier 3 — 501–1000 pcs (Best Price)';
+        if (qty >= 201) return 'Tier 2 — 201–500 pcs (Volume Discount)';
+        return 'Tier 1 — 11–200 pcs (Standard Rate)';
     }
 
     function getTierBadge(qty) {
@@ -762,20 +733,20 @@
 
     // ── Product Preview ──────────────────────────────────────────────────────
     const PREVIEW_MAP = {
-        'grounding-sheets':    { img: 'images/previews/grounding-sheets.jpg',    name: 'Grounding Sheets' },
-        'fitted-sheet':        { img: 'images/previews/fitted-sheet.jpg',        name: 'Earthing Fitted Sheet' },
-        'grounding-mat':       { img: 'images/previews/grounding-mat.jpg',       name: '接地垫' },
-        'pillowcase':          { img: 'images/previews/pillowcase.jpg',          name: '接地枕套s' },
-        'grounding-blanket':   { img: 'images/previews/grounding-blanket.jpg',   name: '接地毯' },
-        'pu-mat':              { img: 'images/previews/pu-mat.jpg',              name: 'PU Mat' },
-        'pu-sheet':            { img: 'images/previews/pu-sheet.jpg',            name: 'PU Sheet' },
-        'pu-mouse':            { img: 'images/previews/pu-mouse.jpg',            name: 'PU Leather Mouse Mat' },
-        'pu-yoga':             { img: 'images/previews/pu-yoga.jpg',             name: 'PU Leather Yoga Mat' },
-        'grounding-cord':      { img: 'images/previews/grounding-cord.jpg',      name: '接地线' },
-        'changeover-plug':     { img: 'images/previews/changeover-plug.jpg',     name: 'Changeover Plug' },
-        'conductive-tester':   { img: 'images/previews/conductive-tester.png',   name: '导通测试仪' },
-        'testing-pen':         { img: 'images/previews/testing-pen.jpg',         name: 'Testing Pen' },
-        'outlet-checker':      { img: 'images/previews/outlet-checker.png',      name: 'Outlet Checker' },
+        'grounding-sheets':    { img: '../images/previews/grounding-sheets.jpg',    name: 'Grounding Sheets' },
+        'fitted-sheet':        { img: '../images/previews/fitted-sheet.jpg',        name: '接地床笠' },
+        'grounding-mat':       { img: '../images/previews/grounding-mat.jpg',       name: '接地垫' },
+        'pillowcase':          { img: '../images/previews/pillowcase.jpg',          name: '接地枕套' },
+        'grounding-blanket':   { img: '../images/previews/grounding-blanket.jpg',   name: '接地毯' },
+        'pu-mat':              { img: '../images/previews/pu-mat.jpg',              name: 'PU接地垫' },
+        'pu-sheet':            { img: '../images/previews/pu-sheet.jpg',            name: 'PU接地床单' },
+        'pu-mouse':            { img: '../images/previews/pu-mouse.jpg',            name: 'PU皮革鼠标垫' },
+        'pu-yoga':             { img: '../images/previews/pu-yoga.jpg',             name: 'PU皮革瑜伽垫' },
+        'grounding-cord':      { img: '../images/previews/grounding-cord.jpg',      name: '接地线' },
+        'changeover-plug':     { img: '../images/previews/changeover-plug.jpg',     name: '转换插头' },
+        'conductive-tester':   { img: '../images/previews/conductive-tester.png',   name: '导通测试仪' },
+        'testing-pen':         { img: '../images/previews/testing-pen.jpg',         name: '测试笔' },
+        'outlet-checker':      { img: '../images/previews/outlet-checker.png',      name: '插座检测器' },
     };
 
     function updatePreview() {
@@ -795,7 +766,7 @@
     function updateSizes() {
         const product = document.getElementById('productSelect').value;
         const sizeSelect = document.getElementById('sizeSelect');
-        sizeSelect.innerHTML = '<option value="">选择尺寸</option>';
+        sizeSelect.innerHTML = '<option value="">请先选择产品</option>';
         sizeSelect.disabled = !product;
         if (product && SIZE_DATA[product]) {
             SIZE_DATA[product].forEach((item, i) => {
@@ -847,16 +818,16 @@
         const tierBadge = document.getElementById('tierBadge');
         const tierBadgeText = document.getElementById('tierBadgeText');
         tierBadge.style.display = 'inline-flex';
-        tierBadgeText.textContent = '适用阶梯：' + getTierLabel(qty).replace(/第\d档 — /, '').split('（')[0].trim();
+        tierBadgeText.textContent = 'Applicable tier: ' + getTierLabel(qty).replace(/Tier \d — /, '').split('(')[0].trim();
 
         // Update tier table
         const tierRow0 = document.getElementById('tierRow0');
         const tierRow1 = document.getElementById('tierRow1');
         const tierRow2 = document.getElementById('tierRow2');
 
-        tierRow0.innerHTML = `<td>11–200 件 ${tierIdx === 0 ? '<span class="your-tier-badge">您的阶梯</span>' : ''}</td><td>${tiers[0].toFixed(2)}</td>`;
-        tierRow1.innerHTML = `<td>201–500 件 ${tierIdx === 1 ? '<span class="your-tier-badge">您的阶梯</span>' : ''}</td><td>${tiers[1].toFixed(2)}</td>`;
-        tierRow2.innerHTML = `<td>501–1,000 件 ${tierIdx === 2 ? '<span class="your-tier-badge">您的阶梯</span>' : ''}</td><td>${tiers[2].toFixed(2)}</td>`;
+        tierRow0.innerHTML = `<td>11–200 pcs ${tierIdx === 0 ? '<span class="your-tier-badge">YOUR TIER</span>' : ''}</td><td>$${tiers[0].toFixed(2)}</td>`;
+        tierRow1.innerHTML = `<td>201–500 pcs ${tierIdx === 1 ? '<span class="your-tier-badge">YOUR TIER</span>' : ''}</td><td>$${tiers[1].toFixed(2)}</td>`;
+        tierRow2.innerHTML = `<td>501–1,000 pcs ${tierIdx === 2 ? '<span class="your-tier-badge">YOUR TIER</span>' : ''}</td><td>$${tiers[2].toFixed(2)}</td>`;
 
         // Highlight active tier row
         tierRow0.className = tierIdx === 0 ? 'active-tier' : '';
