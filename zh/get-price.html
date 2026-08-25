@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取报价 - 批发价格咨询</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ── Page-level overrides for get-price ──────────────────────────── */
+        body { overflow-x: hidden; }
+
+        /* Hero banner */
+        /* ── Hero with slanted bottom edge ─────────────────────────────────── */
+        .gp-hero {
+            background: url("images/hero-bg.jpg") center / cover no-repeat;
+            position: relative;
+            height: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            /* slanted bottom edge — left higher, right lower */
+            clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+        }
+        .gp-hero::before {
+            /* dark gradient overlay for text legibility */
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.30) 100%);
+            z-index: 1;
+        }
+        .gp-hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 820px;
+            padding: 0 24px;
+            margin: 0 auto;
+        }
+        .gp-hero-inner h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 50px;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 16px;
+            line-height: 1.18;
+            text-shadow: 0 2px 18px rgba(0,0,0,0.5);
+        }
+        .gp-hero-inner p {
+            font-size: 17px;
+            color: rgba(255,255,255,0.92);
+            max-width: 540px;
+            margin: 0 auto;
+            line-height: 1.6;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.45);
+        }
+        .gp-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .gp-hero-label {
+            display: inline-block; background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.9);
+            font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+            padding: 5px 16px; border-radius: 30px; margin-bottom: 18px;
+        }
+        .gp-hero h1 {
+            font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700;
+            color: #fff; margin-bottom: 14px; line-height: 1.15;
+        }
+        .gp-hero p { font-size: 17px; color: rgba(255,255,255,0.82); max-width: 520px; margin: 0 auto; }
+
+        /* ── Calculator ─────────────────────────────────────────────────── */
+        .gp-calculator {
+            max-width: 820px; margin: -40px auto 60px; padding: 0 20px; position: relative; z-index: 10;
+        }
+        .calc-card {
+            background: #fff; border-radius: 20px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12); overflow: hidden;
+        }
+        .calc-header {
+            background: linear-gradient(135deg, #3a5c2e, #4a6b3a);
+            padding: 26px 36px; display: flex; align-items: center; gap: 14px;
+        }
+        .calc-header-icon {
+            width: 44px; height: 44px; background: rgba(255,255,255,0.2);
+            border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .calc-header-icon svg { color: #fff; }
+        .calc-header h2 { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; }
+        .calc-header h2 span { color: #d4ad3a; }
+        .calc-header p { font-size: 13px; color: rgba(255,255,255,0.72); margin-top: 2px; }
+
+        .calc-body { padding: 36px; }
+
+        .form-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+        }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group.full-width { grid-column: 1 / -1; }
+        .form-group label {
+            font-size: 12px; font-weight: 700; color: #55553a;
+            letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 7px;
+        }
+        .form-group label .req { color: #b8902a; margin-left: 2px; }
+        .form-select, .form-input {
+            width: 100%; padding: 11px 16px; border: 1.5px solid #e0dbd0;
+            border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 15px;
+            color: #2c2c1e; background: #fff; transition: border-color 0.2s, box-shadow 0.2s;
+            appearance: none; -webkit-appearance: none; cursor: pointer;
+        }
+        .form-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8870' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px;
+        }
+        .form-select:focus, .form-input:focus {
+            outline: none; border-color: #4a6b3a; box-shadow: 0 0 0 3px rgba(74,107,58,0.12);
+        }
+        .form-input::placeholder { color: #b0aa98; }
+        .input-hint { font-size: 12px; color: #8a8870; margin-top: 5px; }
+
+        /* ── Product Preview ─────────────────────────────────────────── */
+        .product-preview {
+            margin-top: 24px;
+            min-height: 280px;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #f8f5ef;
+            border: 1.5px solid #e0dbd0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: background 0.25s ease;
+        }
+        .product-preview.has-image {
+            background: #ffffff;
+        }
+        .product-preview img {
+            max-width: 100%;
+            max-height: 360px;
+            object-fit: contain;
+            display: block;
+        }
+        .preview-label {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(58, 92, 46, 0.92);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 5px 12px;
+            border-radius: 30px;
+            text-transform: uppercase;
+        }
+        .preview-empty {
+            color: #b0aa98;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+        .preview-empty-text {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1.5px dashed #d4cebd;
+            border-radius: 30px;
+        }
+
+        .price-display {
+            margin-top: 28px; padding: 22px 28px;
+            background: linear-gradient(135deg, #f0ede5, #f8f5ef);
+            border: 2px solid #e0dbd0; border-radius: 14px; text-align: center;
+            min-height: 105px; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; transition: all 0.3s ease;
+        }
+        .price-display.active {
+            background: linear-gradient(135deg, #eef5ea, #f4faf2);
+            border-color: #4a6b3a;
+        }
+        .price-display .price-placeholder {
+            color: #8a8870; font-size: 15px;
+        }
+        .price-display .price-placeholder svg {
+            display: block; margin: 0 auto 10px; opacity: 0.4;
+        }
+        .price-display.active .price-label {
+            font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+            text-transform: uppercase; color: #4a6b3a; margin-bottom: 6px;
+        }
+        .price-display.active .price-amount {
+            font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 700;
+            color: #3a5c2e; line-height: 1;
+        }
+        .price-display.active .price-unit {
+            font-size: 14px; color: #8a8870; margin-top: 4px;
+        }
+        .price-display.active .price-tier {
+            display: inline-block; background: #3a5c2e; color: #fff;
+            font-size: 11px; font-weight: 700; letter-spacing: 1px;
+            padding: 3px 12px; border-radius: 20px; margin-top: 8px;
+        }
+
+        .tier-guide {
+            margin-top: 24px; padding-top: 24px; border-top: 1px solid #e0dbd0;
+        }
+        .tier-guide h4 {
+            font-size: 12px; font-weight: 700; color: #55553a;
+            letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 12px;
+        }
+        .tier-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .tier-table th {
+            background: #eee8dc; padding: 8px 12px; text-align: left;
+            font-weight: 700; color: #55553a; font-size: 11px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .tier-table td {
+            padding: 7px 12px; border-bottom: 1px solid #e0dbd0; color: #2c2c1e;
+        }
+        .tier-table tr:last-child td { border-bottom: none; }
+        .tier-table .tier-highlight { background: #f4faf2; }
+        .tier-table .tier-badge {
+            display: inline-block; padding: 2px 8px; border-radius: 10px;
+            font-size: 11px; font-weight: 700;
+        }
+        .tier-badge.gold { background: #fdf3d0; color: #8a6c34; }
+        .tier-badge.green { background: #eef5ea; color: #3a5c2e; }
+        .tier-badge.blue { background: #e8f0fa; color: #3a5c8c; }
+
+        .calc-disclaimer {
+            margin-top: 16px; font-size: 12px; color: #8a8870; text-align: center; line-height: 1.6;
+        }
+
+        /* ── CTA ────────────────────────────────────────────────────────── */
+        .gp-cta-strip {
+            background: #eee8dc; border-top: 1px solid #e0dbd0;
+            border-bottom: 1px solid #e0dbd0; padding: 50px 40px; text-align: center;
+        }
+        .gp-cta-strip h3 { font-family: 'Playfair Display', serif; font-size: 28px; color: #2c2c1e; margin-bottom: 10px; }
+        .gp-cta-strip p { font-size: 15px; color: #8a8870; margin-bottom: 24px; }
+        .btn-primary {
+            display: inline-block; background: #4a6b3a; color: #fff;
+            padding: 14px 36px; border-radius: 30px; font-size: 15px; font-weight: 700;
+            text-decoration: none; letter-spacing: 0.3px; transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            border: none; cursor: pointer;
+        }
+        .btn-primary:hover { background: #3a5c2e; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(74,107,58,0.3); }
+
+        /* ── Footer ─────────────────────────────────────────────────────── */
+        .site-footer { background: #3a5c2e; color: rgba(255,255,255,0.7); padding: 40px; text-align: center; font-size: 13px; }
+        .site-footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+        .site-footer a:hover { color: #fff; }
+
+        /* ── Responsive ──────────────────────────────────────────────────── */
+        @media (max-width: 680px) {
+            .gp-hero h1 { font-size: 34px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .calc-body { padding: 22px 18px; }
+            .calc-header { padding: 20px 20px; }
+            .tier-table { font-size: 12px; }
+            .gp-cta-strip { padding: 36px 20px; }
+        }
+    
+        /* ── Two-column layout (EARTHING style) ─────────────────────────── */
+        .calc-body {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 0 !important;
+            padding: 0 !important;
+        }
+        .calc-left {
+            padding: 36px !important;
+            background: #fff !important;
+        }
+        .calc-right {
+            padding: 36px !important;
+            background: linear-gradient(135deg, #3a4a3a, #2d3d2d) !important;
+            color: #fff;
+        }
+        .calc-left-header {
+            margin-bottom: 24px;
+        }
+        .calc-left-header .eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #8a8870;
+            margin-bottom: 8px;
+        }
+        .calc-left-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #2c2c1e;
+            line-height: 1.25;
+            margin: 0 0 12px 0;
+        }
+        .calc-left-header p {
+            font-size: 14px;
+            color: #8a8870;
+            line-height: 1.5;
+        }
+        .calc-right-header {
+            margin-bottom: 20px;
+        }
+        .calc-right-header .eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 8px;
+        }
+
+        /* Price cards in right column */
+        .price-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .price-card {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 16px;
+        }
+        .price-card-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 4px;
+        }
+        .price-card-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .price-tier-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .price-tier-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Tiered pricing table in right column */
+        .tiered-pricing {
+            margin-top: 8px;
+        }
+        .tiered-pricing h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .tier-table-dark {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 13px;
+        }
+        .tier-table-dark th {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 700;
+            color: rgba(255,255,255,0.7);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .tier-table-dark th:last-child,
+        .tier-table-dark td:last-child {
+            text-align: right;
+        }
+        .tier-table-dark td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.9);
+        }
+        .tier-table-dark tr:last-child td {
+            border-bottom: none;
+        }
+        .tier-table-dark tr.active-tier {
+            background: rgba(255,255,255,0.15);
+        }
+        .tier-table-dark tr.active-tier td {
+            color: #fff;
+            font-weight: 600;
+        }
+        .your-tier-badge {
+            display: inline-block;
+            background: #fff;
+            color: #2d3d2d;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .right-disclaimer {
+            margin-top: 16px;
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.5;
+        }
+        .btn-quote {
+            display: inline-block;
+            background: #f0ede5;
+            color: #2d3d2d;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 16px;
+            transition: background 0.2s;
+        }
+        .btn-quote:hover {
+            background: #fff;
+        }
+
+        /* Product preview in left column */
+        .calc-left .product-preview {
+            margin-top: 20px;
+            min-height: 220px;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #f8f5ef;
+            border: 1.5px solid #e0dbd0;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .calc-left .product-preview.has-image {
+            background: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .calc-body {
+                grid-template-columns: 1fr;
+            }
+            .calc-right {
+                order: -1;
+            }
+        }
+
+    
+    /* Language Switcher */
+    .lang-switcher {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        border: 1.5px solid rgba(255,255,255,0.35);
+        border-radius: 20px;
+        padding: 2px 10px 2px 4px;
+        margin-right: 10px;
+    }
+    .lang-switcher a, .lang-switcher span {
+        text-decoration: none;
+        color: rgba(255,255,255,0.7);
+        padding: 3px 8px;
+        border-radius: 16px;
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+    .lang-switcher a:hover { color: #fff; background: rgba(255,255,255,0.1); }
+    .lang-switcher .lang-current {
+        color: #fff;
+        background: rgba(255,255,255,0.18);
+    }
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation — exact copy of index.html navbar -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="images/logo/earthing-logo.png" alt="EARTHING Logo">
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#home">首页</a></li>
+            <li><a href="index.html#about">关于我们</a></li>
+            <li><a href="index.html#products">产品中心</a></li>
+            <li><a href="index.html#technology">技术介绍</a></li>
+            <li><a href="index.html#contact">联系我们</a></li>
+            <li><div class="lang-switcher"><a href="../index.html">EN</a><span class="lang-current">中文</span></div><a href="get-price.html" class="nav-cta">获取报价</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="gp-hero">
+    <div class="gp-hero-inner">
+        <h1>立即获取<br>接地产品价格估算</h1>
+        <p>选择产品规格和订单数量，即可查看适用的 EXW 阶梯报价。</p>
+    </div>
+</section>
+
+<!-- Calculator -->
+<div class="gp-calculator">
+    <div class="calc-card">
+        <div class="calc-header">
+            <div class="calc-header-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="2" y="3" width="20" height="14" rx="2"/>
+                    <line x1="8" y1="21" x2="16" y2="21"/>
+                    <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+            </div>
+            <div>
+                <h2>产品 <span>价格估算</span></h2>
+                <p>在线估算适用于每单 11 至 1,000 件的订单</p>
+            </div>
+        </div>
+
+        <div class="calc-body">
+            <!-- LEFT COLUMN: Form -->
+            <div class="calc-left">
+                <div class="calc-left-header">
+                    <div class="eyebrow">—— 工厂直供价格估算</div>
+                    <h3>立即获取接地产品价格估算</h3>
+                    <p>选择产品规格和订单数量，即可查看适用的 EXW 阶梯报价区间。</p>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>产品 <span class="req">*</span></label>
+                        <select class="form-select" id="productSelect" onchange="updateSizes();updatePreview()">
+                            <option value="">选择产品</option>
+                            <option value="grounding-sheets">Grounding Sheets</option>
+                            <option value="fitted-sheet">Earthing Fitted Sheet</option>
+                            <option value="grounding-mat">Grounding Mat</option>
+                            <option value="pillowcase">Grounding Pillow Cases</option>
+                            <option value="grounding-blanket">Grounding Blanket</option>
+                            <option value="pu-mat">PU Mat</option>
+                            <option value="pu-sheet">PU Sheet</option>
+                            <option value="pu-mouse">PU Leather Mouse Mat</option>
+                            <option value="pu-yoga">PU Leather Yoga Mat</option>
+                            <option value="grounding-cord">Grounding Cord — Accessory</option>
+                            <option value="changeover-plug">Changeover Plug — Accessory</option>
+                            <option value="conductive-tester">Conductive Tester — Accessory</option>
+                            <option value="testing-pen">Testing Pen — Accessory</option>
+                            <option value="outlet-checker">Outlet Checker — Accessory</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>尺寸/规格 <span class="req">*</span></label>
+                        <select class="form-select" id="sizeSelect" onchange="calculatePrice()" disabled>
+                            <option value="">请先选择产品</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>数量 (件) <span class="req">*</span></label>
+                        <input type="number" class="form-input" id="qtyInput"
+                               placeholder="输入数量 (11 – 1,000 件)"
+                               min="11" max="1000" value=""
+                               oninput="calculatePrice()">
+                        <p class="input-hint">在线估算适用于每单 11 至 1,000 件</p>
+                    </div>
+                </div>
+
+                <!-- Product Preview -->
+                <div class="product-preview" id="productPreview">
+                    <div class="preview-empty">
+                        <span class="preview-empty-text">产品预览</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Quote -->
+            <div class="calc-right">
+                <div class="calc-right-header">
+                    <div class="eyebrow">估算 EXW 报价</div>
+                </div>
+
+                <div class="price-cards" id="priceCards">
+                    <div class="price-card">
+                        <div class="price-card-label">单价</div>
+                        <div class="price-card-value" id="unitPriceDisplay">—</div>
+                    </div>
+                    <div class="price-card">
+                        <div class="price-card-label">产品总价</div>
+                        <div class="price-card-value" id="totalPriceDisplay">—</div>
+                    </div>
+                </div>
+
+                <div class="price-tier-badge" id="tierBadge" style="display:none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M8 12l3 3 5-6"/>
+                    </svg>
+                    <span id="tierBadgeText">适用阶梯：11–200 件</span>
+                </div>
+
+                <div class="tiered-pricing">
+                    <h4>阶梯定价</h4>
+                    <table class="tier-table-dark">
+                        <thead>
+                            <tr>
+                                <th>Quantity</th>
+                                <th>Unit Price</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tierTableBody">
+                            <tr id="tierRow0"><td>11–200 件</td><td>—</td></tr>
+                            <tr id="tierRow1"><td>201–500 件</td><td>—</td></tr>
+                            <tr id="tierRow2"><td>501–1,000 件</td><td>—</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="right-disclaimer">
+                    所示价格为参考性 EXW 估算价格，不含运费、定制包装及其他定制费用。最终价格以订单确认为准。
+                </p>
+
+                <a href="mailto:sale@groundingsafe.com" class="btn-quote">获取正式报价</a>
+            </div>
+        </div>
+
+        <p class="calc-disclaimer">
+                Prices shown are estimated EXW prices for reference only. Shipping, custom packaging and other customization costs are not included.<br>
+                Final pricing is subject to order confirmation. Contact us for a formal PI with confirmed EXW / FOB / CIF terms.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- CTA -->
+<section class="gp-cta-strip">
+    <h3>需要正式报价单？</h3>
+    <p>如需定制、贴牌及含全包价格，请联系我们 — 24 小时内回复。</p>
+    <a href="mailto:sale@groundingsafe.com" class="btn-primary">发送询价 →</a>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <p>© 2026 广州接地健康科技有限公司 &nbsp;|&nbsp; <a href="index.html">EARTHING.</a></p>
+</footer>
+
+<script>
+    // ── Product & Size Data ──────────────────────────────────────────────────
+    // 13 products, 1:1 with the get-price page UI structure
+    // Prices are their published EXW tier rates (base = 11-200 tier)
+    // tiers[0]=11-200, tiers[1]=201-500, tiers[2]=501-1000 (exact EXW prices)
+    const SIZE_DATA = {
+        'grounding-sheets': [
+            { label: '90 × 265 cm', tiers: [14.27, 13.91, 13.66] },
+            { label: '60 × 265 cm', tiers: [10.39, 10.13, 9.95] },
+        ],
+        'fitted-sheet': [
+            { label: 'King 198 × 203 × 30 cm', tiers: [36.29, 35.37, 34.75] },
+            { label: 'Cal King 183 × 213 × 30 cm', tiers: [36.45, 35.52, 34.90] },
+            { label: 'Queen 153 × 203 × 30 cm', tiers: [29.78, 29.02, 28.51] },
+            { label: 'Full 137 × 203 × 30 cm', tiers: [28.69, 27.96, 27.48] },
+            { label: 'Twin 99 × 203 × 30 cm', tiers: [23.88, 23.28, 22.87] },
+            { label: '71 × 132 × 30 cm', tiers: [18.61, 18.14, 17.82] },
+            { label: '76 × 190 × 30 cm', tiers: [21.71, 21.16, 20.79] },
+        ],
+        'grounding-mat': [
+            { label: '46 × 46 cm', tiers: [7.59, 7.39, 7.26] },
+            { label: '50 × 70 cm', tiers: [8.43, 8.21, 8.07] },
+            { label: '70 × 190 cm', tiers: [22.76, 22.18, 21.79] },
+        ],
+        'pillowcase': [
+            { label: '51 × 76 cm', tiers: [7.29, 7.10, 6.98] },
+            { label: '51 × 92 cm', tiers: [8.06, 7.86, 7.72] },
+        ],
+        'grounding-blanket': [
+            { label: '124 × 150 cm', tiers: [22.25, 21.69, 21.31] },
+            { label: '137 × 150 cm', tiers: [22.76, 22.18, 21.79] },
+            { label: '150 × 207 cm', tiers: [31.19, 30.39, 29.86] },
+        ],
+        'pu-mat': [
+            { label: '35 × 55 cm × 0.5 mm', tiers: [5.90, 5.75, 5.65] },
+            { label: '50 × 75 cm × 0.5 mm', tiers: [7.08, 6.90, 6.78] },
+        ],
+        'pu-sheet': [
+            { label: '70 × 180 cm × 0.5 mm', tiers: [15.68, 15.28, 15.01] },
+            { label: '140 × 180 cm × 0.5 mm', tiers: [24.44, 23.82, 23.41] },
+            { label: '68 × 99 cm × 0.5 mm', tiers: [11.46, 11.17, 10.98] },
+            { label: '68 × 138 cm × 0.5 mm', tiers: [13.99, 13.64, 13.40] },
+            { label: '68 × 153 cm × 0.5 mm', tiers: [15.00, 14.62, 14.37] },
+            { label: '68 × 183 cm × 0.5 mm', tiers: [16.01, 15.61, 15.34] },
+            { label: '68 × 198 cm × 0.5 mm', tiers: [16.52, 16.10, 15.82] },
+        ],
+        'pu-mouse': [
+            { label: '60 × 26 cm × 2.5 mm', tiers: [7.08, 6.90, 6.78] },
+            { label: '68 × 26 cm × 2.5 mm', tiers: [7.42, 7.23, 7.10] },
+        ],
+        'pu-yoga': [
+            { label: '60 × 180 cm × 7 mm', tiers: [25.29, 24.64, 24.21] },
+            { label: '60 × 180 cm × 10 mm', tiers: [27.48, 26.78, 26.31] },
+        ],
+        'grounding-cord': [
+            { label: '2nd US Version (Adjustable)', tiers: [6.43, 6.00, 5.79] },
+        ],
+        'changeover-plug': [
+            { label: 'EU / UK / ITY / CH / ISR / AU', tiers: [1.71, 1.60, 1.54] },
+        ],
+        'conductive-tester': [
+            { label: 'Standard', tiers: [5.57, 5.20, 5.01] },
+        ],
+        'testing-pen': [
+            { label: 'Standard', tiers: [1.07, 1.00, 0.96] },
+        ],
+        'outlet-checker': [
+            { label: 'US', tiers: [1.71, 1.60, 1.54] },
+            { label: 'EU / UK', tiers: [4.29, 4.00, 3.86] },
+            { label: 'AU', tiers: [5.79, 5.40, 5.21] },
+        ],
+    };
+
+    // ── Tier Logic (exact prices per tier from SIZE_DATA, not calculated) ──
+    function getTierIdx(qty) {
+        if (qty >= 501) return 2;
+        if (qty >= 201) return 1;
+        return 0;
+    }
+
+    function getTierLabel(qty) {
+        if (qty >= 501) return '第3档 — 501–1,000 件（最优价格）';
+        if (qty >= 201) return '第2档 — 201–500 件（批量优惠）';
+        return '第1档 — 11–200 件（标准价格）';
+    }
+
+    function getTierBadge(qty) {
+        if (qty >= 201) return 'blue';
+        return 'gold';
+    }
+
+    // ── Product Preview ──────────────────────────────────────────────────────
+    const PREVIEW_MAP = {
+        'grounding-sheets':    { img: 'images/previews/grounding-sheets.jpg',    name: 'Grounding Sheets' },
+        'fitted-sheet':        { img: 'images/previews/fitted-sheet.jpg',        name: 'Earthing Fitted Sheet' },
+        'grounding-mat':       { img: 'images/previews/grounding-mat.jpg',       name: 'Grounding Mat' },
+        'pillowcase':          { img: 'images/previews/pillowcase.jpg',          name: 'Grounding Pillow Cases' },
+        'grounding-blanket':   { img: 'images/previews/grounding-blanket.jpg',   name: 'Grounding Blanket' },
+        'pu-mat':              { img: 'images/previews/pu-mat.jpg',              name: 'PU Mat' },
+        'pu-sheet':            { img: 'images/previews/pu-sheet.jpg',            name: 'PU Sheet' },
+        'pu-mouse':            { img: 'images/previews/pu-mouse.jpg',            name: 'PU Leather Mouse Mat' },
+        'pu-yoga':             { img: 'images/previews/pu-yoga.jpg',             name: 'PU Leather Yoga Mat' },
+        'grounding-cord':      { img: 'images/previews/grounding-cord.jpg',      name: 'Grounding Cord' },
+        'changeover-plug':     { img: 'images/previews/changeover-plug.jpg',     name: 'Changeover Plug' },
+        'conductive-tester':   { img: 'images/previews/conductive-tester.png',   name: 'Conductive Tester' },
+        'testing-pen':         { img: 'images/previews/testing-pen.jpg',         name: 'Testing Pen' },
+        'outlet-checker':      { img: 'images/previews/outlet-checker.png',      name: 'Outlet Checker' },
+    };
+
+    function updatePreview() {
+        const product = document.getElementById('productSelect').value;
+        const preview = document.getElementById('productPreview');
+        if (!product || !PREVIEW_MAP[product]) {
+            preview.className = 'product-preview';
+            preview.innerHTML = '<div class="preview-empty"><span class="preview-empty-text">产品预览</span></div>';
+            return;
+        }
+        const data = PREVIEW_MAP[product];
+        preview.className = 'product-preview has-image';
+        preview.innerHTML = `<img src="${data.img}" alt="${data.name}"><span class="preview-label">${data.name}</span>`;
+    }
+
+    // ── Update Sizes Dropdown ────────────────────────────────────────────────
+    function updateSizes() {
+        const product = document.getElementById('productSelect').value;
+        const sizeSelect = document.getElementById('sizeSelect');
+        sizeSelect.innerHTML = '<option value="">选择尺寸</option>';
+        sizeSelect.disabled = !product;
+        if (product && SIZE_DATA[product]) {
+            SIZE_DATA[product].forEach((item, i) => {
+                const opt = document.createElement('option');
+                opt.value = i;
+                opt.textContent = item.label;
+                sizeSelect.appendChild(opt);
+            });
+        }
+        calculatePrice();
+    }
+
+    // ── Calculate & Display Price ────────────────────────────────────────────
+    function calculatePrice() {
+        const product = document.getElementById('productSelect').value;
+        const sizeIdx  = parseInt(document.getElementById('sizeSelect').value);
+        const qtyRaw   = document.getElementById('qtyInput').value;
+        const qty      = parseInt(qtyRaw);
+
+        if (!product || isNaN(sizeIdx) || isNaN(qty) || qty < 11 || qty > 1000) {
+            // Reset right column to placeholder state
+            document.getElementById('unitPriceDisplay').textContent = '—';
+            document.getElementById('totalPriceDisplay').textContent = '—';
+            const tierBadge = document.getElementById('tierBadge');
+            if (tierBadge) tierBadge.style.display = 'none';
+            document.getElementById('tierRow0').innerHTML = '<td>11–200 件</td><td>—</td>';
+            document.getElementById('tierRow1').innerHTML = '<td>201–500 件</td><td>—</td>';
+            document.getElementById('tierRow2').innerHTML = '<td>501–1,000 件</td><td>—</td>';
+            document.getElementById('tierRow0').className = '';
+            document.getElementById('tierRow1').className = '';
+            document.getElementById('tierRow2').className = '';
+            return;
+        }
+
+        const tiers     = SIZE_DATA[product][sizeIdx].tiers;
+        const tierIdx  = getTierIdx(qty);
+        const unitPrice = tiers[tierIdx];
+        const total    = +(unitPrice * qty).toFixed(2);
+
+        const badgeColor = { gold: '#8a6c34', green: '#3a5c2e', blue: '#3a5c8c' };
+        const badgeBg    = { gold: '#fdf3d0', green: '#eef5ea', blue: '#e8f0fa' };
+        const badge      = getTierBadge(qty);
+
+        // Update right column price cards
+        document.getElementById('unitPriceDisplay').textContent = '$' + unitPrice.toFixed(2);
+        document.getElementById('totalPriceDisplay').textContent = '$' + total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+        // Update tier badge
+        const tierBadge = document.getElementById('tierBadge');
+        const tierBadgeText = document.getElementById('tierBadgeText');
+        tierBadge.style.display = 'inline-flex';
+        tierBadgeText.textContent = '适用阶梯：' + getTierLabel(qty).replace(/第\d档 — /, '').split('（')[0].trim();
+
+        // Update tier table
+        const tierRow0 = document.getElementById('tierRow0');
+        const tierRow1 = document.getElementById('tierRow1');
+        const tierRow2 = document.getElementById('tierRow2');
+
+        tierRow0.innerHTML = `<td>11–200 件 ${tierIdx === 0 ? '<span class="your-tier-badge">您的阶梯</span>' : ''}</td><td>${tiers[0].toFixed(2)}</td>`;
+        tierRow1.innerHTML = `<td>201–500 件 ${tierIdx === 1 ? '<span class="your-tier-badge">您的阶梯</span>' : ''}</td><td>${tiers[1].toFixed(2)}</td>`;
+        tierRow2.innerHTML = `<td>501–1,000 件 ${tierIdx === 2 ? '<span class="your-tier-badge">您的阶梯</span>' : ''}</td><td>${tiers[2].toFixed(2)}</td>`;
+
+        // Highlight active tier row
+        tierRow0.className = tierIdx === 0 ? 'active-tier' : '';
+        tierRow1.className = tierIdx === 1 ? 'active-tier' : '';
+        tierRow2.className = tierIdx === 2 ? 'active-tier' : '';
+    }
+
+    // ── Init ─────────────────────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', function() {
+        // Pre-fill quantity if provided via URL param
+        const params = new URLSearchParams(window.location.search);
+        const qtyParam = params.get('qty');
+        if (qtyParam) {
+            document.getElementById('qtyInput').value = qtyParam;
+        }
+    });
+</script>
+
+</body>
+</html>

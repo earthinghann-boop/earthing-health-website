@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>接地床品 - 银纤维接地产品 | Earthing Health</title>
+    <meta name="description" content="完整接地床品系列：接地床笠、接地床单、接地枕套、接地被套和儿童接地床品 — 全部采用导电银纤维制作，助您获得更好的睡眠和自然健康。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Collection Hero */
+        .collection-hero {
+            background: linear-gradient(135deg, #1D3A2D 0%, #2D5A40 60%, #3D7A55 100%);
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .collection-hero::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><circle cx="30" cy="30" r="1.5" fill="rgba(255,255,255,0.06)"/></svg>') repeat;
+            pointer-events: none;
+        }
+        .collection-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        .collection-hero p {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 620px;
+            margin: 0 auto 35px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        .collection-hero .hero-badges {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .collection-hero .hero-badge {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.9);
+        }
+        /* Category Section */
+        .gb-category-section {
+            padding: 80px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .gb-category-section:nth-child(even) { background: #fafaf7; }
+        .gb-category-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .gb-category-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            color: #1D3A2D;
+            margin-bottom: 15px;
+        }
+        .gb-category-header p {
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            color: #6c757d;
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        .gb-category-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gb-category-layout.reverse { direction: rtl; }
+        .gb-category-layout.reverse > * { direction: ltr; }
+        /* Carousel */
+        .gb-carousel {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.10);
+        }
+        .gb-carousel-img {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            border-radius: 16px;
+        }
+        .gb-carousel-img.active { opacity: 1; }
+        .gb-carousel-dots {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 3;
+            background: rgba(0,0,0,0.35);
+            padding: 10px 6px;
+            border-radius: 20px;
+        }
+        .gb-carousel-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            border: none;
+            padding: 0;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .gb-carousel-dot:hover { background: rgba(255,255,255,0.8); }
+        .gb-carousel-dot.active { background: #ffffff; transform: scale(1.3); }
+        .gb-carousel-btn { display: none; }
+        /* Content */
+        .gb-category-content { padding: 10px 0; }
+        .gb-category-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            color: #2c3e35;
+            margin-bottom: 18px;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+        .gb-category-content p {
+            font-family: 'Nunito', sans-serif;
+            font-size: 15px;
+            color: #4a5751;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        .gb-features {
+            list-style: none;
+            padding: 0; margin: 0 0 30px 0;
+        }
+        .gb-features li {
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            color: #4a5751;
+            padding: 8px 0 8px 28px;
+            position: relative;
+        }
+        .gb-features li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: #2D7A4F;
+            font-weight: 700;
+        }
+        .gb-cta-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary { background: #1D3A2D; color: #ffffff; }
+        .btn-primary:hover { background: #2D5A40; }
+        .btn-outline { background: transparent; color: #1D3A2D; border: 1.5px solid #1D3A2D; }
+        .btn-outline:hover { background: #1D3A2D; color: #ffffff; }
+        /* Divider */
+        .section-divider {
+            background: #1D3A2D;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .section-divider p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.85);
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gb-category-layout { grid-template-columns: 1fr; gap: 30px; }
+            .gb-category-layout.reverse { direction: ltr; }
+            .collection-hero h1 { font-size: 2rem; }
+            .gb-category-header h2 { font-size: 28px; }
+        }
+    </style>
+
+<style>
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+}
+.lang-switcher a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+.lang-switcher a:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+.lang-switcher .lang-current {
+    color: #fff;
+    font-weight: 600;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 4px;
+}
+@media (max-width: 768px) {
+    .lang-switcher {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo/earthing-logo.png" alt="EARTHING Logo">
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="index.html#about">关于我们</a></li>
+                <li class="nav-dropdown">
+                    <a href="#">产品中心</a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="groundingbedding.html">接地床品</a></li>
+                        <li><a href="pu-earthing-mat.html">接地PU皮革垫</a></li>
+                        <li><a href="grounding-mat.html">接地棉被垫</a></li>
+                        <li><a href="grounding-blanket.html">电磁防护毯</a></li>
+                        <li><a href="emf-wearing.html">电磁防护服饰</a></li>
+                        <li><a href="grounding-kit.html">配件</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#technology">技术</a></li>
+                <li><a href="index.html#contact">联系我们</a></li>
+                <li><a href="get-price.html" class="nav-cta">获取报价</a></li>
+                            </ul>
+                <div class="lang-switcher"><a href="../groundingbedding.html">EN</a><span class="lang-current">中文</span></div>
+            </div>
+        </nav>
+
+<!-- Hero -->
+<section class="collection-hero">
+    <div class="container">
+        <h1>接地床品系列</h1>
+        <p>打造全方位接地睡眠环境的五款必备床品 — 每一款都采用导电银纤维编织，让您在休息时与地球自然频率相连。</p>
+        <div class="hero-badges">
+            <span class="hero-badge">导电银纤维</span>
+            <span class="hero-badge">自然健康</span>
+            <span class="hero-badge">多种尺寸</span>
+            <span class="hero-badge">OEM/ODM定制</span>
+        </div>
+    </div>
+</section>
+
+<!-- 1. Fitted Sheet -->
+<section class="gb-category-section" id="fitted-sheet">
+    <div class="gb-category-header">
+        <h2>接地床笠</h2>
+        <p>我们的旗舰产品 — 一款全覆盖床垫床笠，内置导电银纤维网格。整夜稳固贴合，躺下即刻连接地球电子。</p>
+    </div>
+    <div class="gb-category-layout">
+        <div class="gb-carousel" id="fittedCarousel">
+            <img src="images/products/fitted_sheet/1.jpg" alt="接地床笠 - 图片1" class="gb-carousel-img active">
+            <img src="images/products/fitted_sheet/2.jpg" alt="接地床笠 - 图片2" class="gb-carousel-img">
+            <img src="images/products/fitted_sheet/3.jpg" alt="接地床笠 - 图片3" class="gb-carousel-img">
+            <img src="images/products/fitted_sheet/4.jpg" alt="接地床笠 - 图片4" class="gb-carousel-img">
+            <div class="gb-carousel-dots">
+                <button class="gb-carousel-dot active" onclick="goGB('fittedCarousel',0)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('fittedCarousel',1)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('fittedCarousel',2)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('fittedCarousel',3)"></button>
+            </div>
+        </div>
+        <div class="gb-category-content">
+            <h3>接地睡眠，焕新醒来</h3>
+            <p>床笠是任何接地睡眠系统的基石。其弹性裙边紧密包裹床垫，确保整夜持续接触。遍布织物的银纤维在您的身体与地球表面电位之间建立导电通道，支持更好的睡眠质量和晨间恢复。</p>
+            <ul class="gb-features">
+                <li>弹性裙边全覆盖床垫</li>
+                <li>全幅导电银纤维网格</li>
+                <li>提供Twin、Full、Queen和King多种尺寸</li>
+                <li>可机洗，经久耐用</li>
+            </ul>
+            <div class="gb-cta-row">
+                <a href="get-price.html" class="btn btn-primary">获取报价</a>
+                <a href="index.html#contact" class="btn btn-outline">OEM/ODM定制</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 2. Flat Sheet -->
+<section class="gb-category-section" id="flat-sheet">
+    <div class="gb-category-header">
+        <h2>接地床单</h2>
+        <p>一款多功能顶层床单，自然垂覆于床品之上 — 与我们的床笠搭配，打造完全连通的接地睡眠表面。</p>
+    </div>
+    <div class="gb-category-layout reverse">
+        <div class="gb-carousel" id="flatCarousel">
+            <img src="images/products/flat_sheet/1.jpg" alt="接地床单 - 图片1" class="gb-carousel-img active">
+            <img src="images/products/flat_sheet/2.jpg" alt="接地床单 - 图片2" class="gb-carousel-img">
+            <img src="images/products/flat_sheet/3.jpg" alt="接地床单 - 图片3" class="gb-carousel-img">
+            <img src="images/products/flat_sheet/4.jpg" alt="接地床单 - 图片4" class="gb-carousel-img">
+            <div class="gb-carousel-dots">
+                <button class="gb-carousel-dot active" onclick="goGB('flatCarousel',0)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('flatCarousel',1)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('flatCarousel',2)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('flatCarousel',3)"></button>
+            </div>
+        </div>
+        <div class="gb-category-content">
+            <h3>层层叠加，全面接地</h3>
+            <p>床单完善您的接地床品系统。当叠加在床笠之上时，它将导电表面延伸覆盖您的全身 — 从头到脚。透气舒适，四季皆宜，无需改变任何习惯即可在每晚睡眠中享受接地的益处。</p>
+            <ul class="gb-features">
+                <li>与床笠搭配实现全覆盖</li>
+                <li>轻盈透气面料</li>
+                <li>提供标准尺寸和定制尺寸</li>
+                <li>可机洗</li>
+            </ul>
+            <div class="gb-cta-row">
+                <a href="get-price.html" class="btn btn-primary">获取报价</a>
+                <a href="index.html#contact" class="btn btn-outline">OEM/ODM定制</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. Pillow Case -->
+<section class="gb-category-section" id="pillow-case">
+    <div class="gb-category-header">
+        <h2>接地枕套</h2>
+        <p>让您的头部 — 身体对电磁场最敏感的区域 — 整夜保持接地，采用我们的导电银纤维枕套。</p>
+    </div>
+    <div class="gb-category-layout">
+        <div class="gb-carousel" id="pillowCarousel">
+            <img src="images/products/pillow_case/1.jpg" alt="接地枕套 - 图片1" class="gb-carousel-img active">
+            <img src="images/products/pillow_case/2.jpg" alt="接地枕套 - 图片2" class="gb-carousel-img">
+            <img src="images/products/pillow_case/3.jpg" alt="接地枕套 - 图片3" class="gb-carousel-img">
+            <img src="images/products/pillow_case/4.jpg" alt="接地枕套 - 图片4" class="gb-carousel-img">
+            <div class="gb-carousel-dots">
+                <button class="gb-carousel-dot active" onclick="goGB('pillowCarousel',0)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('pillowCarousel',1)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('pillowCarousel',2)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('pillowCarousel',3)"></button>
+            </div>
+        </div>
+        <div class="gb-category-content">
+            <h3>让您的头部在地球电位中休息</h3>
+            <p>您的头部每晚在枕头上休息7-8小时 — 这是身体暴露于电磁场最多的部位。我们的接地枕套采用高导电银纤维，让您在睡眠时头部保持在地球电位，支持身体的自然电平衡和恢复过程。</p>
+            <ul class="gb-features">
+                <li>导电银纤维面料</li>
+                <li>柔软亲肤表面</li>
+                <li>提供标准尺寸和King尺寸</li>
+                <li>可机洗</li>
+            </ul>
+            <div class="gb-cta-row">
+                <a href="get-price.html" class="btn btn-primary">获取报价</a>
+                <a href="index.html#contact" class="btn btn-outline">OEM/ODM定制</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. Duvet Cover -->
+<section class="gb-category-section" id="duvet-cover">
+    <div class="gb-category-header">
+        <h2>接地被套</h2>
+        <p>将您的整个被芯转变为接地睡眠表面 — 全覆盖导电银纤维，实现最大身体接触和舒适度。</p>
+    </div>
+    <div class="gb-category-layout reverse">
+        <div class="gb-carousel" id="duvetCarousel">
+            <img src="images/products/duvet_cover/1.jpg" alt="接地被套 - 图片1" class="gb-carousel-img active">
+            <img src="images/products/duvet_cover/2.jpg" alt="接地被套 - 图片2" class="gb-carousel-img">
+            <img src="images/products/duvet_cover/3.jpg" alt="接地被套 - 图片3" class="gb-carousel-img">
+            <img src="images/products/duvet_cover/4.jpg" alt="接地被套 - 图片4" class="gb-carousel-img">
+            <div class="gb-carousel-dots">
+                <button class="gb-carousel-dot active" onclick="goGB('duvetCarousel',0)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('duvetCarousel',1)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('duvetCarousel',2)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('duvetCarousel',3)"></button>
+            </div>
+        </div>
+        <div class="gb-category-content">
+            <h3>让自己沉浸于地球能量之中</h3>
+            <p>被套提供最完整的接地体验 — 它覆盖您的整个身体表面，最大化整夜的导电接触。采用优质导电银纤维制作，专为日常舒适设计，是接地卧室的终极补充。</p>
+            <ul class="gb-features">
+                <li>全身接地覆盖</li>
+                <li>优质银纤维混纺面料</li>
+                <li>提供Queen和King尺寸</li>
+                <li>隐形拉链封口</li>
+            </ul>
+            <div class="gb-cta-row">
+                <a href="get-price.html" class="btn btn-primary">获取报价</a>
+                <a href="index.html#contact" class="btn btn-outline">OEM/ODM定制</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. Kid's Bedding -->
+<section class="gb-category-section" id="kids-bedding">
+    <div class="gb-category-header">
+        <h2>儿童接地床品</h2>
+        <p>专为儿童设计的温和、安全、有效的接地床品 — 通过更好、更具恢复性的睡眠支持他们发育中的身体。</p>
+    </div>
+    <div class="gb-category-layout">
+        <div class="gb-carousel" id="kidsCarousel">
+            <img src="images/products/kids_bedding/1.jpg" alt="儿童接地床品 - 图片1" class="gb-carousel-img active">
+            <img src="images/products/kids_bedding/2.jpg" alt="儿童接地床品 - 图片2" class="gb-carousel-img">
+            <img src="images/products/kids_bedding/3.jpg" alt="儿童接地床品 - 图片3" class="gb-carousel-img">
+            <img src="images/products/kids_bedding/4.jpg" alt="儿童接地床品 - 图片4" class="gb-carousel-img">
+            <div class="gb-carousel-dots">
+                <button class="gb-carousel-dot active" onclick="goGB('kidsCarousel',0)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('kidsCarousel',1)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('kidsCarousel',2)"></button>
+                <button class="gb-carousel-dot" onclick="goGB('kidsCarousel',3)"></button>
+            </div>
+        </div>
+        <div class="gb-category-content">
+            <h3>小小身体，大大益处</h3>
+            <p>儿童的身体在睡眠期间对电干扰特别敏感 — 这是生长激素和神经系统恢复最活跃的时间。我们的儿童接地床品采用相同的成熟银纤维技术，以更柔软、适合儿童的结构支持自然、不受干扰的睡眠。</p>
+            <ul class="gb-features">
+                <li>儿童安全银纤维结构</li>
+                <li>柔软舒适面料</li>
+                <li>提供单人尺寸和定制尺寸</li>
+                <li>可机洗，经久耐用</li>
+            </ul>
+            <div class="gb-cta-row">
+                <a href="get-price.html" class="btn btn-primary">获取报价</a>
+                <a href="index.html#contact" class="btn btn-outline">OEM/ODM定制</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Divider Quote -->
+
+    <section class="gb-category-section" id="available-colors" style="background: #f8f5f0;">
+        <div class="container">
+            <div class="gb-category-header" style="text-align: center; margin-bottom: 32px;">
+                <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: #1a2e3a; font-weight: 500; margin: 0 0 16px;">可选颜色</h2>
+                <p style="color: #4a5a65; max-width: 640px; margin: 0 auto; line-height: 1.7;">从我们经典的接地床品色系中选择。每种颜色都采用相同的银纤维技术编织 — 柔软、透气，随时让您接地至地球电位。</p>
+            </div>
+            <div style="text-align: center; padding: 24px 0 40px;">
+                <img src="images/products/groundingbedding/colors/colors.jpg" alt="可选床品颜色" style="max-width: 900px; width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.08);">
+            </div>
+            <div style="text-align: center; padding: 0 0 32px;">
+                <a href="get-price.html" class="btn btn-primary" style="background: #1a2e3a; color: #fff; padding: 12px 28px; border-radius: 100px; text-decoration: none; display: inline-block;">索取颜色样品</a>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="images/logo/earthing-logo.png" alt="EARTHING Logo" class="footer-logo">
+                    <p>优质接地产品，助您获得更好睡眠、自然健康和电磁防护。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>产品中心</h4>
+                    <ul>
+                        <li><a href="groundingbedding.html">接地床品</a></li>
+                        <li><a href="pu-earthing-mat.html">接地PU皮革垫</a></li>
+                        <li><a href="grounding-mat.html">接地棉被垫</a></li>
+                        <li><a href="grounding-blanket.html">电磁防护毯</a></li>
+                        <li><a href="emf-wearing.html">电磁防护服饰</a></li>
+                        <li><a href="grounding-kit.html">配件</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html#about">关于我们</a></li>
+                        <li><a href="index.html#technology">技术</a></li>
+                        <li><a href="get-price.html">获取报价</a></li>
+                        <li><a href="index.html#contact">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 广州接地宝健康科技有限公司 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="js/main.js"></script>
+    <script>
+(function(){
+    var CAROUSELS = ['fittedCarousel','flatCarousel','pillowCarousel','duvetCarousel','kidsCarousel'];
+    var timers = {};
+    var current = {};
+
+    function goGB(id, n) {
+        var imgs = document.querySelectorAll('#' + id + ' .gb-carousel-img');
+        var dots = document.querySelectorAll('#' + id + ' .gb-carousel-dot');
+        if (!imgs.length) return;
+        imgs.forEach(function(img){ img.classList.remove('active'); });
+        dots.forEach(function(dot){ dot.classList.remove('active'); });
+        current[id] = n;
+        if (imgs[n]) imgs[n].classList.add('active');
+        if (dots[n]) dots[n].classList.add('active');
+        clearInterval(timers[id]);
+        timers[id] = setInterval(function(){ autoNext(id); }, 3500);
+    }
+
+    function moveGB(id, dir) {
+        var imgs = document.querySelectorAll('#' + id + ' .gb-carousel-img');
+        var next = ((current[id] || 0) + dir + imgs.length) % imgs.length;
+        goGB(id, next);
+    }
+
+    function autoNext(id) {
+        var imgs = document.querySelectorAll('#' + id + ' .gb-carousel-img');
+        var next = ((current[id] || 0) + 1) % imgs.length;
+        goGB(id, next);
+    }
+
+    function initGB(id) {
+        current[id] = 0;
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('mouseenter', function(){ clearInterval(timers[id]); });
+        el.addEventListener('mouseleave', function(){ timers[id] = setInterval(function(){ autoNext(id); }, 3500); });
+        timers[id] = setInterval(function(){ autoNext(id); }, 3500);
+    }
+
+    // Expose to global scope so onclick="goGB(...)" inline handlers can find them
+    window.goGB = goGB;
+    window.moveGB = moveGB;
+
+    CAROUSELS.forEach(initGB);
+})();
+</script>
+</body>
+</html>

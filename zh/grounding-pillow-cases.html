@@ -1,0 +1,976 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>接地枕套 - 银纤维健康睡眠</title>
+    <meta name="description" content="优质接地枕套，采用银纤维技术，助您改善睡眠、自然接地。提供OEM/ODM定制，厂家直供批发。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ── Product Page Hero ── */
+        .product-hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: #FFFFFF;
+        }
+        .product-hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 52%;
+            height: 100%;
+            background: url('images/previews/pillowcase.jpg') center/cover no-repeat;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+        }
+        .product-hero-content {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 130px 20px 80px;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+        .product-hero-text {
+            max-width: 580px;
+        }
+        .product-hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+            font-weight: 500;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: var(--color-text);
+        }
+        .product-hero-title .highlight {
+            color: var(--color-primary);
+            display: block;
+        }
+        .product-hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin-bottom: 35px;
+            line-height: 1.8;
+        }
+        .product-hero-cta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .scroll-indicator { display: none; }
+
+        /* ── Section Spacing Override ── */
+        .specs-section, .intro-section, .applications-section,
+        .materials-section, .colors-section, .faq-section, .cta-section {
+            padding: var(--section-padding) 0;
+        }
+        .intro-section { background: var(--color-white); }
+        .specs-section { background: var(--color-bg-alt); }
+        .applications-section { background: var(--color-white); }
+        .materials-section { background: var(--color-bg-alt); }
+        .colors-section { background: var(--color-white); }
+        .faq-section { background: var(--color-bg-alt); }
+        .cta-section { background: var(--color-primary); color: var(--color-white); }
+
+        /* ── Features Grid ── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .feature-card {
+            background: var(--color-white);
+            border-radius: 16px;
+            padding: 30px 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+        }
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 18px;
+            background: rgba(45, 90, 61, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .feature-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+        .feature-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 6px;
+        }
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+        }
+
+        /* ── Intro Content ── */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .intro-image-wrap {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 55px rgba(0,0,0,0.1);
+        }
+        .intro-image-wrap img {
+            width: 100%;
+            transition: transform 0.5s ease;
+        }
+        .intro-image-wrap:hover img { transform: scale(1.04); }
+        .intro-content p {
+            color: var(--color-text-light);
+            margin-bottom: 18px;
+            font-size: 1.02rem;
+            line-height: 1.8;
+        }
+        .intro-highlight {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 30px;
+            padding: 16px 20px;
+            background: rgba(45, 90, 61, 0.06);
+            border-radius: 10px;
+            border-left: 3px solid var(--color-primary);
+        }
+        .intro-highlight p {
+            margin: 0 !important;
+            font-size: 0.95rem;
+            color: var(--color-primary-dark) !important;
+            font-weight: 500;
+        }
+
+        /* ── Specs Table ── */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .spec-card {
+            background: var(--color-white);
+            border-radius: 16px;
+            padding: 28px 24px;
+            border: 1px solid var(--color-border);
+            transition: border-color 0.3s ease;
+        }
+        .spec-card:hover { border-color: var(--color-primary); }
+        .spec-card .spec-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+        .spec-card .spec-value {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--color-text);
+        }
+        .spec-card .spec-detail {
+            font-size: 0.88rem;
+            color: var(--color-text-light);
+            margin-top: 6px;
+        }
+        .spec-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .spec-card ul li {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .spec-card ul li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ── Applications ── */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+        .app-card {
+            text-align: center;
+            padding: 28px 20px;
+            border-radius: 16px;
+            background: var(--color-bg-alt);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .app-card:hover {
+            transform: translateY(-5px);
+            background: rgba(45, 90, 61, 0.06);
+        }
+        .app-card .app-icon {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .app-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 8px;
+        }
+        .app-card p {
+            font-size: 0.88rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        /* ── Material Options ── */
+        .material-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .material-card {
+            background: var(--color-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+        }
+        .material-card-header {
+            padding: 28px 30px 20px;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .material-card-header h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+        .material-card-body {
+            padding: 24px 30px;
+        }
+        .material-card-body ul {
+            list-style: none;
+            padding: 0;
+        }
+        .material-card-body ul li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+        }
+        .material-card-body ul li svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            fill: var(--color-primary);
+        }
+
+        /* ── Colors ── */
+        .colors-showcase {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 15px;
+            margin-top: 40px;
+        }
+        .color-swatch {
+            text-align: center;
+        }
+        .color-dot {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            border: 3px solid transparent;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+        .color-swatch:hover .color-dot {
+            border-color: var(--color-primary);
+            transform: scale(1.08);
+        }
+        .color-dot.blue { background: #4A7EBB; }
+        .color-dot.gray { background: #7A8A99; }
+        .color-dot.yellow { background: #E8C840; }
+        .color-dot.black { background: #2A2A2A; }
+        .color-dot.navy { background: #1B3A6B; }
+        .color-dot.pink { background: #E8919A; }
+        .color-dot.white { background: #F5F5F5; border: 1px solid #ddd; }
+        .color-name {
+            font-size: 0.82rem;
+            color: var(--color-text-light);
+            font-weight: 500;
+        }
+
+        .sizes-note {
+            margin-top: 40px;
+            text-align: center;
+            padding: 22px;
+            background: rgba(45, 90, 61, 0.06);
+            border-radius: 12px;
+        }
+        .sizes-note p {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+        .sizes-note strong {
+            color: var(--color-primary-dark);
+        }
+
+        /* ── FAQ ── */
+        .faq-list {
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+        .faq-item {
+            background: var(--color-white);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            border: 1px solid var(--color-border);
+            transition: border-color 0.3s ease;
+        }
+        .faq-item:hover { border-color: rgba(45, 90, 61, 0.3); }
+        .faq-item summary {
+            padding: 20px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            transition: color 0.2s ease;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary:hover { color: var(--color-primary); }
+        .faq-item summary .faq-icon {
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        .faq-item[open] summary .faq-icon { transform: rotate(180deg); }
+        .faq-answer {
+            padding: 0 24px 22px;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        .faq-answer p { margin-bottom: 10px; }
+        .faq-answer p:last-child { margin-bottom: 0; }
+        .faq-answer ul {
+            padding-left: 20px;
+            list-style: disc;
+            margin-bottom: 10px;
+        }
+        .faq-answer ul li { margin-bottom: 4px; }
+
+        /* ── CTA Section ── */
+        .cta-section {
+            text-align: center;
+        }
+        .cta-section .section-title {
+            color: var(--color-white);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+        }
+        .cta-section p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.05rem;
+            max-width: 560px;
+            margin: 0 auto 35px;
+            line-height: 1.7;
+        }
+        .cta-section .btn-primary {
+            background: var(--color-white);
+            color: var(--color-primary);
+            border-color: var(--color-white);
+        }
+        .cta-section .btn-primary:hover {
+            background: var(--color-secondary-light);
+            border-color: var(--color-secondary-light);
+            color: var(--color-primary-dark);
+        }
+
+        /* ── Stats Bar ── */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            background: var(--color-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.06);
+            margin-top: 60px;
+        }
+        .stats-bar-item {
+            padding: 30px 20px;
+            text-align: center;
+            border-right: 1px solid var(--color-border);
+        }
+        .stats-bar-item:last-child { border-right: none; }
+        .stats-bar-item .s-number {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+        .stats-bar-item .s-label {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            margin-top: 6px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .features-grid, .apps-grid { grid-template-columns: repeat(2, 1fr); }
+            .colors-showcase { grid-template-columns: repeat(4, 1fr); }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .product-hero { min-height: 70vh; }
+            .product-hero-bg { width: 100%; opacity: 0.3; -webkit-mask-image: none; mask-image: none; }
+            .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+            .specs-grid { grid-template-columns: 1fr; }
+            .material-cards { grid-template-columns: 1fr; }
+            .colors-showcase { grid-template-columns: repeat(4, 1fr); }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .stats-bar-item { border-right: none; border-bottom: 1px solid var(--color-border); }
+            .stats-bar-item:nth-child(2n) { border-right: none; }
+            .features-grid, .apps-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .features-grid, .apps-grid { grid-template-columns: 1fr; }
+            .colors-showcase { grid-template-columns: repeat(4, 1fr); }
+            .color-dot { width: 50px; height: 50px; }
+            .stats-bar { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+    <style>
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-left: auto;
+            margin-right: 16px;
+        }
+        .lang-switcher a,
+        .lang-switcher .lang-current {
+            font-size: 0.82rem;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 3px 8px;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .lang-switcher a {
+            color: var(--color-text-light);
+        }
+        .lang-switcher a:hover {
+            color: var(--color-primary);
+        }
+        .lang-switcher .lang-current {
+            color: var(--color-primary);
+            font-weight: 600;
+            cursor: default;
+        }
+        @media (max-width: 768px) {
+            .lang-switcher { margin-right: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="lang-switcher">
+                <a href="../index.html">EN</a>
+                <span class="lang-current">中文</span>
+            </div>
+            <a href="index.html" class="logo">
+                <img src="images/logo/earthing-logo.png" alt="EARTHING Logo">
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="index.html#about">关于我们</a></li>
+                <li class="nav-dropdown">
+                    <a href="index.html">产品 </a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="groundingbedding.html">接地床品</a></li>
+                        <li><a href="pu-earthing-mat.html">接地PU皮革</a></li>
+                        <li><a href="grounding-mat.html">接地棉垫</a></li>
+                        <li><a href="grounding-blanket.html">EMF毯</a></li>
+                        <li><a href="emf-wearing.html">EMF穿戴</a></li>
+                        <li><a href="grounding-kit.html">配件</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#technology">技术</a></li>
+                <li><a href="index.html#contact">联系我们</a></li>
+                <li><a href="get-price.html" class="nav-cta">获取报价</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="product-hero" id="home">
+        <div class="product-hero-bg"></div>
+        <div class="product-hero-content">
+            <div class="product-hero-text">
+                <h1 class="product-hero-title">
+                    接地枕套
+                    <span class="highlight">优质睡眠，从更好的连接开始</span>
+                </h1>
+                <p class="product-hero-subtitle">优质银纤维枕套，柔软舒适与可靠接地技术完美结合。专为全球健康品牌、床品经销商和私人品牌企业设计。</p>
+                <div class="product-hero-cta">
+                    <a href="get-price.html" class="btn btn-primary">获取批发报价</a>
+                    <a href="#specs" class="btn btn-outline">查看规格参数</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="pillow-case" class="specs-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">为什么选择接地枕套？</span>
+                <h2 class="section-title">专为日常接地舒适而设计</h2>
+                <p class="section-desc">枕套是睡眠时最贴近人体的床品之一，是头部和颈部接地的理想连接点。</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 1024 1024" fill="#2D5A3D" xmlns="http://www.w3.org/2000/svg" width="30" height="30">
+                            <path d="M296.51 455.68V346.112h-37.888l71.68-99.328 77.824 94.208h-39.936v113.152zM654.91 455.68V346.112h-37.888l71.68-99.328 76.8 94.208H726.08v113.152zM468.54 415.232V283.136h-45.568l87.04-117.76 91.648 113.152h-46.592v134.144z" fill="#2D5A3D"/>
+                        </svg>
+                    </div>
+                    <h3>亲肤舒适</h3><p>优质棉与竹纤维混纺，柔软贴合面部和头发</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#2D5A3D" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3>稳定导电性</h3><p>银纤维织入面料，形成可靠的导电网络，确保稳定接地</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 1024 1024" fill="#2D5A3D" xmlns="http://www.w3.org/2000/svg" width="30" height="30">
+                            <path d="M797.72 922.81a27.53 27.53 0 0 1-19.6-8.14C623.22 759.78 520.47 711.81 411.68 661 303.35 610.46 191.3 558.15 29.51 396.32A27.75 27.75 0 1 1 68.72 357c154.97 155 257.72 202.94 366.44 253.69 108.4 50.6 220.37 102.87 382.17 264.7a27.78 27.78 0 0 1-19.61 47.42z" fill="#2D5A3D"/>
+                        </svg>
+                    </div>
+                    <h3>透气面料</h3><p>天然纤维混纺，透气排汗，带来凉爽舒适的睡眠体验</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 1024 1024" fill="#2D5A3D" xmlns="http://www.w3.org/2000/svg" width="30" height="30">
+                            <path d="M348.672 109.696c28.672-12.288 58.624 14.656 49.024 44.16a357.12 357.12 0 0 0-17.472 110.592c0 198.912 162.752 360.128 363.52 360.128a365.44 365.44 0 0 0 144.064-29.376c28.672-12.288 58.624 14.656 49.024 44.16-57.6 176.96-224.512 299.328-415.232 299.328-240.96 0-436.288-193.472-436.288-432.128 0-174.08 104.832-328.96 263.36-396.8z" fill="#2D5A3D"/>
+                        </svg>
+                    </div>
+                    <h3>改善睡眠健康</h3><p>帮助消除头部静电，支持安稳、接地的深度睡眠</p>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+                <div class="stats-bar-item">
+                    <div class="s-number">10+</div>
+                    <div class="s-label">年生产经验</div>
+                </div>
+                <div class="stats-bar-item">
+                    <div class="s-number">30+</div>
+                    <div class="s-label">服务国家</div>
+                </div>
+                <div class="stats-bar-item">
+                    <div class="s-number">10,000m²</div>
+                    <div class="s-label">工厂面积</div>
+                </div>
+                <div class="stats-bar-item">
+                    <div class="s-number">10,000+</div>
+                    <div class="s-label">日产量</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-image-wrap">
+                    <img src="images/previews/pillowcase.jpg" alt="Grounding Pillow Cases - Premium Silver Fiber">
+                </div>
+                <div class="intro-content">
+                    <span class="section-label">产品概述</span>
+                    <h2 class="section-title">优质接地枕套 · 批发供应</h2>
+                    <p>枕套是睡眠时最贴近人体的床品之一。我们的接地枕套采用导电材料开发，兼具柔软、耐用和接地功能。</p>
+                    <p>采用银纤维和碳纤维材质制造，我们的枕套专为全球健康品牌、床品经销商和私人品牌企业设计。</p>
+                    <p>适用于家庭、酒店、健康中心和睡眠品牌，为追求高端接地床品的客户提供舒适解决方案。</p>
+                    <div class="intro-highlight">
+                        <p>✓ 厂家直供 &nbsp; ✓ OEM &amp; ODM &nbsp; ✓ 优质材料 &nbsp; ✓ 全球发货</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications Section -->
+    <section class="specs-section" id="specs">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">产品详情</span>
+                <h2 class="section-title">产品规格</h2>
+            </div>
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <div class="spec-label">可选尺寸</div>
+                    <div class="spec-value">标准码 &amp; 大码</div>
+                    <div class="spec-detail">标准码：51 × 76 cm<br>大码：51 × 92 cm<br>支持定制尺寸</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-label">材质</div>
+                    <div class="spec-value">银纤维混纺</div>
+                    <div class="spec-detail">95% 棉 + 5% 银纤维<br>95% 竹纤维 + 5% 银纤维</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-label">颜色</div>
+                    <div class="spec-value">7种可选颜色</div>
+                    <div class="spec-detail">蓝色 · 灰色 · 黄色 · 黑色<br>藏青 · 粉色 · 白色</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-label">接地方式</div>
+                    <div class="spec-value">纽扣 + 接地线系统</div>
+                    <div class="spec-detail">内置纽扣连接器，连接接地线。兼容所有国际接地系统（美标/欧标/英标/澳标插头）。</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-label">主要特点</div>
+                    <ul>
+                        <li>柔软舒适</li>
+                        <li>防静电</li>
+                        <li>抗菌抑菌</li>
+                        <li>有机棉可选</li>
+                        <li>清凉透气</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-label">认证资质</div>
+                    <div class="spec-value">ITS / GW / CNAS / CE / RoHS</div>
+                    <div class="spec-detail">经国际认可第三方实验室检测，抗菌性能和材料安全性均有保障。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materials Section -->
+    <section class="materials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">材质选择</span>
+                <h2 class="section-title">选择您的导电面料</h2>
+                <p class="section-desc">两种优质银纤维混纺面料，分别针对不同市场需求和偏好优化。</p>
+            </div>
+            <div class="material-cards">
+                <div class="material-card">
+                    <div class="material-card-header">
+                        <h3>95% 棉 + 5% 银纤维</h3>
+                    </div>
+                    <div class="material-card-body">
+                        <ul>
+                            <li>
+                                <svg viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+                                柔软舒适
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+                                防静电
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+                                抗菌抑菌
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+                                有机棉
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="material-card">
+                    <div class="material-card-header">
+                        <h3>95% 竹纤维 + 5% 银纤维</h3>
+                    </div>
+                    <div class="material-card-body">
+                        <ul>
+                            <li>
+                                <svg viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+                                清凉透气
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+                                Anti-Static
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+                                透气
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+                                Antibacterial &amp; Bacteriostatic
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colors Section -->
+    <section class="colors-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">定制服务</span>
+                <h2 class="section-title">可选颜色</h2>
+                <p class="section-desc">多种颜色匹配您的市场需求 — 批发订单可选全部7种颜色。</p>
+            </div>
+            <div class="colors-showcase" style="display:flex;justify-content:center;margin-top:40px;">
+                <img src="images/grounding-sheets/colors-available.jpg" alt="Available Colors" style="max-width:900px;width:100%;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.1);">
+            </div>
+            <div class="sizes-note">
+                <p style="font-size:1.1rem;"><strong>尺寸：</strong>标准 50 × 70 cm &nbsp;|&nbsp; 中码 50 × 75 cm &nbsp;|&nbsp; 大码 50 × 90 cm<br><small>支持定制尺寸和OEM包装 — 详情请咨询我们。</small></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section class="applications-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">适用场景</span>
+                <h2 class="section-title">适用场景</h2>
+            </div>
+            <div class="apps-grid">
+                <div class="app-card">
+                    <span class="app-icon">🏠</span>
+                    <h3>家庭</h3>
+                    <p>全家人的日常接地睡眠方案，支持自然健康</p>
+                </div>
+                <div class="app-card">
+                    <span class="app-icon">🏨</span>
+                    <h3>酒店</h3>
+                    <p>精品酒店和健康主题酒店的优质健康床品升级</p>
+                </div>
+                <div class="app-card">
+                    <span class="app-icon">🧘</span>
+                    <h3>健康中心</h3>
+                    <p>以专业级接地产品支持睡眠健康项目</p>
+                </div>
+                <div class="app-card">
+                    <span class="app-icon">🛍️</span>
+                    <h3>零售品牌</h3>
+                    <p>为床品品牌和健康产品经销商提供贴牌服务</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="intro-section" style="padding: 80px 0;">
+        <div class="container">
+            <div class="intro-grid" style="gap: 50px;">
+                <div class="intro-content">
+                    <span class="section-label">工作原理</span>
+                    <h2 class="section-title">接地技术原理解析</h2>
+                    <p>我们的接地枕套将导电银纤维织入天然棉或竹纤维面料。银纤维在面料中形成连续的导电网络，将皮肤与接地线相连。</p>
+                    <p>通过内置纽扣连接接地系统后，身体静电会安全地传导至大地——就像赤脚走在地面上一样。</p>
+                    <p>银纤维的天然抗菌特性还能减少面部与枕芯之间的细菌滋生，带来更清洁、更健康的睡眠。</p>
+                </div>
+                <div class="intro-image-wrap">
+                    <img src="images/previews/pillowcase.jpg" alt="Grounding System - How It Works" style="border-radius: 16px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">常见问题</span>
+                <h2 class="section-title">常见问题解答</h2>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>
+                        什么是接地枕套？它是如何工作的？
+                        <span class="faq-icon"></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>接地枕套是一种床品配件，采用导电银纤维织入天然棉或竹纤维面料。连接接地系统（通过接地线插入电源插座）后，身体的静电可以安全地流向大地——模拟赤脚走在地面上的效果。银纤维在睡眠时创建一个稳定的导电网络，将地球电子直接传递到您的身体。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>
+                        你们提供OEM或定制品牌服务吗？
+                        <span class="faq-icon"></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>是的，我们提供完整的OEM和ODM服务，包括定制品牌、包装设计和logo印刷。我们有丰富的经验，与全球床品品牌、健康公司、酒店、健康产品经销商、亚马逊卖家和零售企业均有合作。我们提供从样品到大规模生产的灵活生产解决方案。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>
+                        如何清洗和护理接地枕套？
+                        <span class="faq-icon"></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>接地枕套可用轻柔模式机洗，水温不超过40°C。使用温和洗涤剂，避免使用漂白剂或柔顺剂（会损害导电银纤维）。低温烘干或晾干。请勿直接在纽扣连接器上熨烫。经第三方检测，抗菌效果可维持150次以上洗涤。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>
+                        接地枕套使用安全吗？
+                        <span class="faq-icon"></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>是的，搭配正确设计的接地系统使用是安全的。我们的枕套通过内置限流电阻的接地线连接。该系统仅传导来自大地的极低直流电——不携带市电。所有产品均经第三方实验室（ITS、GW、CNAS）安全和性能测试。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>
+                        你们支持全球发货吗？有哪些运输方式？
+                        <span class="faq-icon"></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>是的，我们支持全球发货。我们与可靠的货代合作，提供多种运输方式：海运（大批量订单经济之选）、空运（更快速交付）和国际快递（DHL、FedEx、UPS）。运费和交货期因目的地和订单量而异。我们负责办理所有出口手续，并可按需提供DDP（完税后交货）服务。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>
+                        你们典型的批发客户是哪些？
+                        <span class="faq-icon"></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>我们主要与以下客户合作：</p>
+                        <ul>
+                            <li>床品品牌</li><li>健康公司</li><li>酒店</li><li>健康产品经销商</li><li>亚马逊卖家</li><li>零售企业</li>
+                        </ul>
+                        <p>我们提供从样品到大规模生产的灵活生产解决方案。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>
+                        为什么选择EARTHING作为您的接地枕套供应商？
+                        <span class="faq-icon"></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>我们结合床品制造经验与接地产品专业知识，为您提供：</p>
+                        <ul>
+                            <li>专业工厂生产</li><li>多种导电面料选择</li><li>OEM &amp; ODM能力</li><li>严格质量控制</li><li>全球批发支持</li>
+                        </ul>
+                        <p>依托10余年制造经验和30余个国家服务经历，我们帮助合作伙伴为不同市场建立可靠的接地产品线。</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title">准备采购接地枕套了吗？</h2>
+            <p>无论您需要样品、定制品牌还是大批量批发订单——我们都将助您打造优质接地产品线。</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="get-price.html" class="btn btn-primary">获取批发报价</a>
+                <a href="index.html#contact" class="btn btn-outline" style="border-color: rgba(255,255,255,0.6); color: #fff; background: transparent;">联系我们</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo/earthing-logo.png" alt="EARTHING" class="footer-logo">
+                    <p>广州接地健康科技有限公司</p><p class="footer-tagline">让您重新连接地球自然能量</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="index.html#about">关于我们</a></li>
+                        <li><a href="index.html#products">产品</a></li>
+                        <li><a href="index.html#technology">技术</a></li>
+                        <li><a href="index.html#contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>产品</h4>
+                    <ul>
+                        <li><a href="grounding-sheets.html">接地床单</a></li>
+                        <li><a href="grounding-pillow-cases.html">接地枕套</a></li>
+                        <li><a href="grounding-blanket.html">接地毯</a></li>
+                        <li><a href="grounding-mat.html">接地垫</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>Guangzhou, China</li>
+                        <li>sale@groundingsafe.com</li>
+                        <li>sale@groundingsafe.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 广州接地健康科技有限公司 版权所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
