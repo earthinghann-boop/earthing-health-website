@@ -520,7 +520,7 @@
             <!-- LEFT COLUMN: Form -->
             <div class="calc-left">
                 <div class="calc-left-header">
-                    <div class="eyebrow">—— Factory Direct Estimate</div>
+                    <div class="eyebrow">—— 工厂直供价格估算</div>
                     <h3>立即获取接地产品价格估算</h3>
                     <p>选择产品规格和数量，即可查看适用的 EXW 阶梯报价区间。</p>
                 </div>
@@ -530,7 +530,7 @@
                         <label>产品 <span class="req">*</span></label>
                         <select class="form-select" id="productSelect" onchange="updateSizes();updatePreview()">
                             <option value="">请选择产品</option>
-                            <option value="grounding-sheets">Grounding Sheets</option>
+                            <option value="grounding-sheets">接地床笠</option>
                             <option value="fitted-sheet">接地床笠</option>
                             <option value="grounding-mat">接地垫</option>
                             <option value="pillowcase">接地枕套</option>
@@ -573,16 +573,16 @@
             <!-- RIGHT COLUMN: Quote -->
             <div class="calc-right">
                 <div class="calc-right-header">
-                    <div class="eyebrow">Estimated EXW Quote</div>
+                    <div class="eyebrow">EXW 估算报价</div>
                 </div>
 
                 <div class="price-cards" id="priceCards">
                     <div class="price-card">
-                        <div class="price-card-label">Unit Price</div>
+                        <div class="price-card-label">单价</div>
                         <div class="price-card-value" id="unitPriceDisplay">—</div>
                     </div>
                     <div class="price-card">
-                        <div class="price-card-label">Product Total</div>
+                        <div class="price-card-label">产品合计</div>
                         <div class="price-card-value" id="totalPriceDisplay">—</div>
                     </div>
                 </div>
@@ -592,16 +592,16 @@
                         <circle cx="12" cy="12" r="10"/>
                         <path d="M8 12l3 3 5-6"/>
                     </svg>
-                    <span id="tierBadgeText">Applicable tier: 11–200 pcs</span>
+                    <span id="tierBadgeText">适用档位：11–200 件</span>
                 </div>
 
                 <div class="tiered-pricing">
-                    <h4>Tiered Pricing</h4>
+                    <h4>报价阶梯</h4>
                     <table class="tier-table-dark">
                         <thead>
                             <tr>
                                 <th>数量</th>
-                                <th>Unit Price</th>
+                                <th>单价</th>
                             </tr>
                         </thead>
                         <tbody id="tierTableBody">
@@ -613,16 +613,16 @@
                 </div>
 
                 <p class="right-disclaimer">
-                    Prices shown are estimated EXW prices for reference only. Shipping, custom packaging and other customization costs are not included. Final pricing is subject to order confirmation.
+                    此为 EXW 估算参考价，不含运费、定制包装及其他定制费用，最终以订单确认为准。
                 </p>
 
-                <a href="mailto:sale@groundingsafe.com" class="btn-quote">Get Official Quote</a>
+                <a href="mailto:sale@groundingsafe.com" class="btn-quote">邮件获取正式报价</a>
             </div>
         </div>
 
         <p class="calc-disclaimer">
-                Prices shown are estimated EXW prices for reference only. Shipping, custom packaging and other customization costs are not included.<br>
-                Final pricing is subject to order confirmation. Contact us for a formal PI with confirmed EXW / FOB / CIF terms.
+                以上为 EXW 估算参考价，不含运费、定制包装及其他定制费用。<br>
+                最终价格以订单确认为准；如需正式形式发票（PI）确认 EXW / FOB / CIF 条款，请联系我们。
             </p>
         </div>
     </div>
@@ -632,12 +632,12 @@
 <section class="gp-cta-strip">
     <h3>需要正式报价？</h3>
     <p>如需定制、品牌方案或含运费的全包报价，请联系我们。业务团队 24 小时内回复。</p>
-    <a href="mailto:sale@groundingsafe.com" class="btn-primary">Send us an Inquiry →</a>
+    <a href="mailto:sale@groundingsafe.com" class="btn-primary">提交询盘 →</a>
 </section>
 
 <!-- Footer -->
 <footer class="site-footer">
-    <p>© 2026 Guangzhou Earthing Health Technology Co., Ltd. &nbsp;|&nbsp; <a href="../index.html">EARTHING.</a></p>
+    <p>© 2026 广州接地宝健康科技有限公司 &nbsp;|&nbsp; <a href="../index.html">接地宝 EARTHING</a></p>
 </footer>
 
 <script>
@@ -721,9 +721,9 @@
     }
 
     function getTierLabel(qty) {
-        if (qty >= 501) return 'Tier 3 — 501–1000 pcs (Best Price)';
-        if (qty >= 201) return 'Tier 2 — 201–500 pcs (Volume Discount)';
-        return 'Tier 1 — 11–200 pcs (Standard Rate)';
+        if (qty >= 501) return '第三档 — 501–1000 件（最优价）';
+        if (qty >= 201) return '第二档 — 201–500 件（批量折扣）';
+        return '第一档 — 11–200 件（标准价）';
     }
 
     function getTierBadge(qty) {
@@ -818,16 +818,16 @@
         const tierBadge = document.getElementById('tierBadge');
         const tierBadgeText = document.getElementById('tierBadgeText');
         tierBadge.style.display = 'inline-flex';
-        tierBadgeText.textContent = 'Applicable tier: ' + getTierLabel(qty).replace(/Tier \d — /, '').split('(')[0].trim();
+        tierBadgeText.textContent = '适用档位：' + getTierLabel(qty).replace(/Tier \d — /, '').split('(')[0].trim();
 
         // Update tier table
         const tierRow0 = document.getElementById('tierRow0');
         const tierRow1 = document.getElementById('tierRow1');
         const tierRow2 = document.getElementById('tierRow2');
 
-        tierRow0.innerHTML = `<td>11–200 pcs ${tierIdx === 0 ? '<span class="your-tier-badge">YOUR TIER</span>' : ''}</td><td>$${tiers[0].toFixed(2)}</td>`;
-        tierRow1.innerHTML = `<td>201–500 pcs ${tierIdx === 1 ? '<span class="your-tier-badge">YOUR TIER</span>' : ''}</td><td>$${tiers[1].toFixed(2)}</td>`;
-        tierRow2.innerHTML = `<td>501–1,000 pcs ${tierIdx === 2 ? '<span class="your-tier-badge">YOUR TIER</span>' : ''}</td><td>$${tiers[2].toFixed(2)}</td>`;
+        tierRow0.innerHTML = `<td>11–200 件 ${tierIdx === 0 ? '<span class="your-tier-badge">当前档位</span>' : ''}</td><td>$${tiers[0].toFixed(2)}</td>`;
+        tierRow1.innerHTML = `<td>201–500 件 ${tierIdx === 1 ? '<span class="your-tier-badge">当前档位</span>' : ''}</td><td>$${tiers[1].toFixed(2)}</td>`;
+        tierRow2.innerHTML = `<td>501–1,000 件 ${tierIdx === 2 ? '<span class="your-tier-badge">当前档位</span>' : ''}</td><td>$${tiers[2].toFixed(2)}</td>`;
 
         // Highlight active tier row
         tierRow0.className = tierIdx === 0 ? 'active-tier' : '';
