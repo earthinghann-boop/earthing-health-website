@@ -1461,7 +1461,7 @@ ul {
 
 /* ========== Mobile Fullscreen Redesign (max-width: 768px) ========== */
 @media (max-width: 768px) {
-    :root { --section-padding: 50px; }
+    :root { --section-padding: 36px; }
 
     /* Fullscreen hamburger menu */
     .navbar { padding: 12px 0; }
@@ -1554,8 +1554,8 @@ ul {
         right: 0;
         bottom: auto;
         opacity: 1;
-        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.85) 100%);
-        mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.85) 100%);
+        -webkit-mask-image: none;
+        mask-image: none;
         clip-path: none;
     }
     .hero-content {
@@ -1585,14 +1585,14 @@ ul {
         line-height: 1.15;
         margin-bottom: 14px;
         color: var(--color-white);
-        text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+        text-shadow: 0 2px 4px rgba(0,0,0,0.7), 0 4px 20px rgba(0,0,0,0.5);
     }
     .hero-subtitle {
         font-size: 0.95rem;
         line-height: 1.6;
         margin-bottom: 24px;
-        color: rgba(255, 255, 255, 0.92);
-        text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+        color: rgba(255, 255, 255, 0.95);
+        text-shadow: 0 1px 3px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.4);
     }
     .hero-cta {
         flex-direction: column;
@@ -1623,7 +1623,7 @@ ul {
     .section-desc, .section-intro { font-size: 0.95rem; line-height: 1.6; }
 
     /* Story section */
-    .brand-story { padding: 50px 0; }
+    .brand-story { padding: 36px 0; }
     .story-grid {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -1645,12 +1645,14 @@ ul {
     .stat-label { font-size: 0.75rem; margin-top: 4px; }
 
     /* Video */
-    .video-grid { grid-template-columns: 1fr; gap: 24px; }
+    .video-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
     .video-item iframe { aspect-ratio: 16/9; }
 
     /* Products */
-    .products { padding: 50px 0; }
-    .products-grid, .products-grid-small { grid-template-columns: 1fr; gap: 24px; }
+    .products { padding: 36px 0; }
+    .products-grid, .products-grid-small { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .product-info h3 { font-size: 0.9rem; margin-bottom: 0; }
+    .product-desc, .product-features { display: none; }
     .product-card { border-radius: 12px; overflow: hidden; }
     .product-image { aspect-ratio: 4/3; }
     .product-info { padding: 16px; }
@@ -1659,28 +1661,34 @@ ul {
     .product-features li { font-size: 0.85rem; }
 
     /* Technology */
-    .technology { padding: 50px 0; }
-    .tech-grid { grid-template-columns: 1fr; gap: 20px; }
+    .technology { padding: 36px 0; }
+    .tech-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .tech-card { padding: 18px 14px; }
+    .tech-card h3 { font-size: 0.95rem; margin: 10px 0 6px; }
+    .tech-card p { font-size: 0.8rem; line-height: 1.5; }
     .tech-card { padding: 24px 20px; }
     .tech-icon { width: 44px; height: 44px; }
     .tech-card h3 { font-size: 1.05rem; margin: 14px 0 10px; }
     .tech-card p { font-size: 0.9rem; line-height: 1.6; }
 
     /* Certifications */
-    .certifications, .certs-section { padding: 50px 0; }
+    .certifications, .certs-section { padding: 36px 0; }
     .certs-layout { grid-template-columns: 1fr; gap: 30px; }
     .cert-carousel { max-width: 100%; }
     .cert-slide img { max-height: 280px; }
 
     /* Education */
-    .education { padding: 50px 0; }
-    .edu-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .education { padding: 36px 0; }
+    .edu-grid { grid-template-columns: 1fr 1fr; gap: 0.875rem; }
+    .edu-card { padding: 1.25rem; }
+    .edu-number { font-size: 1.6rem; }
+    .edu-title { font-size: 1.05rem; margin: 6px 0; }
     .edu-card { padding: 1.5rem; }
     .edu-number { font-size: 2rem; }
     .edu-title { font-size: 1.25rem; }
 
     /* Contact */
-    .contact { padding: 50px 0 90px; }
+    .contact { padding: 36px 0 90px; }
     .contact-grid { grid-template-columns: 1fr; gap: 30px; }
     .contact-form-wrapper { padding: 20px; }
     .form-row { grid-template-columns: 1fr; gap: 16px; }
@@ -1688,8 +1696,8 @@ ul {
     .contact-item { font-size: 0.9rem; }
 
     /* Footer */
-    .footer { padding: 50px 0 90px; }
-    .footer-grid { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+    .footer { padding: 36px 0 90px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; }
     .footer-brand { margin-bottom: 20px; }
     .footer-links h4 { margin-bottom: 12px; font-size: 1rem; }
     .footer-bottom { font-size: 0.8rem; padding-top: 20px; }
